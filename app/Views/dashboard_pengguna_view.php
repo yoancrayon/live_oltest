@@ -64,16 +64,16 @@
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link " href="#">
               <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
+              Dashboard 
             </a>
           </li>
 		  <?php  if ($k_jenis_user == "1")  
           echo '<li class="nav-item">';
-          echo '  <a class="nav-link" href="'.base_url('dashboard/pengguna').'">';
+          echo '  <a class="nav-link active" href="#">';
           echo '    <span data-feather="users"></span>';
-          echo '    Pengguna';
+          echo '    Pengguna <span class="sr-only">(current)</span>';
           echo '  </a>';
           echo '</li>';
 		  ?>
