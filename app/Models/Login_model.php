@@ -24,12 +24,21 @@ class Login_model extends Model
 		
 	}
 	
+	public function getUser($username,$kjenisuser)
+	{
+		$db = db_connect('default');
+		$query=$db->query("call getuserinfoall('".$username."','".$kjenisuser."')");
+		$row   = $query->getResult();
+		return $row;
+		
+	}
+	
 	
 	public function getMjenispengguna()
 	{
-		
-		$query=$db->query("select k_jenis_pengguna,jenis_pengguna from m_jenis_user");
-		$row   = $query->getRowArray();
+		$db = db_connect('default');
+		$query=$db->query("SELECT k_jenis_user,content as jenis_pengguna FROM m_jenis_user");
+		$row   = $query->getResult();
 		return $row;
 		
 	}
