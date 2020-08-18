@@ -55,7 +55,17 @@ class Dashboard extends BaseController
 		{$username="x";}
 		else
 		{$username=$session->get('username');}
+	
 		$pengguna=$loginmodel->getUser($username,$filter);
+		
+		
+		/* $callback = array(
+        'draw' => $this->request->getPost('draw'), // Ini dari datatablenya
+        'recordsTotal'=>count($pengguna["username"]),
+        'data'=>$pengguna
+		);
+ */
+		
 		
 		return json_encode($pengguna);
 		

@@ -23,12 +23,12 @@ $(document).ready(function() {
                     "columns": [
                         {"data": "username",width:100},
                         {"data": "nama",width:150},
-						{"data": "k_jenis_user",width:100},
+						{"data": "k_jenis_user",width:10},
                         {"data": "jenis_user",width:100}
                     ],
 					"columnDefs": [
 					{
-					"targets": [ 2 ],
+					    "targets": [ 2 ],
 						"visible": false,
 						"searchable": false
 					}],
