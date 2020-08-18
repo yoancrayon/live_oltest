@@ -48,7 +48,7 @@ class Dashboard extends BaseController
 	}
 	public function penggunalist()
 	{
-		$filter =$username=$this->request->getPost('k_jenis_user');
+		$filter =$this->request->getPost('k_jenis_user');
 		$loginmodel=new Login_model(); 
 		$session = session();
 		if ($session->get('k_jenis_user')=='1')
@@ -62,7 +62,47 @@ class Dashboard extends BaseController
 		
 	}
 	
+	public function savepengguna()
+	{
+		$username=$this->request->getPost('username');
+		$nama=$this->request->getPost('nama');
+		$k_jenis_user=$this->request->getPost('k_jenis_user');
+		$password=$this->request->getPost('password');
+		$loginmodel=new Login_model();
+		
+		$data=[
+		"username"=>$username,
+		"nama"=>$nama,
+		"k_jenis_user"=>$k_jenis_user,
+		"password"=>$password
+		
+		];
+		$res=$loginmodel->insupdUser($data);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+	}
 	
+	public function delpengguna()
+	{
+		$username=$this->request->getPost('username');
+		$loginmodel=new Login_model();
+		$res=$loginmodel->delUser($username);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+	}
 	
 	
 	

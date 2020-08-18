@@ -145,7 +145,7 @@
 			<div class="input-group-append">
 				<label class="input-group-text" for="inputGroupSelect02">Jenis User</label>
 			</div>
-			<select class="custom-select col-md-2" id="inputGroupSelect02">
+			<select class="input-group-append custom-select col-md-2" id="inputGroupSelect02">
 				
 				<?php
 				echo '<option selected  value="x">Seluruh Jenis Pengguna</option>';
@@ -158,6 +158,8 @@
 				?>
 			</select>
 			
+		<button class="btn btn-success align-self-end ml-auto justify-content-end" id="newuser">Tambah</button>	
+		
 		</div>
 	  
 	  
@@ -178,7 +180,62 @@
 
 	</div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="modalcenter" tabindex="-1" role="dialog" aria-labelledby="JudulModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="judulmodal">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  
+       <div class="form-group">
+		<label for="modalusername">Username</label>
+		<input type="text" class="form-control modalusername" id="modalusername" placeholder="username">
+		</div>
+		
+		<div class="form-group">
+		<label for="modalnama">NAMA</label>
+		<input type="text" class="form-control modalnama" id="modalnama" placeholder="Nama">
+		</div>
+		
+		<div class="form-group">
+		<label for="modalpassword" id="modalpasswordlabel">Password</label>
+		<input type="password" class="form-control modalpassword" id="modalpassword" placeholder="password">
+		</div>
+		
+		
+		<div class="form-group input-group mb-3">
+		<label class="input-group-text" for="modalselect" >Jenis User</label>
+		<select class="custom-select" id="modalselect">
+		<?php
+				echo '<option  value="x">Seluruh Jenis Pengguna</option>';
+				foreach ($dropdown_jenis_Pengguna as $row)
+				{
+					echo '<option value="'.$row->k_jenis_user.'">'.$row->jenis_pengguna.'</option>';
+					
+				}
+				
+				?>
+		</select>	
+		</div>
+		
+		
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modaldiscard">Close</button>
+        <button type="button" class="btn btn-primary" id="savemodal">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 

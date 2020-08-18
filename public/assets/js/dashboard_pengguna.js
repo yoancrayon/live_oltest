@@ -15,25 +15,25 @@ $(document).ready(function() {
                     "ajax": {
                         "url": 'http://localhost/live_oltest/public/dashboard/penggunalist',
                         "type": "POST",
-						"data": {
-							'k_jenis_user': kjenisuser
+						"data":function ( d ) {
+							d.k_jenis_user= $("#inputGroupSelect02").children("option:selected").val()
 							
 						}
 						,dataSrc:""
                     },
                     //Set column definition initialisation properties.
                     "columns": [
-                        {"data": "username",width:30},
-                        {"data": "nama",width:150},
-						{"data": "k_jenis_user",width:10},
-                        {"data": "jenis_user",width:100},
+                        {"data": "username",width:100},
+                        {"data": "nama",width:200},
+						{"data": "k_jenis_user",width:100},
+                        {"data": "jenis_user",width:200},
 						{ "render": function ( data, type, row ){
-							 var html  = "<a href=''>EDIT</a> | "
-								html += "<a href=''>DELETE</a>"
+							 var html  = "<a href=\"javascript:void(0);\" class=\"edit_record btn btn-info btn-xs\" data-username=\""+row["username"]+"\" data-nama=\""+row["nama"]+"\" data-kjenisuser=\""+row["k_jenis_user"]+"\" data-jenisuser=\""+row["k_jenis_user"]+"\">EDIT</a> "
+								html += "<a href=\"javascript:void(0);\" class=\"hapus_record btn btn-danger btn-xs\" data-username=\""+row["username"]+"\" >DELETE</a>"
 								return html
 
 							
-						},width:100}
+						},width:200}
 						
                     ],
 					"columnDefs": [
@@ -50,5 +50,193 @@ $(document).ready(function() {
 
                 });
 	table.buttons().container()
-        .appendTo( '#table_wrapper .col-auto:eq(0)' );			
+        .appendTo( '#table_wrapper .col-auto:eq(0)' );		
+
+	$('#table').on('click','.edit_record',function(){
+		var username=$(this).data('username');
+		var nama=$(this).data('nama');
+		var k_jenis_user=$(this).data('kjenisuser');
+		var jenis_user=$(this).data('jenisuser');
+		window.document.getElementById("judulmodal").innerHTML  ="Edit Pengguna";
+		window.document.getElementById("modalusername").value  =username;
+		window.document.getElementById("modalusername").disabled = true;
+		window.document.getElementById("modalnama").value  =nama;
+		window.document.getElementById('modalselect').value=k_jenis_user;
+		window.document.getElementById('modalpasswordlabel').hidden=true;
+		document.getElementById("modalpassword").hidden=true;
+		document.getElementById("modalpassword").value="";
+		$('#modalcenter').modal('show');
+	})	;
+	
+	$("#savemodal").click( function() {
+	    var username=window.document.getElementById("modalusername").value;
+		var nama=window.document.getElementById("modalnama").value;
+		var e = document.getElementById("modalselect");
+		var k_jenis_user = e.options[e.selectedIndex].value;
+		var vpassword=window.document.getElementById("modalpassword").value;
+		
+		$.ajax({
+				url: "http://localhost/live_oltest/public/dashboard/savepengguna",  
+				type: "POST",
+				data: {
+                  "username": username,
+				  "nama": nama,
+                  "k_jenis_user": k_jenis_user,
+				  "password":vpassword
+				},
+				
+				success:function(response){
+
+                if (response == "success") {
+
+                  Swal.fire({
+                    type: 'success',
+                    title: 'SUKSES',
+                    text: 'Pengguna Berhasil DISIMPAN!',
+                    timer: 500,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                  })
+                  .then (function() {
+                     $('#table').DataTable().ajax.reload();
+					 Swal.close();
+                  });
+
+                } else {
+
+                  Swal.fire({
+                    type: 'error',
+                    title: 'Aww Gagal',
+                    text: 'Silahkan Cek Lagi Data yang Dimasukkan!'
+                  });
+
+
+                }
+
+                console.log(response);
+
+              },
+			  error:function(response){
+
+                  Swal.fire({
+                    type: 'error',
+                    title: 'Opps!',
+                    text: 'server error!'
+                  });
+
+                  console.log(response);
+
+              }
+				
+		});
+		
+		
+		window.document.getElementById("judulmodal").innerHTML  ="";
+		window.document.getElementById("modalusername").value  ="";
+		window.document.getElementById("modalnama").value  ="";
+		window.document.getElementById('modalselect').value="x";
+		window.document.getElementById('modalpasswordlabel').hidden=false;
+		document.getElementById("modalpassword").hidden=false;
+		window.document.getElementById("modalusername").disabled = false;
+		$('#modalcenter').modal('hide');
+	
+	});
+	
+	$("#discardmodal").click( function() {
+		window.document.getElementById("judulmodal").innerHTML  ="";
+		window.document.getElementById("modalusername").value  ="";
+		window.document.getElementById("modalusername").disabled = false;
+		window.document.getElementById("modalnama").value  ="";
+		window.document.getElementById('modalselect').value="x";
+		window.document.getElementById('modalpasswordlabel').hidden=false;
+		document.getElementById("modalpassword").hidden=false;
+		$('#modalcenter').modal('hide');
+		document.getElementById("modalpassword").value="";
+		
+	});
+	
+	$("#inputGroupSelect02").change( function() {
+		
+		 $('#table').DataTable().ajax.reload();
+		 
+		 
+	});
+	$("#newuser").click(function(){
+		window.document.getElementById("judulmodal").innerHTML  ="";
+		window.document.getElementById("modalusername").value  ="";
+		window.document.getElementById("modalusername").disabled = false;
+		window.document.getElementById("modalnama").value  ="";
+		window.document.getElementById('modalselect').value="x";
+		window.document.getElementById('modalpasswordlabel').hidden=false;
+		document.getElementById("modalpassword").hidden=false;
+		document.getElementById("modalpassword").value="";
+		$('#modalcenter').modal('show');
+		
+		
+	}
+	);
+	
+	$('#table').on('click','.hapus_record',function(){
+		var username=$(this).data('username');
+		Swal.fire({
+        title: "Apakah Anda Yakin?",
+        text: "Data pengguna yang dihapus tidak akan bisa dikembalikan",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Hapus!",
+        closeOnConfirm: false
+    }).then((result)=> {
+       
+        $.ajax({
+            url: "http://localhost/live_oltest/public/dashboard/delpengguna",
+            type: "POST",
+            data: {
+                "username": username
+            },
+            dataType: "html",
+            success: function (response) {
+				
+				if (response == "success") {
+					Swal.fire({
+                    type: 'success',
+                    title: 'SUKSES',
+                    text: 'Pengguna Berhasil DIHAPUS!',
+                    timer: 500,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                  })
+                  .then (function() {
+                     $('#table').DataTable().ajax.reload();
+					 Swal.close();
+                  });
+				}
+				else{
+					Swal.fire({
+                    type: 'error',
+                    title: 'Aww Gagal',
+                    text: 'Silahkan Cek Lagi Data yang Dimasukkan!'
+                  });
+				}
+				
+                console.log(response);
+            },
+            error:function(response){
+
+                  Swal.fire({
+                    type: 'error',
+                    title: 'Opps!',
+                    text: 'server error!'
+                  });
+
+                  console.log(response);
+
+              }
+        });
+    });
+		
+	});
+	
+	
+	
 });

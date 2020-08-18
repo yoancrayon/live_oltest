@@ -46,7 +46,9 @@ class Login_model extends Model
 	
 	public function insupdUser($data)
 	{
-		$query=$db->query("call insupdpengguna('".$data['username']."','".$data['password']."','".$data['k_jenis_user']."','".$data['nama']."')");
+		$db = db_connect('default');
+		$textq="call insupdpengguna('".$data['username']."','".$data['password']."','".$data['k_jenis_user']."','".$data['nama']."')";
+		$query=$db->query($textq);
 		$row   = $query->getRowArray();
 		return $row;	
 		
@@ -54,7 +56,7 @@ class Login_model extends Model
 	}
 	public function delUser($username)
 	{
-		
+		$db = db_connect('default');
 		$query=$db->query("call delpengguna('".$username."')");
 		$row   = $query->getRowArray();
 		return $row;
