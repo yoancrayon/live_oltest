@@ -5,9 +5,10 @@ $(document).ready(function() {
 	var e = document.getElementById("inputGroupSelect02");
 	var kjenisuser = e.options[e.selectedIndex].value;
 	
-	table = $('#table').DataTable({ 
+	var table = $('#table').DataTable({ 
+					"dom": '<"top"Bf>rt<"bottom"lp><"clear">',
                     "processing": true, //Feature control the processing indicator.
-                    "serverSide": true, //Feature control DataTables' server-side processing mode.
+                   
                     "order": [], //Initial no order.
                     // Load data for the table's content from an Ajax source
                     "ajax": {
@@ -24,7 +25,15 @@ $(document).ready(function() {
                         {"data": "username",width:100},
                         {"data": "nama",width:150},
 						{"data": "k_jenis_user",width:10},
-                        {"data": "jenis_user",width:100}
+                        {"data": "jenis_user",width:100},
+						{ "render": function ( data, type, row ){
+							 var html  = "<a href=''>EDIT</a> | "
+								html += "<a href=''>DELETE</a>"
+								return html
+
+							
+						},width:100}
+						
                     ],
 					"columnDefs": [
 					{
@@ -32,6 +41,13 @@ $(document).ready(function() {
 						"visible": false,
 						"searchable": false
 					}],
+					"initComplete": function() {
+					$("#table").show();
+					},
+					"buttons": [ 'copy', 'csv', 'excel', 'pdf', 'print', 'colvis' ]
+  
 
                 });
+	table.buttons().container()
+        .appendTo( '#table_wrapper .col-auto:eq(0)' );			
 });
