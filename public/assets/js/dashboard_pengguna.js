@@ -5,7 +5,8 @@ $(document).ready(function() {
 	var e = document.getElementById("inputGroupSelect02");
 	var kjenisuser = e.options[e.selectedIndex].value;
 	
-	var table = $('#table').DataTable({ 
+	var table = $('#table').DataTable({
+	
 					"dom": '<"top"Bf>rt<"bottom"lp><"clear">',
                     "processing": true, //Feature control the processing indicator.
                    
@@ -22,7 +23,7 @@ $(document).ready(function() {
                     },
                     //Set column definition initialisation properties.
                     "columns": [
-                        {"data": "username",width:100},
+                        {"data": "username",width:30},
                         {"data": "nama",width:150},
 						{"data": "k_jenis_user",width:10},
                         {"data": "jenis_user",width:100},
