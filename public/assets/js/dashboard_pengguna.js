@@ -30,7 +30,7 @@ $(document).ready(function() {
 						{ "render": function ( data, type, row ){
 							 var html  = "<a href=\"javascript:void(0);\" class=\"edit_record btn btn-info btn-xs btn-sm\" data-username=\""+row["username"]+"\" data-nama=\""+row["nama"]+"\" data-kjenisuser=\""+row["k_jenis_user"]+"\" data-jenisuser=\""+row["k_jenis_user"]+"\">EDIT</a> "
 								html += "<a href=\"javascript:void(0);\" class=\"hapus_record btn btn-danger btn-xs btn-sm\" data-username=\""+row["username"]+"\" >DELETE</a>" 
-								html += " <a href=\"javascript:void(0);\" class=\"cpas_record btn btn-success btn-xs btn-sm\" data-username=\""+row["username"]+"\" >Ganti PASS</a>"
+								html += " <a href=\"javascript:void(0);\" class=\"cpas_record btn btn-primary btn-xs btn-sm\" data-username=\""+row["username"]+"\" >Ganti PASS</a>"
 								return html
 
 							
