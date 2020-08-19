@@ -91,9 +91,9 @@
           </li>
 		  <?php 
           echo '<li class="nav-item">';
-          echo '  <a class="nav-link active" href="#">';
+          echo '  <a class="nav-link " href="'.base_url('dashboard/pengguna').'">';
           echo '    <span data-feather="users"></span>';
-          echo '    Pengguna <span class="sr-only">(current)</span>';
+          echo 'Pengguna';
           echo '  </a>';
           echo '</li>';
 		  
@@ -102,11 +102,11 @@
 		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2" )  {
 		  
           echo '<li class="nav-item">';
-          echo '  <a class="nav-link" href="'.base_url('ujian').'">';
+          echo '  <a class="nav-link active" href="#">';
           echo '    <span data-feather="layers"></span>';
-          echo '    Ujian';
+          echo 'Ujian <span class="sr-only">(current)</span>';
           echo '  </a>';
-          echo '</li>';
+          echo ' </li>';
 		  
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="#">';
@@ -140,34 +140,20 @@
 	
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Pengguna</h1>
+        <h1 class="h2">Daftar Ujian</h1>
       </div>
 	  <div> 
+	
+	  
 	  <div class="input-group mb-3   "
-	  style="display:  <?php  if ($k_jenis_user != "1")  {echo "none";} else { echo "blok";} ?>;"
+	  style="display:  <?php  if ($k_jenis_user != "1" && $k_jenis_user != "2" )  {echo "none";} else { echo "blok";} ?>;"
 	  >
-			<div class="input-group-append">
-				<label class="input-group-text" for="inputGroupSelect02">Jenis User</label>
-			</div>
-			<select class="input-group-append custom-select col-md-2" id="inputGroupSelect02">
-				
-				<?php
-				echo '<option selected  value="x">Seluruh Jenis Pengguna</option>';
-				foreach ($dropdown_jenis_Pengguna as $row)
-				{
-					echo '<option value="'.$row->k_jenis_user.'">'.$row->jenis_pengguna.'</option>';
-					
-				}
-				
-				?>
-			</select>
-			
+						
 		<button class="btn btn-success align-self-end ml-auto justify-content-end" id="newuser">Tambah</button>	
 		
 		</div>
 	  
-	  
-	  
+	 
 		<table id="table" class="display" cellspacing="0" width="100%">
                 <thead>
                     <tr><th>USERNAME</th><th>NAMA</th><th>K JENIS USER</th><th>JENIS USER</th><th>ACTION</th></tr>
@@ -197,37 +183,7 @@
       </div>
       <div class="modal-body">
 	  
-       <div class="form-group">
-		<label for="modalusername">Username</label>
-		<input type="text" class="form-control modalusername" id="modalusername" placeholder="username">
-		</div>
-		
-		<div class="form-group">
-		<label for="modalnama">NAMA</label>
-		<input type="text" class="form-control modalnama" id="modalnama" placeholder="Nama">
-		</div>
-		
-		<div class="form-group">
-		<label for="modalpassword" id="modalpasswordlabel">Password</label>
-		<input type="password" class="form-control modalpassword" id="modalpassword" placeholder="password">
-		</div>
-		
-		
-		<div class="form-group input-group mb-3">
-		<label class="input-group-text" for="modalselect" >Jenis User</label>
-		<select class="custom-select" id="modalselect">
-		<?php
-				echo '<option  value="x">Seluruh Jenis Pengguna</option>';
-				foreach ($dropdown_jenis_Pengguna as $row)
-				{
-					echo '<option value="'.$row->k_jenis_user.'">'.$row->jenis_pengguna.'</option>';
-					
-				}
-				
-				?>
-		</select>	
-		</div>
-		
+     
 		
 		
       </div>
@@ -240,42 +196,6 @@
 </div>
 
 
-<div class="modal fade" id="modalcenterpassword" tabindex="-1" role="dialog" aria-labelledby="JudulModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="judulmodalpassword">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-	  
-	  <div class="form-group">
-		<label for="modalcpasswordusername" id="modalcpasswordusernamelabel">Username</label>
-		<input type="text" class="form-control modalpassword" id="modalcpasswordusername" placeholder="username">
-	  </div>
-	  
-	  
-	  <div class="form-group">
-		<label for="modalcpassword" id="modalcpasswordlabel2">Password</label>
-		<input type="password" class="form-control modalpassword" id="modalcpassword" placeholder="password">
-	  </div>
-	  
-	  <div class="form-group">
-		<label for="modalcpassword2" id="modalcpasswordlabel2">ReTYPE Password</label>
-		<input type="password" class="form-control modalpassword" id="modalcpassword2" placeholder="password">
-	  </div>
-		
-		
-	 </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalpassworddiscard">Close</button>
-        <button type="button" class="btn btn-primary" id="savemodalpassword">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>

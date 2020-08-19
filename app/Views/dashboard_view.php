@@ -64,9 +64,9 @@
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link active" href="<?php echo base_url('dashboard')?>">
               <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
+              Dashboard  <span class="sr-only">(current)</span>
             </a>
           </li>
 		  <?php   
@@ -78,15 +78,15 @@
           echo '</li>';
 		  ?>
 		  
-		  
-		  
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Ujian
-            </a>
-          </li>
 		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2" ) { 
+		  
+          echo '<li class="nav-item">';
+          echo '  <a class="nav-link" href="'.base_url('ujian').'">';
+          echo '    <span data-feather="layers"></span>';
+          echo '    Ujian ';
+          echo '  </a>';
+          echo '</li>';
+		  
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="#">';
           echo '    <span data-feather="layers"></span>';
