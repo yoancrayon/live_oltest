@@ -238,6 +238,93 @@ $(document).ready(function() {
 		
 	});
 	
+	$('#table').on('click','.cpas_record',function(){
+		var username=$(this).data('username');
+		window.document.getElementById("modalcpasswordusername").value  =username;
+		window.document.getElementById("modalcpasswordusername").disabled=true;
+		window.document.getElementById("modalcpassword").value  ="";
+		window.document.getElementById("modalcpassword2").value  ="";
+		window.document.getElementById("judulmodalpassword").innerHTML  ="Ganti Password Pengguna";
+		$('#modalcenterpassword').modal('show');
+	});
+	
+	$("#savemodalpassword").click( function() {
+		var username =window.document.getElementById("modalcpasswordusername").value;
+		var pass1=window.document.getElementById("modalcpassword").value;
+		var pass2=window.document.getElementById("modalcpassword2").value;
+		
+		
+		
+		if (pass1 != pass2 ){
+			Swal.fire({
+              type: 'warning',
+              title: 'Oops...',
+              text: 'Password Tidak Sama !'
+            });
+		}
+		else
+		{
+			$.ajax({
+				url: "http://localhost/live_oltest/public/dashboard/updpasswordpengguna",  
+				type: "POST",
+				data: {
+                  "username": username,
+				  "password": pass1
+				},
+				success:function(response){
+
+                if (response == "success") {
+
+                  Swal.fire({
+                    type: 'success',
+                    title: 'SUKSES',
+                    text: 'Password Berhasil DISIMPAN!',
+                    timer: 500,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                  })
+                  .then (function() {
+                    $('#modalcenterpassword').modal('hide');
+					 Swal.close();
+                  });
+
+                } else {
+
+                  Swal.fire({
+                    type: 'error',
+                    title: 'Aww Gagal',
+                    text: 'Silahkan Cek Lagi Data yang Dimasukkan!'
+                  });
+
+
+                }
+
+                console.log(response);
+
+              },
+			  error:function(response){
+
+                  Swal.fire({
+                    type: 'error',
+                    title: 'Opps!',
+                    text: 'server error!'
+                  });
+
+                  console.log(response);
+
+              }
+				
+			
+			});
+			
+			
+		}
+		
+		
+	});
+	
+	
+	
 	
 	
 });

@@ -62,6 +62,14 @@ class Login_model extends Model
 		return $row;
 		
 	}
-	
+	public function updpassUser($username,$password)
+	{
+		$db = db_connect('default');
+		$query=$db->query("call updpassworduser('".$username."','".$password."')");
+		$row   = $query->getRowArray();
+		return $row;
+		
+	}
+
  
 }

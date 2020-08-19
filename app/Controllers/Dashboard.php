@@ -104,6 +104,21 @@ class Dashboard extends BaseController
 		}
 	}
 	
+	public function updpasswordpengguna()
+	{
+		$username=$this->request->getPost('username');
+		$password=$this->request->getPost('password');
+		$loginmodel=new Login_model();
+		$res=$loginmodel->updpassUser($username,$password);
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+	}
+	
 	
 	
 }	

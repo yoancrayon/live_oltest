@@ -89,13 +89,14 @@
               Dashboard 
             </a>
           </li>
-		  <?php  if ($k_jenis_user == "1")  
+		  <?php 
           echo '<li class="nav-item">';
           echo '  <a class="nav-link active" href="#">';
           echo '    <span data-feather="users"></span>';
           echo '    Pengguna <span class="sr-only">(current)</span>';
           echo '  </a>';
           echo '</li>';
+		  
 		  ?>
 		  
 		  
@@ -106,7 +107,7 @@
               Ujian
             </a>
           </li>
-		  <?php  if ($k_jenis_user == "1")  
+		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2" )  {
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="#">';
           echo '    <span data-feather="layers"></span>';
@@ -122,6 +123,7 @@
           echo '    Peserta';
           echo '  </a>';
           echo '</li>';
+		  }
 		  ?>
 		  
           <li class="nav-item">
@@ -141,7 +143,9 @@
         <h1 class="h2">Pengguna</h1>
       </div>
 	  <div> 
-	  <div class="input-group mb-3">
+	  <div class="input-group mb-3   "
+	  style="display:  <?php  if ($k_jenis_user != "1")  {echo "none";} else { echo "blok";} ?>;"
+	  >
 			<div class="input-group-append">
 				<label class="input-group-text" for="inputGroupSelect02">Jenis User</label>
 			</div>
@@ -230,6 +234,44 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modaldiscard">Close</button>
         <button type="button" class="btn btn-primary" id="savemodal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalcenterpassword" tabindex="-1" role="dialog" aria-labelledby="JudulModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="judulmodalpassword">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  
+	  <div class="form-group">
+		<label for="modalcpasswordusername" id="modalcpasswordusernamelabel">Username</label>
+		<input type="text" class="form-control modalpassword" id="modalcpasswordusername" placeholder="username">
+	  </div>
+	  
+	  
+	  <div class="form-group">
+		<label for="modalcpassword" id="modalcpasswordlabel2">Password</label>
+		<input type="password" class="form-control modalpassword" id="modalcpassword" placeholder="password">
+	  </div>
+	  
+	  <div class="form-group">
+		<label for="modalcpassword2" id="modalcpasswordlabel2">ReTYPE Password</label>
+		<input type="password" class="form-control modalpassword" id="modalcpassword2" placeholder="password">
+	  </div>
+		
+		
+	 </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalpassworddiscard">Close</button>
+        <button type="button" class="btn btn-primary" id="savemodalpassword">Save changes</button>
       </div>
     </div>
   </div>

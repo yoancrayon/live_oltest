@@ -69,7 +69,7 @@
               Dashboard <span class="sr-only">(current)</span>
             </a>
           </li>
-		  <?php  if ($k_jenis_user == "1")  
+		  <?php   
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="'.base_url('dashboard/pengguna').'">';
           echo '    <span data-feather="users"></span>';
@@ -86,7 +86,7 @@
               Ujian
             </a>
           </li>
-		  <?php  if ($k_jenis_user == "1")  
+		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2" ) { 
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="#">';
           echo '    <span data-feather="layers"></span>';
@@ -102,6 +102,8 @@
           echo '    Peserta';
           echo '  </a>';
           echo '</li>';
+		  }
+		  
 		  ?>
 		  
           <li class="nav-item">
