@@ -197,13 +197,13 @@
 	
 	 <div class="form-group">
 		<label for="modaltglmulai" id="modaltglmulailabel">Tanggal Mulai Ujian</label>
-		<input class="form-control" data-date-format="yyyy-mm-dd" id="modaltglmulai">
+		<input class="form-control" data-date-format="yyyy-mm-dd" id="modaltglmulai" placeholder="Tanggal Mulai">
 	 </div>
 
 
      <div class="form-group">
 		<label for="modaltglselesai" id="modaltglmulailabel">Tanggal Selesai Ujian</label>
-		<input class="form-control" data-date-format="yyyy-mm-dd" id="modaltglselesai"> 
+		<input class="form-control" data-date-format="yyyy-mm-dd" id="modaltglselesai" placeholder="Tanggal Selesai"> 
 	 </div> 
 	 
 	 <div class="form-group">

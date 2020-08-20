@@ -15,7 +15,7 @@ class Ujian_model extends Model
 	public function insupdujian($data)
 	{
 		$db = db_connect('default');
-		$textq="call insupdujian('".$data["id_ujian"]."','".$data["nama_ujian"]."','".$data["tanggal_mulai"]."','".$data["tanggal_selesai"]."',".$data["durasi"].",'".$data["sername"]."')";
+		$textq="call insupdujian('".$data["id_ujian"]."','".$data["nama_ujian"]."','".$data["tanggal_mulai"]."','".$data["tanggal_selesai"]."',".$data["durasi"].",'".$data["username"]."')";
 		$query=$db->query($textq);
 		$row   = $query->getRowArray();
 		return $row;

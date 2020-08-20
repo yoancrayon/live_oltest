@@ -24,7 +24,69 @@ class Ujian extends BaseController
 	{
 		$ujianmodel=new Ujian_model();
 		$session = session();
-		$listujian=$ujianmodel->getlistujian("x",$session->get('username'));
+		
+		
+		
+		if ($session->get('k_jenis_user')=="1")
+		{
+			$usersession="x";
+		}
+		else
+		{
+			$usersession=$session->get('username');
+			
+		}
+		$listujian=$ujianmodel->getlistujian("x",$usersession);
 		return json_encode($listujian);
 	}
+	
+	public function saveujian()
+	{
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		
+		$idujian=$this->request->getPost('idujian');
+		$namaujian=$this->request->getPost('namaujian');
+		$tglmulai=$this->request->getPost('tglmulai');
+		$tglselesai=$this->request->getPost('tglselesai');
+		$durasi=$this->request->getPost('durasi');
+		
+		$data=[
+		"id_ujian"=>$idujian,
+		"nama_ujian"=>$namaujian,
+		"tanggal_mulai"=>$tglmulai,
+		"tanggal_selesai"=>$tglselesai,
+		"durasi"=>$durasi,
+		"username"=>$session->get('username')
+		
+		];
+		
+		$res=$ujianmodel->insupdujian($data);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+		
+	}
+	
+	public function hapusujian()
+	{
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost('idujian');
+		$res=$ujianmodel->delujian($idujian);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+	}
+	
 }
