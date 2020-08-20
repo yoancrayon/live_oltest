@@ -116,7 +116,7 @@ $(document).ready(function() {
          
 		 groupusername=groupusername+","+rowId;
 		});
-		alert(groupusername);
+		
 		$.ajax({
             url: "http://localhost/live_oltest/public/ujian/inserpesertaujian",
             type: "POST",
