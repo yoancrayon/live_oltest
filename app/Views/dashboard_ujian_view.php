@@ -157,7 +157,7 @@
 		</div>
 	  
 	 
-		<table id="table" class="display" cellspacing="0" width="100%">
+		<table id="table" class="display  table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr><th>NAMA UJIAN</th><th>TGL MULAI</th><th>TGL SELESAI</th><th>DURASI (MNT)</th><th>JUMLAH PESERTA</th><th>ACTION</th></tr>
                 </thead>

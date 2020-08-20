@@ -34,4 +34,51 @@ class Ujian_model extends Model
 		
 	}
 	
+	public function getpeserta($idujian,$usernamepeserta,$username)
+	{
+		$db = db_connect('default');
+		$query=$db->query("call getpesertaujian('".$idujian."','".$usernamepeserta."','".$username."')");
+		$row   = $query->getResult();
+		return $row;
+		
+		
+	}
+	
+	public function getpesertanoujian($idujian)
+	{
+		$db = db_connect('default');
+		$query=$db->query("call getpesertanoujian('".$idujian."')");
+		$row   = $query->getResult();
+		return $row;
+		
+		
+	}
+	
+	//inspesertaujian
+	
+	public function inspesertaujian($idujian,$usernamepeserta,$username)
+	{
+		$db = db_connect('default');
+		$textq="call inspesertaujian('".$idujian."','".$usernamepeserta."','".$username."')";
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+		
+	}
+	
+	//delpesertaujian
+	
+	public function delpesertaujian($idujian,$usernamepeserta)
+	{
+		$db = db_connect('default');
+		$textq="call delpesertaujian('".$idujian."','".$usernamepeserta."')";
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+		
+	}
+	
+	
 }

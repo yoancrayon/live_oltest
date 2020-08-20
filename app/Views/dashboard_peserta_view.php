@@ -31,6 +31,8 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datepicker.css'); ?>" >
 <script src="<?php echo base_url('assets/js/bootstrap-datepicker.js'); ?>"></script>
 
+<link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
+<script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
  <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -151,19 +153,34 @@
 	  <div class="input-group mb-3   "
 	  style="display:  <?php  if ($k_jenis_user != "1" && $k_jenis_user != "2" )  {echo "none";} else { echo "blok";} ?>;"
 	  >
-						
-		<button class="btn btn-success align-self-end ml-auto justify-content-end" id="newujian">Tambah</button>	
+		<div class="input-group-append">
+				<label class="input-group-text" for="inputGroupSelect02">Nama Ujian</label>
+		</div>
+		<select class="input-group-append custom-select col-md-2" id="dropdownnamaujian">
+				
+				<?php
+				echo '<option selected  value="x">Seluruh Ujian</option>';
+				foreach ($dropdown_ujian as $row)
+				{
+					echo '<option value="'.$row->id_ujian.'">'.$row->nama_ujian.'</option>';
+					
+				}
+				
+				?>
+		</select>
+		
+		<button class="btn btn-success align-self-end ml-auto justify-content-end" id="newpeserta">Tambah</button>	
 		
 		</div>
 	  
 	 
-		<table id="table" class="display" cellspacing="0" width="100%">
+		<table id="table" class="display table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
-                    <tr><th>NAMA UJIAN</th><th>TGL MULAI</th><th>TGL SELESAI</th><th>DURASI (MNT)</th><th>JUMLAH PESERTA</th><th>ACTION</th></tr>
+                    <tr><th>NAMA UJIAN</th><th>USERNAME PESERTA</th><th>NAMA PESERTA</th><th>TOTAL NILAI</th><th>WAKTU UJIAN</th><th>ACTION</th></tr>
                 </thead>
                 <tbody>
                 </tbody>
-            </table>
+        </table>
 	  </div>		
 		
       </div>
@@ -190,28 +207,14 @@
 		<input type="text" class="form-control" id="modalidujian" >
 	 </div> 
 	  
-     <div class="form-group">
-		<label for="modalnamaujian" id="modalnamaujianlabel">Nama Ujian</label>
-		<input type="text" class="form-control" id="modalnamaujian" placeholder="Nama Ujian">
-	 </div>
-	
-	 <div class="form-group">
-		<label for="modaltglmulai" id="modaltglmulailabel">Tanggal Mulai Ujian</label>
-		<input class="form-control" data-date-format="yyyy-mm-dd" id="modaltglmulai" placeholder="Tanggal Mulai">
-	 </div>
-
-
-     <div class="form-group">
-		<label for="modaltglselesai" id="modaltglmulailabel">Tanggal Selesai Ujian</label>
-		<input class="form-control" data-date-format="yyyy-mm-dd" id="modaltglselesai" placeholder="Tanggal Selesai"> 
-	 </div> 
-	 
-	 <div class="form-group">
-		<label for="modaldurasi" id="modaldurasilabel">Durasi Ujian (Menit)</label>
-		<input type="text" class="form-control" id="modaldurasi" placeholder="Durasi">
-	 </div>
-	
-		
+	 <table id="modaltable" class="display table-striped table-bordered table-striped " cellspacing="0" width="100%">
+                <thead>
+                    <tr><th></th><th>Username</th><th>Nama</th><th>Jenis User</th></tr>
+                </thead>
+                <tbody>
+                </tbody>
+     </table> 
+	  
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modaldiscard">Close</button>
@@ -227,7 +230,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
-	<script src="<?php echo base_url('assets/js/ujian.js'); ?>"></script></body>
+	<script src="<?php echo base_url('assets/js/peserta.js'); ?>"></script></body>
 		<script src="<?php echo base_url('assets/js/dashboarddosen.js'); ?>"></script></body>
 </body>
 </html>

@@ -168,7 +168,7 @@
 	  
 	  
 	  
-		<table id="table" class="display" cellspacing="0" width="100%">
+		<table id="table" class="display  table-striped table-bordered table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr><th>USERNAME</th><th>NAMA</th><th>K JENIS USER</th><th>JENIS USER</th><th>ACTION</th></tr>
                 </thead>

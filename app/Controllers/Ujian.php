@@ -92,17 +92,107 @@ class Ujian extends BaseController
 	public function pesertaujian()
 	{
 		$session = session();
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		if ($session->get('k_jenis_user')=="1")
+		{
+			$usersession="x";
+		}
+		else
+		{
+			$usersession=$session->get('username');
+			
+		}
+		
+		$dropdown_ujian=$ujianmodel->getlistujian("x",$usersession);
 		$data=[
 		'nama'=>$session->get('nama'),
 		'username'=>$session->get('username'),
 		'k_jenis_user'=>$session->get('k_jenis_user'),
 		'jenis_user'=>$session->get('jenis_user'),
-		
+		'dropdown_ujian'=>$dropdown_ujian
 		
 		];
 		
 		return view('dashboard_peserta_view',$data);
 		
+		
+	}
+	
+	public function getpeserta()
+	{
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost('idujian');
+		$session = session();
+		if ($session->get('k_jenis_user')=="1")
+		{
+			$usersession="x";
+		}
+		else
+		{
+			$usersession=$session->get('username');
+			
+		}
+		$listpeserta=$ujianmodel->getpeserta($idujian,"x",$usersession);
+		return json_encode($listpeserta);
+		
+	}
+	
+	
+	public function getpesertanoikut()
+	{
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost('idujian');
+		
+		$listpeserta=$ujianmodel->getpesertanoujian($idujian);
+		return json_encode($listpeserta);
+		
+		
+	}
+	
+	public function inserpesertaujian()
+	{
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost('idujian');
+		$groupusername=$this->request->getPost('groupusername');
+		$session = session();
+		
+		$arruserpeserta=explode(",",$groupusername);
+		
+		
+		foreach($arruserpeserta as $usernamepeserta){
+			
+			$res=$ujianmodel->inspesertaujian($idujian,$usernamepeserta,$session->get('username'));
+		}
+		
+		
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+	}
+	
+	
+	public function delerpesertaujian()
+	{
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost('idujian');
+		$usernamepeserta=$this->request->getPost('usernamepeserta');
+		
+		$res=$ujianmodel->delpesertaujian($idujian,$usernamepeserta);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
 		
 	}
 	
