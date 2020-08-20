@@ -78,7 +78,7 @@
           echo '</li>';
 		  ?>
 		  
-		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2" ) { 
+		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2"  || $k_jenis_user == "3") { 
 		  
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="'.base_url('ujian').'">';
@@ -86,7 +86,8 @@
           echo '    Ujian ';
           echo '  </a>';
           echo '</li>';
-		  
+		  }
+		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2"  ) { 
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="#">';
           echo '    <span data-feather="layers"></span>';
@@ -97,7 +98,7 @@
 		  
 		  
           echo '<li class="nav-item">';
-          echo '  <a class="nav-link" href="#">';
+          echo '  <a class="nav-link" href="'.base_url('ujian/pesertaujian').'">';
           echo '    <span data-feather="users"></span>';
           echo '    Peserta';
           echo '  </a>';

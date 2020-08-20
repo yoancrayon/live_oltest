@@ -121,7 +121,7 @@
 		  
 		  
           echo '<li class="nav-item">';
-          echo '  <a class="nav-link" href="#">';
+          echo '  <a class="nav-link" href="'.base_url('ujian/pesertaujian').'">';
           echo '    <span data-feather="users"></span>';
           echo '    Peserta';
           echo '  </a>';
