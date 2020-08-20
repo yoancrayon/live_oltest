@@ -217,7 +217,7 @@
 		<label class="input-group-text" for="modalselect" >Jenis User</label>
 		<select class="custom-select" id="modalselect">
 		<?php
-				echo '<option  value="x">Seluruh Jenis Pengguna</option>';
+				//echo '<option  value="x">Seluruh Jenis Pengguna</option>';
 				foreach ($dropdown_jenis_Pengguna as $row)
 				{
 					echo '<option value="'.$row->k_jenis_user.'">'.$row->jenis_pengguna.'</option>';
