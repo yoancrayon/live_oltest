@@ -15,7 +15,7 @@ class Dashboard extends BaseController
 		
 		
 		];
-		$data;
+		
 		return view('dashboard_view',$data);
 		
 	}
