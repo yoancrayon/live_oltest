@@ -1,9 +1,10 @@
 <?php namespace App\Controllers;
 
-use App\Models\login_Model;
+use App\Models\ujian_Model;
 class Ujian extends BaseController
 {
-		public function index()
+	
+	public function index()
 	{
 		$session = session();
 		$data=[
@@ -17,5 +18,13 @@ class Ujian extends BaseController
 		
 		return view('dashboard_ujian_view',$data);
 		
+	}
+	
+	public function listujian()
+	{
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		$listujian=$ujianmodel->getlistujian("x",$session->get('username'));
+		return json_encode($listujian);
 	}
 }

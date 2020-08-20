@@ -28,6 +28,8 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.bootstrap4.min.css" >
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" >
 <link rel="stylesheet" href="<?php echo base_url('assets/css/dashboarddosen.css'); ?>" >
+<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datepicker.css'); ?>" >
+<script src="<?php echo base_url('assets/js/bootstrap-datepicker.js'); ?>"></script>
 
  <style>
       .bd-placeholder-img {
@@ -99,7 +101,7 @@
 		  
 		  ?>
 		  
-		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2" )  {
+		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2" || $k_jenis_user == "3")  {
 		  
           echo '<li class="nav-item">';
           echo '  <a class="nav-link active" href="#">';
@@ -107,7 +109,8 @@
           echo 'Ujian <span class="sr-only">(current)</span>';
           echo '  </a>';
           echo ' </li>';
-		  
+		  }
+		  if ($k_jenis_user == "1" || $k_jenis_user == "2" ) {
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="#">';
           echo '    <span data-feather="layers"></span>';
@@ -149,14 +152,14 @@
 	  style="display:  <?php  if ($k_jenis_user != "1" && $k_jenis_user != "2" )  {echo "none";} else { echo "blok";} ?>;"
 	  >
 						
-		<button class="btn btn-success align-self-end ml-auto justify-content-end" id="newuser">Tambah</button>	
+		<button class="btn btn-success align-self-end ml-auto justify-content-end" id="newujian">Tambah</button>	
 		
 		</div>
 	  
 	 
 		<table id="table" class="display" cellspacing="0" width="100%">
                 <thead>
-                    <tr><th>USERNAME</th><th>NAMA</th><th>K JENIS USER</th><th>JENIS USER</th><th>ACTION</th></tr>
+                    <tr><th>NAMA UJIAN</th><th>TGL MULAI</th><th>TGL SELESAI</th><th>DURASI (MNT)</th><th>JUMLAH PESERTA</th><th>ACTION</th></tr>
                 </thead>
                 <tbody>
                 </tbody>
@@ -183,8 +186,31 @@
       </div>
       <div class="modal-body">
 	  
-     
-		
+	 <div class="form-group" style="display:none">
+		<input type="text" class="form-control" id="modalidujian" >
+	 </div> 
+	  
+     <div class="form-group">
+		<label for="modalnamaujian" id="modalnamaujianlabel">Nama Ujian</label>
+		<input type="text" class="form-control" id="modalnamaujian" placeholder="Nama Ujian">
+	 </div>
+	
+	 <div class="form-group">
+		<label for="modaltglmulai" id="modaltglmulailabel">Tanggal Mulai Ujian</label>
+		<input class="form-control" data-date-format="yyyy-mm-dd" id="modaltglmulai">
+	 </div>
+
+
+     <div class="form-group">
+		<label for="modaltglselesai" id="modaltglmulailabel">Tanggal Selesai Ujian</label>
+		<input class="form-control" data-date-format="yyyy-mm-dd" id="modaltglselesai"> 
+	 </div> 
+	 
+	 <div class="form-group">
+		<label for="modaldurasi" id="modaldurasilabel">Durasi Ujian (Menit)</label>
+		<input type="text" class="form-control" id="modaldurasi" placeholder="Durasi">
+	 </div>
+	
 		
       </div>
       <div class="modal-footer">
@@ -201,7 +227,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
-	<script src="<?php echo base_url('assets/js/dashboard_pengguna.js'); ?>"></script></body>
+	<script src="<?php echo base_url('assets/js/ujian.js'); ?>"></script></body>
 		<script src="<?php echo base_url('assets/js/dashboarddosen.js'); ?>"></script></body>
 </body>
 </html>
