@@ -80,5 +80,16 @@ class Ujian_model extends Model
 		
 	}
 	
+	//getpertanyaan	
+
+	public function getpertanyaan($idujian,$idpertanyaan,$username)
+	{
+		$db = db_connect('default');
+		$query=$db->query("call getpertanyaan('".$idujian."','".$idpertanyaan."','".$username."')");
+		$row   = $query->getResult();
+		return $row;
+		
+		
+	}
 	
 }

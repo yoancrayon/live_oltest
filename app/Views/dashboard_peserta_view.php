@@ -114,7 +114,7 @@
 		  }
 		  if ($k_jenis_user == "1" || $k_jenis_user == "2" ) {
           echo '<li class="nav-item">';
-          echo '  <a class="nav-link" href="#">';
+          echo '  <a class="nav-link" href="'.base_url('ujian/soal').'">';
           echo '    <span data-feather="layers"></span>';
           echo '    Pertanyaan';
           echo '  </a>';

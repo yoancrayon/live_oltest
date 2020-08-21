@@ -6,7 +6,7 @@ $(document).ready(function() {
                     "order": [], //Initial no order.
                     // Load data for the table's content from an Ajax source
                     "ajax": {
-                        "url": 'http://localhost/live_oltest/public/ujian/getpeserta',
+                        "url": 'http://localhost/live_oltest/public/ujian/getpertanyaan',
                         "type": "POST",
 						"data":function ( d ) {
 							d.idujian= $("#dropdownnamaujian").children("option:selected").val()
@@ -17,18 +17,28 @@ $(document).ready(function() {
                     },
 					 "columns": [
                         {"data": "nama_ujian",width:100},
-                        {"data": "username_peserta",width:150},
-						{"data": "nama",width:150},
-                        {"data": "total_nilai",width:30},
-						{"data": "waktu_ujian",width:30},
+                        {"data": "pertanyaan",width:200},
+						{"data": "template_jawaban",width:200},
+                       
 						{ "render": function ( data, type, row ){
-							 var html  = "<a href=\"javascript:void(0);\" class=\"hapus_record btn btn-danger btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-usernamepeserta=\""+row["username_peserta"]+"\">DELETE</a>" 
+							var html  ="<a href=\"javascript:void(0);\" class=\"show_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" >SHOW</a> "
+							html  +="<a href=\"javascript:void(0);\" class=\"edit_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" >EDIT</a> "
+							  html  += "<a href=\"javascript:void(0);\" class=\"hapus_record btn btn-danger btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\">DELETE</a>" 
 								
 								return html
 
 							
-						},width:200}
+						},width:100}
 						],
+						columnDefs: [ {
+						targets: 1,
+						render: $.fn.dataTable.render.ellipsis( 17, true )
+						},{
+						targets: 2,
+						render: $.fn.dataTable.render.ellipsis( 10 )	
+							
+						} ],
+						
 						"initComplete": function() {
 						$("#table").show();
 						},
@@ -42,54 +52,7 @@ $(document).ready(function() {
 	
 	
 	
-	var modaltable = $('#modaltable').DataTable({
-		"processing": true, //Feature control the processing indicator.
-        "order": [], //Initial no order.
-		"ajax": {
-                        "url": 'http://localhost/live_oltest/public/ujian/getpesertanoikut',
-                        "type": "POST",
-						"data":function ( d ) {
-							d.idujian= $("#dropdownnamaujian").children("option:selected").val()
-							
-						}
-						
-						,dataSrc:""
-                    },
-		"columns": [
-                        {"data": "username",width:10},
-                        {"data": "username",width:150},
-						{"data": "nama",width:150},
-                        {"data": "jenis_user",width:100}
-						],
-		'columnDefs': [
-         {
-            'targets': 0,
-            'checkboxes': {
-               'selectRow': true
-            }
-			}
-		],
-		'select': {
-         'style': 'multi'
-		},
-		'order': [[1, 'asc']],
-		"initComplete": function() {
-					$("#table").show();
-					}
-		
-		
-	});
-	
-	
-	$("#dropdownnamaujian").change( function() {
-		
-		 $('#table').DataTable().ajax.reload();
-		 $('#modaltable').DataTable().ajax.reload();
-		 
-		 
-	});
-	
-	$('#newpeserta').click(function(){
+	$('#newsoal').click(function(){
 		
 		if ($("#dropdownnamaujian").children("option:selected").val()=="x")
 		{
@@ -101,8 +64,8 @@ $(document).ready(function() {
 			
 		}
 		else{
-		window.document.getElementById("judulmodal").innerHTML  ="Tambah Peserta Ujian Baru";
-		$('#modaltable').DataTable().ajax.reload();
+		
+		window.document.getElementById("judulmodal").innerHTML  ="Tambah Pertanyaan Ujian Baru";
 		$('#modalcenter').modal('show');
 		}
 		

@@ -196,4 +196,55 @@ class Ujian extends BaseController
 		
 	}
 	
+	public function soal()
+	{
+		$session = session();
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		if ($session->get('k_jenis_user')=="1")
+		{
+			$usersession="x";
+		}
+		else
+		{
+			$usersession=$session->get('username');
+			
+		}
+		
+		$dropdown_ujian=$ujianmodel->getlistujian("x",$usersession);
+		$data=[
+		'nama'=>$session->get('nama'),
+		'username'=>$session->get('username'),
+		'k_jenis_user'=>$session->get('k_jenis_user'),
+		'jenis_user'=>$session->get('jenis_user'),
+		'dropdown_ujian'=>$dropdown_ujian
+		
+		];
+		
+		return view('dashboard_soal_view',$data);
+		
+		
+	}
+	
+	public function getpertanyaan()
+	{
+		
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost('idujian');
+		$session = session();
+		if ($session->get('k_jenis_user')=="1")
+		{
+			$usersession="x";
+		}
+		else
+		{
+			$usersession=$session->get('username');
+			
+		}
+		$listpertanyaan=$ujianmodel->getpertanyaan($idujian,"x",$usersession);
+		return json_encode($listpertanyaan);
+		
+	}
+	
+	
 }
