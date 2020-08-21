@@ -43,7 +43,9 @@ $(document).ready(function() {
 						"visible": false,
 						"searchable": false
 					}],
-					w,
+					"initComplete": function() {
+						$("#table").show();
+						},
 					"buttons": [ 'copy', 'csv', 'excel', 'pdf', 'print']
   
 
