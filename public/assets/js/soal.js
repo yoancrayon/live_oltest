@@ -1,4 +1,40 @@
 $(document).ready(function() {
+  
+	ace.config.set("basePath", "http://localhost/live_oltest/public/assets/js/ace");
+	ace.require("ace/ext/language_tools");
+	var editor = ace.edit("editor");
+      editor.setFontSize(12);
+      editor.setTheme("ace/theme/eclipse");
+      editor.session.setMode("ace/mode/java");
+      ace.require("ace/ext/language_tools");
+	  editor.setShowPrintMargin(false);
+      //Wrap automatically, set to off
+      editor.setOption("wrap", "free");
+      editor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
+      });
+  
+  
+	var editor2 = ace.edit("editor2");
+      editor2.setFontSize(12);
+      editor2.setTheme("ace/theme/eclipse");
+      editor2.session.setMode("ace/mode/java");
+      ace.require("ace/ext/language_tools");
+	  editor2.setShowPrintMargin(false);
+      //Wrap automatically, set to off
+      editor2.setOption("wrap", "free");
+      editor2.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
+      });  
+	  
+	editor.session.on('change', function(delta) {
+     editor2.setValue(editor.getValue());
+	});  
+	
 	var table = $('#table').DataTable({
 		"dom": '<"top"Bf>rt<"bottom"lp><"clear">',
                     "processing": true, //Feature control the processing indicator.
@@ -18,7 +54,7 @@ $(document).ready(function() {
 					 "columns": [
                         {"data": "nama_ujian",width:100},
                         {"data": "pertanyaan",width:200},
-						{"data": "template_jawaban",width:200},
+						{"data": "template_jawab",width:200},
                        
 						{ "render": function ( data, type, row ){
 							var html  ="<a href=\"javascript:void(0);\" class=\"show_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" >SHOW</a> "
@@ -32,10 +68,10 @@ $(document).ready(function() {
 						],
 						columnDefs: [ {
 						targets: 1,
-						render: $.fn.dataTable.render.ellipsis( 17, true )
+						render: $.fn.dataTable.render.ellipsis( 30, true )
 						},{
 						targets: 2,
-						render: $.fn.dataTable.render.ellipsis( 10 )	
+						render: $.fn.dataTable.render.ellipsis( 30 )	
 							
 						} ],
 						
@@ -64,28 +100,31 @@ $(document).ready(function() {
 			
 		}
 		else{
-		
+	
 		window.document.getElementById("judulmodal").innerHTML  ="Tambah Pertanyaan Ujian Baru";
+		editor.setValue("");
+		editor2.setValue("");
+		window.document.getElementById("modalidujian").value=$("#dropdownnamaujian").children("option:selected").val();
 		$('#modalcenter').modal('show');
 		}
 		
 	}
 	);
 	
+	
+	
+	
 	$("#savemodal").click( function() {
-		var rows_selected = modaltable.column(0).checkboxes.selected();
-		var groupusername="";
-		$.each(rows_selected, function(index, rowId){
-         
-		 groupusername=groupusername+","+rowId;
-		});
 		
+		alert (editor.getValue());
 		$.ajax({
-            url: "http://localhost/live_oltest/public/ujian/inserpesertaujian",
+            url: "http://localhost/live_oltest/public/ujian/savepertanyaan",
             type: "POST",
             data: {
-				"idujian":$("#dropdownnamaujian").children("option:selected").val(),
-                "groupusername": groupusername.substring(1)
+				"idujian":window.document.getElementById("modalidujian").value,
+				"idpertanyaan":window.document.getElementById("modalidpertanyaan").value,
+				"pertanyaan":window.document.getElementById("pertanyaan").value,
+				"templatejawaban":editor.getValue()
             },
             dataType: "html",
             success: function (response) {
@@ -134,7 +173,13 @@ $(document).ready(function() {
 	});
 	
 	
-	
+	$("#dropdownnamaujian").change( function() {
+		
+		 $('#table').DataTable().ajax.reload();
+		 
+		 
+		 
+	});
 	
 	$('#table').on('click','.hapus_record',function(){
 		var idujian=$(this).data('idujian');

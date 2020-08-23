@@ -33,6 +33,10 @@
 
 <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
 <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+
+
+
+
  <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -48,6 +52,24 @@
           font-size: 3.5rem;
         }
       }
+	  
+	   editor {
+      background-color: #f5f5f5;
+    }
+
+    #editor {
+      width: auto;
+      height: 290px;
+    }
+	
+	 editor2 {
+      background-color: #f5f5f5;
+    }
+
+    #editor2 {
+      width: auto;
+      height: 250px;
+    }
     </style>
 <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -181,19 +203,21 @@
                 <tbody>
                 </tbody>
         </table>
+	
 	  </div>		
 		
       </div>
+	 
     </main>
 
 
 
 	</div>
-
+	
 
 <!-- Modal -->
-<div class="modal fade" id="modalcenter" tabindex="-1" role="dialog" aria-labelledby="JudulModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade " id="modalcenter" tabindex="-1" role="dialog" aria-labelledby="JudulModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="judulmodal">Modal title</h5>
@@ -202,7 +226,10 @@
         </button>
       </div>
       <div class="modal-body">
-	  
+	
+
+		<div class="row">
+        <div class="col-md-6">	
 	 <div class="form-group" style="display:none">
 		<input type="text" class="form-control" id="modalidujian" >
 	 </div> 
@@ -210,31 +237,60 @@
 		<input type="text" class="form-control" id="modalidpertanyaan" >
 	 </div>
 	
+	
+	
 	<div class="form-group">
 	<label for="pertanyaan">Pertanyaan</label>
-    <textarea class="form-control" id="pertanyaan" rows="3"></textarea>
+    <textarea class="form-control" id="pertanyaan" rows="4"></textarea>
 	</div>
 	
+	
+	<label>Template Jawaban</label>
+     <div id="editor"></div>
+	</div>
+	
+	  <div class="col-md-6">
+	  <label>Coba Jawaban</label>
+	  <div id="editor2"></div>
+	 
+	  <div class="form-group">
+	  <label for="cobajawabaninput">Coba Jawaban Input</label>
+      <input type="text" class="form-control" id="cobajawabaninput" rows="3"></textarea>
+	  </div>
 	  
-	  
-	  
+	 <div class="form-group">
+	<label for="cobajawabanoutput" >Output Jawaban</label>
+    <textarea class="form-control" id="cobajawabanoutput" rows="3" disabled></textarea>
+	</div>
+	   </div>
       </div>
+	  </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modaldiscard">Close</button>
+		<button type="button" class="btn btn-info" id="cobajawab">Coba Jawab</button>
         <button type="button" class="btn btn-primary" id="savemodal">Save changes</button>
+		
       </div>
     </div>
   </div>
 </div>
 
 
-
-
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 	<script src="<?php echo base_url('assets/js/ellipsis.js'); ?>"></script></body>
-
+	<script src="<?php echo base_url('assets/js/ace/ace.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/js/ace/ext-language_tools.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/js/ace/mode-java.js'); ?>"></script>
+	
+	</body>
+<!--<script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" crossorigin="anonymous" integrity="sha256-Q9hnBpgBFstzZOr+OKFOWZWfcF5nFXO8Qz48Nmndo6U=" ></script>-->
 	<script src="<?php echo base_url('assets/js/soal.js'); ?>"></script></body>
-		<script src="<?php echo base_url('assets/js/dashboarddosen.js'); ?>"></script></body>
+		<script src="<?php echo base_url('assets/js/dashboarddosen.js'); ?>"></script> 
+
+
+
+		
+		</body>
 </body>
 </html>

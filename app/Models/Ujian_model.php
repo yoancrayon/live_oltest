@@ -92,4 +92,18 @@ class Ujian_model extends Model
 		
 	}
 	
+	//insupdpertyaan
+	
+	public function insupdpertanyaan($data)
+	{
+		
+		$db = db_connect('default');
+		$textq="call insupdpertanyaan('".$data["id_pertanyaan"]."','".$data["id_ujian"]."','".$data["pertanyaan"]."','".$data["template_jawaban"]."','".$data["username"].")')";
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		
+		return $row;
+		
+	}
+	
 }

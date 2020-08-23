@@ -246,5 +246,38 @@ class Ujian extends BaseController
 		
 	}
 	
+	public function savepertanyaan()
+	{
+		$ujianmodel=new Ujian_model();
+		$idpertanyaan=$this->request->getPost('idpertanyaan');
+		$idujian=$this->request->getPost('idujian');
+		$pertanyaan=$this->request->getPost('pertanyaan');
+		$templatejawaban=$this->request->getPost('templatejawaban');
+		
+		
+		
+		$session = session();
+		$data=[
+		"id_pertanyaan"=>$idpertanyaan,
+		"id_ujian"=>$idujian,
+		"pertanyaan"=>$pertanyaan,
+		"template_jawaban"=>$templatejawaban,
+		"username"=>$session->get('username')
+		];
+		
+		
+		
+		$res=$ujianmodel->insupdpertanyaan($data);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+		
+	}
 	
 }

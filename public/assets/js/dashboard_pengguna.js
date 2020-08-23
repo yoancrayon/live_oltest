@@ -163,7 +163,7 @@ $(document).ready(function() {
 		 
 	});
 	$("#newuser").click(function(){
-		window.document.getElementById("judulmodal").innerHTML  ="";
+		window.document.getElementById("judulmodal").innerHTML  ="Tambah Pengguna Baru";
 		window.document.getElementById("modalusername").value  ="";
 		window.document.getElementById("modalusername").disabled = false;
 		window.document.getElementById("modalnama").value  ="";
