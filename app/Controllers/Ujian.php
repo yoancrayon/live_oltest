@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\ujian_Model;
+use App\Models\test_Model;
 class Ujian extends BaseController
 {
 	
@@ -231,6 +232,7 @@ class Ujian extends BaseController
 		
 		$ujianmodel=new Ujian_model();
 		$idujian=$this->request->getPost('idujian');
+		$idpertanyaan=$this->request->getPost('idpertanyaan');
 		$session = session();
 		if ($session->get('k_jenis_user')=="1")
 		{
@@ -241,7 +243,7 @@ class Ujian extends BaseController
 			$usersession=$session->get('username');
 			
 		}
-		$listpertanyaan=$ujianmodel->getpertanyaan($idujian,"x",$usersession);
+		$listpertanyaan=$ujianmodel->getpertanyaan($idujian,$idpertanyaan,$usersession);
 		return json_encode($listpertanyaan);
 		
 	}
@@ -266,7 +268,6 @@ class Ujian extends BaseController
 		];
 		
 		
-		
 		$res=$ujianmodel->insupdpertanyaan($data);
 		
 		if ($res["errstate"]=="00000")
@@ -279,5 +280,36 @@ class Ujian extends BaseController
 		
 		
 	}
+	
+	
+	public function hapuspertanyaan()
+	{
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost('idujian');
+		$idpertanyaan=$this->request->getPost('idpertanyaan');
+		
+		$res=$ujianmodel->delpertanyaan($idujian,$idpertanyaan);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+	}
+	
+	public function cobapertanyaan()
+	{
+		
+		$testmodel=new Test_model();
+		$kode=$this->request->getPost('kode');
+		$input=$this->request->getPost('input');
+		
+		
+		echo $testmodel-> eksekusi($kode,$input);
+	}
+	
 	
 }

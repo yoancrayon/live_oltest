@@ -57,8 +57,8 @@ $(document).ready(function() {
 						{"data": "template_jawab",width:200},
                        
 						{ "render": function ( data, type, row ){
-							var html  ="<a href=\"javascript:void(0);\" class=\"show_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" >SHOW</a> "
-							html  +="<a href=\"javascript:void(0);\" class=\"edit_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" >EDIT</a> "
+							var html  ="<a href=\"javascript:void(0);\" class=\"show_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" data-pertanyaan=\""+row["pertanyaan"]+"\" data-templatejawaban=\""+row["template_jawab"]+"\" >SHOW</a> "
+							html  +="<a href=\"javascript:void(0);\" class=\"edit_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" data-pertanyaan=\""+row["pertanyaan"]+"\" data-templatejawaban=\""+row["template_jawab"]+"\">EDIT</a> "
 							  html  += "<a href=\"javascript:void(0);\" class=\"hapus_record btn btn-danger btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\">DELETE</a>" 
 								
 								return html
@@ -66,14 +66,14 @@ $(document).ready(function() {
 							
 						},width:100}
 						],
-						columnDefs: [ {
+						 columnDefs: [ {
 						targets: 1,
-						render: $.fn.dataTable.render.ellipsis( 30, true )
+						render: $.fn.dataTable.render.ellipsis( 100, true )
 						},{
 						targets: 2,
-						render: $.fn.dataTable.render.ellipsis( 30 )	
+						render: $.fn.dataTable.render.ellipsis( 40 )	
 							
-						} ],
+						} ], 
 						
 						"initComplete": function() {
 						$("#table").show();
@@ -104,8 +104,13 @@ $(document).ready(function() {
 		window.document.getElementById("judulmodal").innerHTML  ="Tambah Pertanyaan Ujian Baru";
 		editor.setValue("");
 		editor2.setValue("");
-		window.document.getElementById("modalidujian").value=$("#dropdownnamaujian").children("option:selected").val();
+		window.document.getElementById("modalidujian").value=$("#dropdownnamaujian").
+		children("option:selected").val();
+		window.document.getElementById("savemodal").style.display = "block";
+		window.document.getElementById("pertanyaan").value="";
+		window.document.getElementById("cobajawabanoutput").value="";
 		$('#modalcenter').modal('show');
+		
 		}
 		
 	}
@@ -116,7 +121,7 @@ $(document).ready(function() {
 	
 	$("#savemodal").click( function() {
 		
-		alert (editor.getValue());
+		
 		$.ajax({
             url: "http://localhost/live_oltest/public/ujian/savepertanyaan",
             type: "POST",
@@ -181,9 +186,53 @@ $(document).ready(function() {
 		 
 	});
 	
+	
+	$('#table').on('click','.show_record',function(){
+		var idujian=$(this).data('idujian');
+		var idpertanyaan=$(this).data('idpertanyaan');
+		var pertanyaan=$(this).data('pertanyaan');
+		var templatejawaban=$(this).data('templatejawaban');
+		
+		window.document.getElementById("modalidujian").value=idujian;
+		window.document.getElementById("modalidpertanyaan").value=idpertanyaan;
+		
+		window.document.getElementById("judulmodal").innerHTML  ="Pertanyaan Ujian";
+		editor.setValue(templatejawaban);
+		editor2.setValue(templatejawaban);
+		window.document.getElementById("pertanyaan").value=pertanyaan;
+		window.document.getElementById("savemodal").style.display = "none";
+		
+		window.document.getElementById("cobajawabanoutput").value="";
+		$('#modalcenter').modal('show');
+		
+		
+	});
+	
+	
+	$('#table').on('click','.edit_record',function(){
+		var idujian=$(this).data('idujian');
+		var idpertanyaan=$(this).data('idpertanyaan');
+		var pertanyaan=$(this).data('pertanyaan');
+		var templatejawaban=$(this).data('templatejawaban');
+		
+		window.document.getElementById("modalidujian").value=idujian;
+		window.document.getElementById("modalidpertanyaan").value=idpertanyaan;
+		
+		window.document.getElementById("judulmodal").innerHTML  ="Pertanyaan Ujian";
+		editor.setValue(templatejawaban);
+		editor2.setValue(templatejawaban);
+		window.document.getElementById("pertanyaan").value=pertanyaan;
+		window.document.getElementById("savemodal").style.display = "block";
+		window.document.getElementById("cobajawabanoutput").value="";
+		
+		$('#modalcenter').modal('show');
+		
+		
+	});
+	
 	$('#table').on('click','.hapus_record',function(){
 		var idujian=$(this).data('idujian');
-		var usernamepeserta=$(this).data('usernamepeserta');
+		var idpertanyaan=$(this).data('idpertanyaan');
 		Swal.fire({
         title: "Apakah Anda Yakin?",
         text: "Peserta Akan dihapus",
@@ -195,11 +244,11 @@ $(document).ready(function() {
 		}).then((result)=>{
 		
 		$.ajax({
-            url: "http://localhost/live_oltest/public/ujian/delerpesertaujian",
+            url: "http://localhost/live_oltest/public/ujian/hapuspertanyaan",
             type: "POST",
             data: {
                 "idujian": idujian,
-				"usernamepeserta":usernamepeserta
+				"idpertanyaan":idpertanyaan
             },
             dataType: "html",
             success: function (response) {
@@ -215,7 +264,7 @@ $(document).ready(function() {
                   })
                   .then (function() {
                      $('#table').DataTable().ajax.reload();
-					 $('#modaltable').DataTable().ajax.reload();
+					
 					 Swal.close();
                   });
 				}
@@ -248,6 +297,42 @@ $(document).ready(function() {
 		
 		
 	});
+	
+	$("#cobajawab").click( function() {
+		
+		
+		$.ajax({
+            url: "http://localhost/live_oltest/public/ujian/cobapertanyaan",
+            type: "POST",
+            data: {
+				"kode":editor2.getValue(),
+				"input":window.document.getElementById("cobajawabaninput").value
+				
+            },
+            dataType: "html",
+            success: function (response) {
+				
+				window.document.getElementById("cobajawabanoutput").value=response;
+                console.log(response);
+            },
+            error:function(response){
+
+                  Swal.fire({
+                    type: 'error',
+                    title: 'Opps!',
+                    text: 'server error!'
+                  });
+
+                  console.log(response);
+
+              }
+        });		
+		
+	
+		
+	
+	});
+	
 	
 	
 	
