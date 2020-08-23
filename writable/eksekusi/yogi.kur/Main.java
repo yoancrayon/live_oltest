@@ -1,9 +1,9 @@
 public class Main {
-    public static void main(String[] args) {
-        int a=5;
-        int b=10;
-        int c=a+b;
-        
-        System.out.println(c);
-    }
+	public static void main(String[] args) {
+	//baris atas jangan dihapus
+    int a=1;
+    int b=2;
+    System.out.println(a+b);
+	//baris bawah jangan dihapus
+	}
 }

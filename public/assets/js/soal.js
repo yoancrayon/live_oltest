@@ -109,6 +109,8 @@ $(document).ready(function() {
 		window.document.getElementById("savemodal").style.display = "block";
 		window.document.getElementById("pertanyaan").value="";
 		window.document.getElementById("cobajawabanoutput").value="";
+		var autoisi="public class Main {\n\tpublic static void main(String[] args) {\n\t//baris atas jangan dihapus\n\n\n\n\t//baris bawah jangan dihapus\n\t}\n}";
+		editor.setValue(autoisi);
 		$('#modalcenter').modal('show');
 		
 		}
