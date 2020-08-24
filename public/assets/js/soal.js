@@ -1,6 +1,12 @@
 $(document).ready(function() {
-  
-	ace.config.set("basePath", "http://localhost/live_oltest/public/assets/js/ace");
+  	if (location.host == 'localhost') {
+	var base_url = window.location.origin+"/live_oltest/";
+	}
+	else{
+		var base_url = window.location.origin;
+	}
+	
+	ace.config.set("basePath", base_url+"public/assets/js/ace");
 	ace.require("ace/ext/language_tools");
 	var editor = ace.edit("editor");
       editor.setFontSize(12);
@@ -42,7 +48,7 @@ $(document).ready(function() {
                     "order": [], //Initial no order.
                     // Load data for the table's content from an Ajax source
                     "ajax": {
-                        "url": 'http://localhost/live_oltest/public/ujian/getpertanyaan',
+                        "url": base_url+'public/ujian/getpertanyaan',
                         "type": "POST",
 						"data":function ( d ) {
 							d.idujian= $("#dropdownnamaujian").children("option:selected").val()
@@ -125,7 +131,7 @@ $(document).ready(function() {
 		
 		
 		$.ajax({
-            url: "http://localhost/live_oltest/public/ujian/savepertanyaan",
+            url: base_url+"public/ujian/savepertanyaan",
             type: "POST",
             data: {
 				"idujian":window.document.getElementById("modalidujian").value,
@@ -246,7 +252,7 @@ $(document).ready(function() {
 		}).then((result)=>{
 		
 		$.ajax({
-            url: "http://localhost/live_oltest/public/ujian/hapuspertanyaan",
+            url: base_url+"public/ujian/hapuspertanyaan",
             type: "POST",
             data: {
                 "idujian": idujian,
@@ -304,7 +310,7 @@ $(document).ready(function() {
 		
 		
 		$.ajax({
-            url: "http://localhost/live_oltest/public/ujian/cobapertanyaan",
+            url: base_url+"public/ujian/cobapertanyaan",
             type: "POST",
             data: {
 				"kode":editor2.getValue(),

@@ -1,4 +1,13 @@
 $(document).ready(function() {
+	
+	if (location.host == 'localhost') {
+	var base_url = window.location.origin+"/live_oltest/";
+	}
+	else{
+		var base_url = window.location.origin;
+	}
+	
+	
 	var table = $('#table').DataTable({
 		"dom": '<"top"Bf>rt<"bottom"lp><"clear">',
                     "processing": true, //Feature control the processing indicator.
@@ -6,7 +15,7 @@ $(document).ready(function() {
                     "order": [], //Initial no order.
                     // Load data for the table's content from an Ajax source
                     "ajax": {
-                        "url": 'http://localhost/live_oltest/public/ujian/getpeserta',
+                        "url": base_url+'public/ujian/getpeserta',
                         "type": "POST",
 						"data":function ( d ) {
 							d.idujian= $("#dropdownnamaujian").children("option:selected").val()
@@ -46,7 +55,7 @@ $(document).ready(function() {
 		"processing": true, //Feature control the processing indicator.
         "order": [], //Initial no order.
 		"ajax": {
-                        "url": 'http://localhost/live_oltest/public/ujian/getpesertanoikut',
+                        "url": base_url+'public/ujian/getpesertanoikut',
                         "type": "POST",
 						"data":function ( d ) {
 							d.idujian= $("#dropdownnamaujian").children("option:selected").val()
@@ -118,7 +127,7 @@ $(document).ready(function() {
 		});
 		
 		$.ajax({
-            url: "http://localhost/live_oltest/public/ujian/inserpesertaujian",
+            url: base_url+"public/ujian/inserpesertaujian",
             type: "POST",
             data: {
 				"idujian":$("#dropdownnamaujian").children("option:selected").val(),
@@ -187,7 +196,7 @@ $(document).ready(function() {
 		}).then((result)=>{
 		
 		$.ajax({
-            url: "http://localhost/live_oltest/public/ujian/delerpesertaujian",
+            url: base_url+"public/ujian/delerpesertaujian",
             type: "POST",
             data: {
                 "idujian": idujian,

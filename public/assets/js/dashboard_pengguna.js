@@ -1,9 +1,16 @@
 $(document).ready(function() {
-	var base_url = window.location.origin;
-	var host = window.location.host;
-	var pathArray = window.location.pathname.split( '/' );
+	
+	if (location.host == 'localhost') {
+	var base_url = window.location.origin+"/live_oltest/";
+	}
+	else{
+		var base_url = window.location.origin;
+	}
+	
 	var e = document.getElementById("inputGroupSelect02");
 	var kjenisuser = e.options[e.selectedIndex].value;
+	
+	
 	
 	var table = $('#table').DataTable({
 	
@@ -13,7 +20,7 @@ $(document).ready(function() {
                     "order": [], //Initial no order.
                     // Load data for the table's content from an Ajax source
                     "ajax": {
-                        "url": 'http://localhost/live_oltest/public/dashboard/penggunalist',
+                        "url": base_url+'public/dashboard/penggunalist',
                         "type": "POST",
 						"data":function ( d ) {
 							d.k_jenis_user= $("#inputGroupSelect02").children("option:selected").val()
@@ -80,7 +87,7 @@ $(document).ready(function() {
 		var vpassword=window.document.getElementById("modalpassword").value;
 		
 		$.ajax({
-				url: "http://localhost/live_oltest/public/dashboard/savepengguna",  
+				url: base_url+"public/dashboard/savepengguna",  
 				type: "POST",
 				data: {
                   "username": username,
@@ -193,7 +200,7 @@ $(document).ready(function() {
     }).then((result)=> {
        
         $.ajax({
-            url: "http://localhost/live_oltest/public/dashboard/delpengguna",
+            url: base_url+"public/dashboard/delpengguna",
             type: "POST",
             data: {
                 "username": username
@@ -268,7 +275,7 @@ $(document).ready(function() {
 		else
 		{
 			$.ajax({
-				url: "http://localhost/live_oltest/public/dashboard/updpasswordpengguna",  
+				url: base_url+"public/dashboard/updpasswordpengguna",  
 				type: "POST",
 				data: {
                   "username": username,
