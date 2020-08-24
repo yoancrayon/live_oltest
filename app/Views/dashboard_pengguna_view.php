@@ -99,7 +99,7 @@
 		  
 		  ?>
 		  
-		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2" )  {
+		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2" || $k_jenis_user == "3" )  {
 		  
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="'.base_url('ujian').'">';
@@ -107,7 +107,8 @@
           echo '    Ujian';
           echo '  </a>';
           echo '</li>';
-		  
+		  }
+		  if ($k_jenis_user == "1" || $k_jenis_user == "2" ){
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="'.base_url('ujian/soal').'">';
           echo '    <span data-feather="layers"></span>';
@@ -163,7 +164,7 @@
 			</select>
 			
 		<button class="btn btn-success align-self-end ml-auto justify-content-end" id="newuser">Tambah</button>	
-		
+		<input type="text"  id="kjenisuser" style="display:none" value:"<?php echo ($k_jenis_user);?>"/>
 		</div>
 	  
 	  

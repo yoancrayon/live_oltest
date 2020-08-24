@@ -311,5 +311,25 @@ class Ujian extends BaseController
 		echo $testmodel-> eksekusi($kode,$input);
 	}
 	
+	public function listujianpeserta()
+	{
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		
+		
+		
+		if ($session->get('k_jenis_user')=="1")
+		{
+			$usersession="x";
+		}
+		else
+		{
+			$usersession=$session->get('username');
+			
+		}
+		
+		$listujian=$ujianmodel->getlistujianpeserta("x",$usersession);
+		return json_encode($listujian);
+	}
 	
 }

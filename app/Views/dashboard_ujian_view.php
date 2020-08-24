@@ -153,20 +153,36 @@
 	  >
 						
 		<button class="btn btn-success align-self-end ml-auto justify-content-end" id="newujian">Tambah</button>	
-		
+		<input type="text"  id="kjenisuser" style="display:none" value:"<?php echo ($k_jenis_user);?></input>
 		</div>
-	  
+	  <div id="wraptabel" style="display:  <?php  if ($k_jenis_user != "1" && $k_jenis_user != "2" )  {echo "none";} else { echo "blok";} ?>;">
 	 
-		<table id="table" class="display  table-striped table-bordered" cellspacing="0" width="100%">
+		<table id="table" class="display  table-striped table-bordered" cellspacing="0" width="100%" >
                 <thead>
                     <tr><th>NAMA UJIAN</th><th>TGL MULAI</th><th>TGL SELESAI</th><th>DURASI (MNT)</th><th>JUMLAH PESERTA</th><th>ACTION</th></tr>
                 </thead>
                 <tbody>
                 </tbody>
             </table>
+		</div>
+		
+		<div id="wraptabelpeserta" style="display:  <?php  if ($k_jenis_user != "3" && $k_jenis_user != "1" )  {echo "none";} else { echo "blok";} ?>;">
+		<table id="tablepeserta" class="display  table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr><th>NAMA UJIAN</th><th>TGL MULAI</th><th>TGL SELESAI</th><th>DURASI (MNT)</th><th>JUMLAH PESERTA</th><th>ACTION</th></tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+		</div>			
 	  </div>		
 		
-      </div>
+      
+	  
+	  
+	  
+	  
+	  
     </main>
 
 

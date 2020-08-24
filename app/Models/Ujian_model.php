@@ -117,4 +117,14 @@ class Ujian_model extends Model
 		
 	}
 	
+	
+	public function getlistujianpeserta($idujian,$username){
+		
+		$db = db_connect('default');
+		$query=$db->query("call getujianpeserta('".$idujian."','".$username."')");
+		$row   = $query->getResult();
+		return $row;
+		
+	}
+	
 }
