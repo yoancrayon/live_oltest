@@ -167,6 +167,7 @@
 		</div>
 		
 		<div id="wraptabelpeserta" style="display:  <?php  if ($k_jenis_user != "3" && $k_jenis_user != "1" )  {echo "none";} else { echo "blok";} ?>;">
+		<h2 class ="border-bottom" style="display:  <?php  if ($k_jenis_user != "1" )  {echo "none";} else { echo "blok";} ?>;" >Daftar Ujian Peserta</h2>
 		<table id="tablepeserta" class="display  table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr><th>NAMA UJIAN</th><th>TGL MULAI</th><th>TGL SELESAI</th><th>DURASI (MNT)</th><th>JUMLAH PESERTA</th><th>ACTION</th></tr>
