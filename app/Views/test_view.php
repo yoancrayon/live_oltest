@@ -66,8 +66,8 @@
 	<?php
 	foreach ($pertanyaan as $row){
 		
-		echo '<button type="button" class="btn btn-primary btn-sm ';
-		if ($row->no_urut==1) {echo "active";}
+		echo '<button type="button" class="btn btn-sm btn-primary ';
+		if ($row->no_urut==1) {echo "btn-success";}
 		echo '" id="btnnourut">'.$row->no_urut.'</button> ';
 		
 		
