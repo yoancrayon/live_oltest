@@ -124,147 +124,21 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button>
+          <div class="btn-group mr-2"> 
+          </div
         </div>
       </div>
-
-      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
-      <h2>Section title</h2>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Header</th>
-              <th>Header</th>
-              <th>Header</th>
-              <th>Header</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>Lorem</td>
-              <td>ipsum</td>
-              <td>dolor</td>
-              <td>sit</td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>amet</td>
-              <td>consectetur</td>
-              <td>adipiscing</td>
-              <td>elit</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>Integer</td>
-              <td>nec</td>
-              <td>odio</td>
-              <td>Praesent</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>libero</td>
-              <td>Sed</td>
-              <td>cursus</td>
-              <td>ante</td>
-            </tr>
-            <tr>
-              <td>1,004</td>
-              <td>dapibus</td>
-              <td>diam</td>
-              <td>Sed</td>
-              <td>nisi</td>
-            </tr>
-            <tr>
-              <td>1,005</td>
-              <td>Nulla</td>
-              <td>quis</td>
-              <td>sem</td>
-              <td>at</td>
-            </tr>
-            <tr>
-              <td>1,006</td>
-              <td>nibh</td>
-              <td>elementum</td>
-              <td>imperdiet</td>
-              <td>Duis</td>
-            </tr>
-            <tr>
-              <td>1,007</td>
-              <td>sagittis</td>
-              <td>ipsum</td>
-              <td>Praesent</td>
-              <td>mauris</td>
-            </tr>
-            <tr>
-              <td>1,008</td>
-              <td>Fusce</td>
-              <td>nec</td>
-              <td>tellus</td>
-              <td>sed</td>
-            </tr>
-            <tr>
-              <td>1,009</td>
-              <td>augue</td>
-              <td>semper</td>
-              <td>porta</td>
-              <td>Mauris</td>
-            </tr>
-            <tr>
-              <td>1,010</td>
-              <td>massa</td>
-              <td>Vestibulum</td>
-              <td>lacinia</td>
-              <td>arcu</td>
-            </tr>
-            <tr>
-              <td>1,011</td>
-              <td>eget</td>
-              <td>nulla</td>
-              <td>Class</td>
-              <td>aptent</td>
-            </tr>
-            <tr>
-              <td>1,012</td>
-              <td>taciti</td>
-              <td>sociosqu</td>
-              <td>ad</td>
-              <td>litora</td>
-            </tr>
-            <tr>
-              <td>1,013</td>
-              <td>torquent</td>
-              <td>per</td>
-              <td>conubia</td>
-              <td>nostra</td>
-            </tr>
-            <tr>
-              <td>1,014</td>
-              <td>per</td>
-              <td>inceptos</td>
-              <td>himenaeos</td>
-              <td>Curabitur</td>
-            </tr>
-            <tr>
-              <td>1,015</td>
-              <td>sodales</td>
-              <td>ligula</td>
-              <td>in</td>
-              <td>libero</td>
-            </tr>
-          </tbody>
-        </table>
+	
+	 
+      
       </div>
+	   <p class="text-justify font-weight-normal text-monospace">
+	  livE (Online java exercise ) sebagai Sarana meningkatkan kualitas praktikum pada mata kuliah Praktikum Dasar Pemrograman. Tersedianya livE akan memudahkan mahasiswa untuk melakukan praktikum Dasar pemrograman.
+<ol><li> Mahasiswa dapat melakukan langkah-langkah percobaan dan latihan pada website tanpa harus melakukan instalasi perangkat lunak pada masing-masing Komputer mahasiswa</li>
+<li> Meningkatnnya efektifitas praktikum pada perkuliahan Praktikum Dasar Pemrograman pada Program Studi D-III Teknik Informatika Jurusan Teknologi Informasi Politeknik Negeri Malang</li></ol>
+	  </p>
+	  <p class="text-justify font-weight-normal text-monospace">Didasari dari banyaknya mahasiswa yang mengalami kesusahan mengenai instalasi dan konfigurasi perangkat praktikum seperti JDK di laptop masing-masing. Hal ini biasaya terjadi pada mahasiswa semester awal yang berasal dari SMA dan belum familiar dengan pemrograman komputer. jika mahasiswa tersebut tidak dapat mengonfigurasi perangkat lunak penunjang praktikum, mengakibatkan mahasiswa tersebut tidak dapat melakukan langkah percobaan dan latihan praktikum. Permasalahan instalasi dan pengkonfigurasian perangkat lunak praktikum tersebut dilakukan dengan pendampingan dan pengarahan oleh dosen kepada mahasiswa dalam proses instalasi. Ketika mahasiswa tidak segera membenarkan instalasi dan konfigurasi perangkat lunak yang digunakan untuk praktikum, maka mahasiswa tersebut tidak akan bisa melakukan langkah-langkah percobaan maupun latihan-latihan yang ada pada panduan penuntun praktikum (jobsheet)</P>
+      
     </main>
 
 
