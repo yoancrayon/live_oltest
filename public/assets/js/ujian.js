@@ -291,7 +291,7 @@ $(document).ready(function() {
                         {"data": "durasi",width:30},
 						{"data": "jumlah_peserta",width:30},
 						{ "render": function ( data, type, row ){
-							 var html  = "<a href=\"javascript:void(0);\" class=\"edit_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-namaujian=\""+row["nama_ujian"]+"\" data-tglmulai=\""+row["tanggal_mulai"]+"\" data-tglselesai=\""+row["tanggal_selesai"]+"\" data-durasi=\""+row["durasi"]+"\" data-isenable=\""+row["is_enable"]+"\"  >Mulai Ujian</a> "
+							 var html  = "<a href=\"javascript:void(0);\" class=\"mulaiujian_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-namaujian=\""+row["nama_ujian"]+"\" data-tglmulai=\""+row["tanggal_mulai"]+"\" data-tglselesai=\""+row["tanggal_selesai"]+"\" data-durasi=\""+row["durasi"]+"\" data-isenable=\""+row["is_enable"]+"\"  >Mulai Ujian</a> "
 						
 								
 								return html
@@ -310,6 +310,57 @@ $(document).ready(function() {
 	table.buttons().container()
         .appendTo( '#table_wrapper .col-auto:eq(0)' );	
 	
-	
+	$('#tablepeserta').on('click','.mulaiujian_record',function(){
+		var idujian=$(this).data('idujian');
+		
+		
+		$.ajax({
+            url: base_url+"public/ujian/persiapanujianpeserta",
+            type: "POST",
+            data: {
+                "idujian": idujian
+            },
+            dataType: "html",
+            success: function (response) {
+				
+				if (response == "success") {
+					Swal.fire({
+                    type: 'success',
+                    title: 'SUKSES',
+                    text: 'Ujian Berhasil Disiapkan\n Anda akan dialihkan ke halaman ujian dalam 3 detik',
+                    timer: 3000,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                  })
+                  .then (function() {
+					 Swal.close();
+					 window.location.href = base_url+"public/test";
+                  });
+				}
+				else{
+					Swal.fire({
+                    type: 'error',
+                    title: 'Aww Gagal',
+                    text: 'Silahkan Cek Lagi Data yang Dimasukkan!'
+                  });
+				}
+				
+                console.log(response);
+            },
+            error:function(response){
+
+                  Swal.fire({
+                    type: 'error',
+                    title: 'Opps!',
+                    text: 'server error!'
+                  });
+
+                  console.log(response);
+
+              }
+        });
+		
+		
+	});
 	
 });

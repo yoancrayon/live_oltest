@@ -8,6 +8,8 @@ $(document).ready(function() {
 	}
 	
 	
+
+	
 	var table = $('#table').DataTable({
 		"dom": '<"top"Bf>rt<"bottom"lp><"clear">',
                     "processing": true, //Feature control the processing indicator.

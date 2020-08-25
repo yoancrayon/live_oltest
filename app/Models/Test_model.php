@@ -87,4 +87,28 @@ class Test_model extends Model
 		
 	}
 	
+	public function prepareujian($idujian,$username)
+	{
+		
+		$db = db_connect('default');
+		$textq="call prepareujian('".$idujian."','".$username."')";
+		
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+	}
+	
+	public function getjawabanpesertaujian($idujian,$idpertanyaan,$username)
+	{
+		$db = db_connect('default');
+		$query=$db->query("call getjawabanpesertaujian('".$idujian."','".$idpertanyaan."','".$username."')");
+		$row   = $query->getResult();
+		return $row;
+		
+		
+		
+	}
+	
+	
 }

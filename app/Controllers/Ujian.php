@@ -332,4 +332,38 @@ class Ujian extends BaseController
 		return json_encode($listujian);
 	}
 	
+	public function persiapanujianpeserta()
+	{
+		$testmodel=new Test_model();
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost('idujian');
+		$session = session();
+		$usersession=$session->get('username');
+		$session->set('idujian', $idujian);
+		$session->set('start_ujian', time());
+		$session->set('is_ujian', true);
+		
+		$listujian=$ujianmodel->getlistujian($idujian,"x");
+		
+		foreach($listujian as $row){
+			$durasi=$row->durasi;
+			
+		}
+		$session->set('durasiujian', $durasi);
+		
+		
+		$res=$testmodel->prepareujian($idujian,$usersession);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+	}
+	
+	
+	
 }
