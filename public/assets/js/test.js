@@ -40,7 +40,7 @@ ace.config.set("basePath", base_url+"public/assets/js/ace");
 	  window.document.getElementById("pertanyaan").innerHTML=serverdataObject[0].pertanyaan;
 	  editor.setValue(serverdataObject[0].template_jawab);
 	  
-	  
+	  var noaktif=1;
 	  
 	  
     function timedCount()
@@ -68,20 +68,20 @@ ace.config.set("basePath", base_url+"public/assets/js/ace");
 	}
 	  
 	 //alert($('.active').html()) 
-	  
+	
 	  
 	 document.querySelectorAll('#btnnourut').forEach(item => {
 		item.addEventListener('click', event => {
     //handle click
-		alert(item.innerHTML); 
+	//	alert(item.innerHTML); 
 		window.document.getElementById("soalke").innerHTML="Soal "+serverdataObject[item.innerHTML-1].no_urut; 
 	  window.document.getElementById("pertanyaan").innerHTML=serverdataObject[item.innerHTML-1].pertanyaan;
 	  editor.setValue(serverdataObject[item.innerHTML-1].template_jawab);
 	   $(".btn").removeClass("btn-success");
 	   item.className +=" btn-success"
+	   var noaktif=item.innerHTML;
 	
-	
-	
+	console.log(item.innerHTML);
 		})
 	}); 
   

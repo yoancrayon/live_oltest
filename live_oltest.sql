@@ -24,15 +24,42 @@ CREATE TABLE `jawaban_peserta_ujian` (
   `id_pertanyaan` varchar(35) NOT NULL,
   `id_ujian` varchar(35) NOT NULL,
   `username` varchar(35) NOT NULL,
+  `no_urut` int(11) DEFAULT NULL,
   `pertanyaan` text DEFAULT NULL,
   `template_jawab` text DEFAULT NULL,
   `link_gambar` varchar(250) DEFAULT NULL,
   `jawaban` text DEFAULT NULL,
   `waktu_input` datetime DEFAULT current_timestamp(),
+  `nilai_jawab` double DEFAULT NULL,
   PRIMARY KEY (`id_pertanyaan`,`id_ujian`,`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `jawaban_peserta_ujian` */
+
+insert  into `jawaban_peserta_ujian`(`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`) values 
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,NULL,'2020-08-25 21:37:42',NULL),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,NULL,'2020-08-25 21:37:42',NULL);
+
+/*Table structure for table `log_jawaban_peserta_ujian` */
+
+DROP TABLE IF EXISTS `log_jawaban_peserta_ujian`;
+
+CREATE TABLE `log_jawaban_peserta_ujian` (
+  `id_pertanyaan` varchar(35) NOT NULL,
+  `id_ujian` varchar(35) NOT NULL,
+  `username` varchar(35) NOT NULL,
+  `no_urut` int(11) DEFAULT NULL,
+  `pertanyaan` text DEFAULT NULL,
+  `template_jawab` text DEFAULT NULL,
+  `link_gambar` varchar(250) DEFAULT NULL,
+  `jawaban` text DEFAULT NULL,
+  `waktu_input` datetime DEFAULT NULL,
+  `nilai_jawab` double DEFAULT NULL,
+  `waktu_log` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_pertanyaan`,`id_ujian`,`username`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `log_jawaban_peserta_ujian` */
 
 /*Table structure for table `m_jenis_user` */
 
@@ -60,15 +87,16 @@ CREATE TABLE `pengguna` (
   `password` varchar(100) DEFAULT NULL,
   `k_jenis_user` varchar(3) DEFAULT NULL,
   `nama` varchar(100) DEFAULT NULL,
+  `kelas` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `pengguna` */
 
-insert  into `pengguna`(`username`,`password`,`k_jenis_user`,`nama`) values 
-('yogi.kur','12345','1','Yogi Kurniwan'),
-('1234567','55SRfZFUpFHgCJK','3','mhs1'),
-('12345678','mhs3','3','mhs2');
+insert  into `pengguna`(`username`,`password`,`k_jenis_user`,`nama`,`kelas`) values 
+('yogi.kur','12345','1','Yogi Kurniwan',NULL),
+('1234567','1234567','3','mhs1',NULL),
+('12345678','mhs3','3','mhs2',NULL);
 
 /*Table structure for table `pertanyaan` */
 
@@ -88,7 +116,8 @@ CREATE TABLE `pertanyaan` (
 /*Data for the table `pertanyaan` */
 
 insert  into `pertanyaan`(`id_pertanyaan`,`id_ujian`,`pertanyaan`,`template_jawab`,`waktu_input`,`username`,`link_gambar`) values 
-('20200823114043','20200820 115341','Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-23 11:40:43','yogi.kur',NULL);
+('20200823114043','20200820 115341','Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-23 11:40:43','yogi.kur',NULL),
+('20200825191637','20200820 115341','Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 19:16:37','yogi.kur',NULL);
 
 /*Table structure for table `peserta_ujian` */
 
@@ -108,8 +137,8 @@ CREATE TABLE `peserta_ujian` (
 /*Data for the table `peserta_ujian` */
 
 insert  into `peserta_ujian`(`id_ujian`,`username_peserta`,`total_nilai`,`waktu_start_ujian`,`waktu_end_ujian`,`waktu_input`,`username_input`) values 
-('20200820 115341','12345678',NULL,NULL,NULL,'2020-08-21 00:35:46','yogi.kur'),
-('20200820 115341','1234567',NULL,NULL,NULL,'2020-08-21 00:02:11','yogi.kur');
+('20200820 115341','1234567',NULL,NULL,NULL,'2020-08-25 18:58:50','yogi.kur'),
+('20200820 115341','12345678',NULL,NULL,NULL,'2020-08-25 18:58:50','yogi.kur');
 
 /*Table structure for table `ujian` */
 
@@ -129,7 +158,7 @@ CREATE TABLE `ujian` (
 /*Data for the table `ujian` */
 
 insert  into `ujian`(`id_ujian`,`nama_ujian`,`tanggal_mulai`,`tanggal_selesai`,`durasi`,`waktu_create`,`username`) values 
-('20200820 115341','Ujian Test 2-2','2020-08-21','2020-08-28',30,'2020-08-21 00:15:54','yogi.kur');
+('20200820 115341','Ujian Test 2-2','2020-08-21','2020-08-25',30,'2020-08-24 22:37:53','yogi.kur');
 
 /* Procedure structure for procedure `delpengguna` */
 
@@ -293,6 +322,27 @@ IF errstate='00000' THEN
 	END IF;       
 	SELECT errstate;
 
+
+end */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `getjawabanpesertaujian` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `getjawabanpesertaujian` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `getjawabanpesertaujian`(
+inid_ujian varchar(35),
+inid_pertanyaan  VARCHAR(35),
+inusername  VARCHAR(45)
+)
+begin
+select  id_pertanyaan,id_ujian,username,no_urut,pertanyaan,template_jawab from jawaban_peserta_ujian
+where id_ujian=inid_ujian or inid_ujian='' or inid_ujian='x' or inid_ujian is null
+and username=inusername or inusername='' OR inusername='x' OR inusername IS NULL
+and id_pertanyaan=inid_pertanyaan or inid_pertanyaan='' OR inid_pertanyaan='x' OR inid_pertanyaan IS NULL
+order by no_urut asc;
 
 end */$$
 DELIMITER ;
@@ -645,6 +695,52 @@ UPDATE ujian SET nama_ujian=innama_ujian
 WHERE id_ujian=inid_ujian;
 END IF;
 
+
+IF errstate='00000' THEN 
+	COMMIT; 
+	ELSE         
+	ROLLBACK;
+	END IF;       
+	SELECT errstate;
+
+
+end */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `prepareujian` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `prepareujian` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `prepareujian`(
+in inid_ujian varchar(45),
+IN inusername varchar(60)
+
+
+
+)
+begin
+DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                       	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                       	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+        DECLARE CONTINUE HANDLER FOR NOT FOUND                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+        SET errstate = '00001' ;     
+        DECLARE CONTINUE HANDLER FOR SQLWARNING                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        SET errstate = '00002';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        DECLARE CONTINUE HANDLER FOR SQLEXCEPTION                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        SET errstate = '00003';
+        SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+        START TRANSACTION; 
+	
+
+if not exists(select * from jawaban_peserta_ujian where id_ujian=inid_ujian and username= inusername   ) then
+INSERT INTO jawaban_peserta_ujian ( id_pertanyaan,id_ujian,username,no_urut,pertanyaan,template_jawab,link_gambar)
+SELECT id_pertanyaan,id_ujian,inusername username, row_number() over (PARTITION BY id_ujian)AS no_urut,pertanyaan,template_jawab,link_gambar 
+FROM pertanyaan
+WHERE id_ujian=inid_ujian
+ORDER BY RAND();
+end if;
 
 IF errstate='00000' THEN 
 	COMMIT; 
