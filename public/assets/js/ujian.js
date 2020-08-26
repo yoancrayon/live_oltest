@@ -215,9 +215,11 @@ $(document).ready(function() {
         showCancelButton: true,
         confirmButtonColor: "#DD6B55",
         confirmButtonText: "Hapus!",
-        closeOnConfirm: false
-		}).then((result)=>{
+        closeOnConfirm: false,
+		  dangerMode: true,
+		}).then(response=>{
 		
+		 if (response.value){
 		$.ajax({
             url: base_url+"public/ujian/hapusujian",
             type: "POST",
@@ -263,7 +265,7 @@ $(document).ready(function() {
 
               }
         });
-		
+		} 
 		
 		
 		});

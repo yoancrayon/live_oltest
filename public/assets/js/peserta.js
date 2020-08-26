@@ -197,6 +197,8 @@ $(document).ready(function() {
         closeOnConfirm: false
 		}).then((result)=>{
 		
+		if (result.value){
+		
 		$.ajax({
             url: base_url+"public/ujian/delerpesertaujian",
             type: "POST",
@@ -244,7 +246,7 @@ $(document).ready(function() {
 
               }
         });
-		
+		}
 		
 		
 		});

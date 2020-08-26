@@ -28,20 +28,17 @@ ace.config.set("basePath", base_url+"public/assets/js/ace");
 	  
 	  var c=window.document.getElementById("durasiujian").value*60;
 	  
-	  timedCount();
+	  
 	  
 	  var jsonString = localStorage.getItem("myServerData");
+      var serverdataObject = JSON.parse(jsonString);
 
-	 var serverdataObject = JSON.parse(jsonString);
-
-     console.log(serverdataObject);
-	  
 	  window.document.getElementById("soalke").innerHTML="Soal "+serverdataObject[0].no_urut; 
 	  window.document.getElementById("pertanyaan").innerHTML=serverdataObject[0].pertanyaan;
 	  editor.setValue(serverdataObject[0].template_jawab);
-	  
+	  serverdataObject[0].initialtime=new Date();
 	  var noaktif=1;
-	  
+	  timedCount();
 	  
     function timedCount()
 	{
@@ -72,17 +69,44 @@ ace.config.set("basePath", base_url+"public/assets/js/ace");
 	  
 	 document.querySelectorAll('#btnnourut').forEach(item => {
 		item.addEventListener('click', event => {
-    //handle click
-	//	alert(item.innerHTML); 
-		window.document.getElementById("soalke").innerHTML="Soal "+serverdataObject[item.innerHTML-1].no_urut; 
+   
+	  window.document.getElementById("soalke").innerHTML="Soal "+serverdataObject[item.innerHTML-1].no_urut; 
 	  window.document.getElementById("pertanyaan").innerHTML=serverdataObject[item.innerHTML-1].pertanyaan;
 	  editor.setValue(serverdataObject[item.innerHTML-1].template_jawab);
 	   $(".btn").removeClass("btn-success");
 	   item.className +=" btn-success"
 	   var noaktif=item.innerHTML;
-	
-	console.log(item.innerHTML);
+	   
+	   if (!serverdataObject[item.innerHTML-1].hasOwnProperty('initialtime')){
+	   
+		serverdataObject[item.innerHTML-1].initialtime=new Date();
+	   }
+		console.log(serverdataObject);
+		
+		
+		
 		})
 	}); 
   
 });
+
+
+/* var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+setInterval(setTime, 1000);
+
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+} */

@@ -250,7 +250,7 @@ $(document).ready(function() {
         confirmButtonText: "Hapus!",
         closeOnConfirm: false
 		}).then((result)=>{
-		
+		if (result.value){
 		$.ajax({
             url: base_url+"public/ujian/hapuspertanyaan",
             type: "POST",
@@ -299,7 +299,7 @@ $(document).ready(function() {
               }
         });
 		
-		
+		}
 		
 		});
 		
