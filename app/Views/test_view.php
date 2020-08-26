@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
@@ -19,7 +19,7 @@
 
     #editor {
       width: auto;
-      height: 250px;
+      height: 150px;
     }
 
 
@@ -97,17 +97,17 @@
 		
 	 </div>
 	 <div class="form-group">
-		<label for="exampleFormControlInput1">Input</label>
-		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="input">
+		<label for="inputcode">Input</label>
+		<input type="text" class="form-control" id="inputcode" placeholder="input">
 	 </div>
-	 <button type="submit" class="btn btn-primary">RUN KODE</button>
-	 <button type="button" class="btn btn-danger">Reset KODE</button>
+	 <button type="button" class="btn btn-primary" id="runcode">RUN KODE</button>
+	 <button type="button" class="btn btn-danger" id="resetcode">Reset KODE</button>
 	 
 	 <div class="form-group">
 	 <label for="text-output">Output</label>
 	 <textarea class="form-control" id="text-output" rows="3" disabled="true"></textarea>
 	 </div>
-	 <button type="submit" class="btn btn-primary pull-rightalign-self-end ml-auto justify-content-end" id="simpanjawaban">Simpan Jawaban</button>
+	 <button type="button" class="btn btn-primary pull-rightalign-self-end ml-auto justify-content-end" id="simpanjawaban">Simpan Jawaban</button>
 	</form>
     </div>
 	</div>

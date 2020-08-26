@@ -110,5 +110,16 @@ class Test_model extends Model
 		
 	}
 	
+	public function updatejawaban($data){
+ 
+		$db = db_connect('default');
+		$textq="call updatejawabanpesertaujian('".$data["idujian"]."','".$data["idpertanyaan"]."','".$data["username"]."',".$this->db->escape($data["jawaban"]).",".$this->db->escape($data["inputjawaban"]).",".$this->db->escape($data["outputjawab"]).",'".$data["initialtime"]."',".$data["intimer"].",".$data["incountdown_timer"].")";
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+		
+	}
+	
 	
 }

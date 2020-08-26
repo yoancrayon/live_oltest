@@ -22,7 +22,7 @@ $(document).ready(function() {
       editor.setOption("wrap", "free");
       editor.setOptions({
         enableBasicAutocompletion: false,
-        enableSnippets: false,
+        enableSnippets: true,
         enableLiveAutocompletion: false
       });
 	  editor.onPaste = function() { return ""; }
@@ -121,6 +121,83 @@ $(document).ready(function() {
 	} else {
     return valString;
 		}
+	}
+	
+	$("#resetcode").click( function() {
+	editor.setValue(serverdataObject[noaktif-1].template_jawab);
+	});
+	
+	$("#runcode").click( function() {
+		
+		
+		$.ajax({
+            url: base_url+"public/test/runcode",
+            type: "POST",
+            data: {
+				"kode":editor.getValue(),
+				"input":window.document.getElementById("inputcode").value
+				
+            },
+            dataType: "html",
+            success: function (response) {
+				
+				window.document.getElementById("text-output").value=response;
+                console.log(response);
+				simpanjawaban()
+            },
+            error:function(response){
+
+                  Swal.fire({
+                    type: 'error',
+                    title: 'Opps!',
+                    text: 'server error!'
+                  });
+
+                  console.log(response);
+
+              }
+        });		
+		
+	
+		
+	
+	});
+	
+	function simpanjawaban()
+	{
+		
+		$.ajax({
+            url: base_url+"public/test/simpanjawaban",
+            type: "POST",
+            data: {
+				
+				"idpertanyaan":serverdataObject[noaktif-1].id_pertanyaan,
+				"jawaban":editor.getValue(),
+				"inputjawaban":window.document.getElementById("inputcode").value,
+				"outputjawab":window.document.getElementById("text-output").value,
+				"initialtime":serverdataObject[noaktif-1].initialtime.getFullYear()+"-"+("0" + (serverdataObject[noaktif-1].initialtime.getMonth() + 1)).slice(-2)+"-"+("0" + serverdataObject[noaktif-1].initialtime.getDate()).slice(-2)+ " " +serverdataObject[noaktif-1].initialtime.getHours()+":"+serverdataObject[noaktif-1].initialtime.getMinutes()+":"+serverdataObject[noaktif-1].initialtime.getSeconds(),
+				"intimer":totalSeconds,
+				"incountdown_timer":c
+				
+            },
+            dataType: "html",
+            success: function (response) {
+				
+				//window.document.getElementById("text-output").value=response;
+                console.log(response);
+            },
+            error:function(response){
+
+                console.log(response);
+
+              }
+        });	
+		
+		
+		
+		
+		
+		
 	}
 	
   
