@@ -28,7 +28,13 @@
     var myServerData = <?= json_encode($pertanyaan)?>; // Don't forget to sanitize
                                                  //server data
 	localStorage.setItem("myServerData", JSON.stringify(myServerData));											 
-												 
+	 window.onbeforeunload = function(e) {
+        // Turning off the event
+        e.preventDefault();
+    };
+
+	
+					
 </script>
 
 
@@ -76,6 +82,7 @@
 
 	</div>
       <div class="card-body">
+		<span>Waktu Pengerjaan : </span><span id="minutes"></span>:<span id="seconds"></span>
         <h3 class="card-title" id="soalke">Soal 1
 					</h3>
       

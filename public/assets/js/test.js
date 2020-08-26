@@ -10,7 +10,7 @@ $(document).ready(function() {
 	
 	
 
-ace.config.set("basePath", base_url+"public/assets/js/ace");
+	ace.config.set("basePath", base_url+"public/assets/js/ace");
 	ace.require("ace/ext/language_tools");
 	var editor = ace.edit("editor");
       editor.setFontSize(12);
@@ -25,7 +25,20 @@ ace.config.set("basePath", base_url+"public/assets/js/ace");
         enableSnippets: false,
         enableLiveAutocompletion: false
       });
-	  
+	  editor.onPaste = function() { return ""; }
+	  editor.commands.addCommand({
+		name: "breakTheEditor", 
+		bindKey: "ctrl-c|ctrl-v|ctrl-x|ctrl-shift-v|shift-del|cmd-c|cmd-v|cmd-x", 
+		exec: function() {} 
+		});
+	  !["dragenter", "dragover", "dragend", "dragstart", "dragleave", "drop"
+		].forEach(function(eventName) {
+		editor.container.addEventListener(eventName, function(e) {
+        e.stopPropagation()
+		}, true)
+		});
+		editor.setOption("dragEnabled", false);	
+		
 	  var c=window.document.getElementById("durasiujian").value*60;
 	  
 	  
@@ -37,6 +50,7 @@ ace.config.set("basePath", base_url+"public/assets/js/ace");
 	  window.document.getElementById("pertanyaan").innerHTML=serverdataObject[0].pertanyaan;
 	  editor.setValue(serverdataObject[0].template_jawab);
 	  serverdataObject[0].initialtime=new Date();
+	  serverdataObject[0].counter=0;
 	  var noaktif=1;
 	  timedCount();
 	  
@@ -69,44 +83,49 @@ ace.config.set("basePath", base_url+"public/assets/js/ace");
 	  
 	 document.querySelectorAll('#btnnourut').forEach(item => {
 		item.addEventListener('click', event => {
-   
+	  serverdataObject[noaktif-1].counter=totalSeconds;
 	  window.document.getElementById("soalke").innerHTML="Soal "+serverdataObject[item.innerHTML-1].no_urut; 
 	  window.document.getElementById("pertanyaan").innerHTML=serverdataObject[item.innerHTML-1].pertanyaan;
 	  editor.setValue(serverdataObject[item.innerHTML-1].template_jawab);
 	   $(".btn").removeClass("btn-success");
 	   item.className +=" btn-success"
-	   var noaktif=item.innerHTML;
+	   noaktif=item.innerHTML;
 	   
 	   if (!serverdataObject[item.innerHTML-1].hasOwnProperty('initialtime')){
 	   
 		serverdataObject[item.innerHTML-1].initialtime=new Date();
+		serverdataObject[item.innerHTML-1].counter=0;
 	   }
+	   totalSeconds=serverdataObject[item.innerHTML-1].counter;
 		console.log(serverdataObject);
 		
 		
 		
 		})
-	}); 
+	});
+	var minutesLabel = document.getElementById("minutes");
+	var secondsLabel = document.getElementById("seconds");
+	var totalSeconds = 0;
+	setInterval(setTime, 1000);
+	
+	function setTime() {
+	++totalSeconds;
+	secondsLabel.innerHTML = pad(totalSeconds % 60);
+	minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+	}
+
+	function pad(val) {
+	var valString = val + "";
+	if (valString.length < 2) {
+    return "0" + valString;
+	} else {
+    return valString;
+		}
+	}
+	
   
 });
 
 
-/* var minutesLabel = document.getElementById("minutes");
-var secondsLabel = document.getElementById("seconds");
-var totalSeconds = 0;
-setInterval(setTime, 1000);
-
-function setTime() {
-  ++totalSeconds;
-  secondsLabel.innerHTML = pad(totalSeconds % 60);
-  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-}
-
-function pad(val) {
-  var valString = val + "";
-  if (valString.length < 2) {
-    return "0" + valString;
-  } else {
-    return valString;
-  }
-} */
+function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+$(document).on("keydown", disableF5);
