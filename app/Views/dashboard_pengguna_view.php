@@ -214,9 +214,9 @@
 		</div>
 		
 		
-		<div class="form-group input-group mb-3">
+		<div class="form-group input-group mb-3" style="display:  <?php  if ($k_jenis_user != "1")  {echo "none";} else { echo "blok";} ?>;">
 		<label class="input-group-text" for="modalselect" >Jenis User</label>
-		<select class="custom-select" id="modalselect">
+		<select class="custom-select" id="modalselect" >
 		<?php
 				//echo '<option  value="x">Seluruh Jenis Pengguna</option>';
 				foreach ($dropdown_jenis_Pengguna as $row)
