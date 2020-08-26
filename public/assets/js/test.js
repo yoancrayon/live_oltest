@@ -163,6 +163,16 @@ $(document).ready(function() {
 	
 	});
 	
+	
+	$("#simpanjawaban").click( function() {
+		
+		
+		
+	});
+	
+	
+	
+	
 	function simpanjawaban()
 	{
 		
