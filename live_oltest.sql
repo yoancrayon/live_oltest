@@ -31,23 +31,28 @@ CREATE TABLE `jawaban_peserta_ujian` (
   `jawaban` text DEFAULT NULL,
   `waktu_input` datetime DEFAULT current_timestamp(),
   `nilai_jawab` double DEFAULT NULL,
+  `input_jawaban` varchar(100) DEFAULT NULL,
+  `output_jawab` text DEFAULT NULL,
+  `initial_time` datetime DEFAULT NULL,
+  `timer` int(11) DEFAULT NULL,
+  `countdown_timer` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_pertanyaan`,`id_ujian`,`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `jawaban_peserta_ujian` */
 
-insert  into `jawaban_peserta_ujian`(`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`) values 
-('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,NULL,'2020-08-25 21:37:42',NULL),
-('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,NULL,'2020-08-25 21:37:42',NULL);
+insert  into `jawaban_peserta_ujian`(`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`,`input_jawaban`,`output_jawab`,`initial_time`,`timer`,`countdown_timer`) values 
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:5: error: \'.class\' expected\n        int b=\n            ^\n1 error\n','2020-08-26 22:34:53',20,1779),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nSystem.out.println(\"0810680064\")\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','Main.java:5: error: \';\' expected\nSystem.out.println(\"0810680064\")\n                                ^\n1 error\n','2020-08-26 22:31:47',53,948);
 
 /*Table structure for table `log_jawaban_peserta_ujian` */
 
 DROP TABLE IF EXISTS `log_jawaban_peserta_ujian`;
 
 CREATE TABLE `log_jawaban_peserta_ujian` (
-  `id_pertanyaan` varchar(35) NOT NULL,
-  `id_ujian` varchar(35) NOT NULL,
-  `username` varchar(35) NOT NULL,
+  `id_pertanyaan` varchar(35) DEFAULT NULL,
+  `id_ujian` varchar(35) DEFAULT NULL,
+  `username` varchar(35) DEFAULT NULL,
   `no_urut` int(11) DEFAULT NULL,
   `pertanyaan` text DEFAULT NULL,
   `template_jawab` text DEFAULT NULL,
@@ -55,11 +60,39 @@ CREATE TABLE `log_jawaban_peserta_ujian` (
   `jawaban` text DEFAULT NULL,
   `waktu_input` datetime DEFAULT NULL,
   `nilai_jawab` double DEFAULT NULL,
-  `waktu_log` datetime DEFAULT current_timestamp(),
-  PRIMARY KEY (`id_pertanyaan`,`id_ujian`,`username`)
+  `input_jawaban` varchar(100) DEFAULT NULL,
+  `output_jawab` text DEFAULT NULL,
+  `initial_time` datetime DEFAULT NULL,
+  `timer` int(11) DEFAULT NULL,
+  `countdown_timer` int(11) DEFAULT NULL,
+  `waktu_log` datetime DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `log_jawaban_peserta_ujian` */
+
+insert  into `log_jawaban_peserta_ujian`(`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`,`input_jawaban`,`output_jawab`,`initial_time`,`timer`,`countdown_timer`,`waktu_log`) values 
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=5;\r\n        int b=10;\r\n        int c=a+b;\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','15\n','2020-08-26 22:17:58',20,1779,'2020-08-26 22:19:07'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n\r\n    \r\n\r\n    public static void main(String[] args) {\r\n\r\n        int a=5;\r\n\r\n        int b=10;\r\n\r\n        int c=a+b;\r\n\r\n        System.out.println(c);\r\n\r\n    }\r\n\r\n    \r\n\r\n}','2020-08-25 21:37:42',NULL,'','15\r\n','2020-08-26 22:17:58',20,1779,'2020-08-26 22:26:18'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n\r\n    \r\n\r\n    public static void main(String[] args) {\r\n\r\n        int a=5;\r\n\r\n        int b=10;\r\n\r\n        int c=a+b\r\n\r\n        System.out.println(c);\r\n\r\n    }\r\n\r\n    \r\n\r\n}','2020-08-25 21:37:42',NULL,'','Main.java:6: error: \';\' expected\n        int c=a+b\n                 ^\n1 error\n','2020-08-26 22:17:58',418,1381,'2020-08-26 22:29:54'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=5;\r\n        int b=10;\r\n        int c=a+b\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:6: error: \';\' expected\n        int c=a+b\n                 ^\n1 error\n','2020-08-26 22:17:58',686,1113,'2020-08-26 22:30:50'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=5;\r\n        int b=10;\r\n        int c=a+b\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:6: error: \';\' expected\n        int c=a+b\n                 ^\n1 error\n','2020-08-26 22:17:58',741,1058,'2020-08-26 22:31:16'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=5;\r\n        int b=10;\r\n        int c=a+b\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:6: error: \';\' expected\n        int c=a+b\n                 ^\n1 error\n','2020-08-26 22:17:58',768,1031,'2020-08-26 22:31:29'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,NULL,'2020-08-25 21:37:42',NULL,NULL,NULL,NULL,NULL,NULL,'2020-08-26 22:32:09'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nSystem.out.println(\"0810680064\");\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','0810680064\n','2020-08-26 22:31:47',23,978,'2020-08-26 22:32:41'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=5;\r\n        int b=10;\r\n        int c=a+b;\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','15\n','2020-08-26 22:17:58',780,1019,'2020-08-26 22:35:14');
+
+/*Table structure for table `log_json_test` */
+
+DROP TABLE IF EXISTS `log_json_test`;
+
+CREATE TABLE `log_json_test` (
+  `id_ujian` varchar(35) DEFAULT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `json_text` text DEFAULT NULL,
+  `waktu_input` datetime DEFAULT current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `log_json_test` */
 
 /*Table structure for table `m_jenis_user` */
 
@@ -751,6 +784,69 @@ IF errstate='00000' THEN
 
 
 end */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `updatejawabanpesertaujian` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `updatejawabanpesertaujian` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `updatejawabanpesertaujian`(
+IN inid_ujian VARCHAR(45),
+IN inid_pertanyaan VARCHAR(45),
+IN inusername VARCHAR(60),
+IN injawaban text,
+IN ininput_jawaban varchar(100),
+IN inoutput_jawab text,
+IN ininitial_time datetime,
+IN intimer int,
+IN incountdown_timer int
+
+)
+BEGIN
+DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                       	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                       	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+        DECLARE CONTINUE HANDLER FOR NOT FOUND                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+        SET errstate = '00001' ;     
+        DECLARE CONTINUE HANDLER FOR SQLWARNING                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        SET errstate = '00002';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        DECLARE CONTINUE HANDLER FOR SQLEXCEPTION                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        SET errstate = '00003';
+        SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+        START TRANSACTION; 
+	
+
+if exists (select * from jawaban_peserta_ujian WHERE id_ujian=inid_ujian AND id_pertanyaan=id_pertanyaan AND username=inusername and jawaban is not null) then
+
+INSERT INTO `live_oltest`.`log_jawaban_peserta_ujian`
+(`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,
+`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`,`input_jawaban`,`output_jawab`,`initial_time`,`timer`,`countdown_timer`,`waktu_log`)
+SELECT `id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,
+`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`,`input_jawaban`,`output_jawab`,`initial_time`,`timer`,`countdown_timer`,now()
+FROM `live_oltest`.`jawaban_peserta_ujian`
+WHERE id_ujian=inid_ujian AND id_pertanyaan=inid_pertanyaan AND username=inusername
+;
+end if;
+
+UPDATE jawaban_peserta_ujian
+SET jawaban=injawaban,
+input_jawaban=ininput_jawaban,
+output_jawab=inoutput_jawab,
+initial_time=ininitial_time,
+timer=intimer,
+countdown_timer=incountdown_timer
+WHERE id_ujian=inid_ujian AND id_pertanyaan=inid_pertanyaan AND username=inusername
+;
+
+IF errstate='00000' THEN 
+	COMMIT; 
+	ELSE         
+	ROLLBACK;
+	END IF;       
+	SELECT errstate;
+END */$$
 DELIMITER ;
 
 /* Procedure structure for procedure `updpassworduser` */
