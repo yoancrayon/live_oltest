@@ -175,7 +175,26 @@ $(document).ready(function() {
 	
 	function simpanjawaban()
 	{
+		serverdataObject[noaktif-1].jawaban=editor.getValue();
+		serverdataObject[noaktif-1].inputjawaban=window.document.getElementById("inputcode").value;
+		serverdataObject[noaktif-1].outputjawab=window.document.getElementById("text-output").value;
+		serverdataObject[noaktif-1].timer=totalSeconds;
+		serverdataObject[noaktif-1].countdown_timer=c;
+		var logjawab={};
+		logjawab.jawaban=editor.getValue();
+		logjawab.inputjawaban=window.document.getElementById("inputcode").value;
+		logjawab.outputjawab=window.document.getElementById("text-output").value;
+		logjawab.timer=totalSeconds;
+		logjawab.countdown_timer=c;
 		
+		
+		  if (!serverdataObject[noaktif-1].hasOwnProperty('logjawab')){
+			  serverdataObject[noaktif-1].logjawab=logjawab;
+		  }
+		  else 
+		  {serverdataObject[noaktif-1].logjawab.push(logjawab);}
+		
+		console.log(JSON.stringify(logjawab));
 		$.ajax({
             url: base_url+"public/test/simpanjawaban",
             type: "POST",
@@ -204,7 +223,7 @@ $(document).ready(function() {
         });	
 		
 		
-		
+		console.log(serverdataObject);
 		
 		
 		
