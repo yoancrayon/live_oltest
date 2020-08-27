@@ -46,7 +46,7 @@
 
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-no p-0 shadow">
     <div class="container-fluid">
-        <a href="#" class="navbar-brand mr-3">LIVE Online Test</a>
+        <a href="#" class="navbar-brand mr-3">LIVE Online Java Exercise</a>
         
        <ul class="navbar-nav px-3">
   

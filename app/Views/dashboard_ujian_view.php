@@ -59,7 +59,7 @@
 <body>
  
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-no p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">LIVE Online Test</a>
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">LIVE Online Java Exercise</a>
 
  
    
