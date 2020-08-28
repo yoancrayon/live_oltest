@@ -99,11 +99,15 @@ $(document).ready(function() {
 	   $(".btn").removeClass("btn-success");
 	   if(!serverdataObject[item.innerHTML-1].is_simpan) {
 	   item.className +=" btn-success"
-	   }
-	   else{
-		$( "#runcode" ).prop( "disabled", false );
+	   $( "#runcode" ).prop( "disabled", false );
 		$("#simpanjawaban").prop( "disabled", true );
 		$("#resetcode").prop( "disabled", false );
+	   }
+	   else{
+		   console.log(serverdataObject[item.innerHTML-1].is_simpan);
+		$( "#runcode" ).prop( "disabled", true );
+		$("#simpanjawaban").prop( "disabled", true );
+		$("#resetcode").prop( "disabled", true );
 		   
 		   
 	   }
