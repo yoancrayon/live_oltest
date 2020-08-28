@@ -1,7 +1,0 @@
-Main.java:5: error: not a statement
-asdasd
-^
-Main.java:5: error: ';' expected
-asdasd
-      ^
-2 errors

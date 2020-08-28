@@ -51,9 +51,10 @@ $(document).ready(function() {
 	  editor.setValue(serverdataObject[0].template_jawab);
 	  serverdataObject[0].initialtime=new Date();
 	  serverdataObject[0].counter=0;
+	  serverdataObject[0].is_simpan=false;
 	  var noaktif=1;
 	  timedCount();
-	  
+	  $("#simpanjawaban").prop( "disabled", true );
     function timedCount()
 	{
 		var hours = parseInt( c / 3600 ) % 24;
@@ -87,9 +88,29 @@ $(document).ready(function() {
 	  window.document.getElementById("soalke").innerHTML="Soal "+serverdataObject[item.innerHTML-1].no_urut; 
 	  window.document.getElementById("pertanyaan").innerHTML=serverdataObject[item.innerHTML-1].pertanyaan;
 	  editor.setValue(serverdataObject[item.innerHTML-1].template_jawab);
+	  
+	  if (!serverdataObject[item.innerHTML-1].hasOwnProperty('is_simpan')){
+		  serverdataObject[item.innerHTML-1].is_simpan=false;
+	  }
+		
+		  
+		  
+		  
 	   $(".btn").removeClass("btn-success");
+	   if(!serverdataObject[item.innerHTML-1].is_simpan) {
 	   item.className +=" btn-success"
-	   noaktif=item.innerHTML;
+	   }
+	   else{
+		$( "#runcode" ).prop( "disabled", false );
+		$("#simpanjawaban").prop( "disabled", true );
+		$("#resetcode").prop( "disabled", false );
+		   
+		   
+	   }
+	   
+
+
+	  noaktif=item.innerHTML;
 	   
 	   if (!serverdataObject[item.innerHTML-1].hasOwnProperty('initialtime')){
 	   
@@ -98,11 +119,12 @@ $(document).ready(function() {
 	   }
 	   totalSeconds=serverdataObject[item.innerHTML-1].counter;
 		console.log(serverdataObject);
-		
-		
-		
+				
 		})
 	});
+	
+	
+	
 	var minutesLabel = document.getElementById("minutes");
 	var secondsLabel = document.getElementById("seconds");
 	var totalSeconds = 0;
@@ -144,6 +166,7 @@ $(document).ready(function() {
 				window.document.getElementById("text-output").value=response;
                 console.log(response);
 				simpanjawaban()
+				$("#simpanjawaban").prop( "disabled", false );
             },
             error:function(response){
 
@@ -166,7 +189,16 @@ $(document).ready(function() {
 	
 	$("#simpanjawaban").click( function() {
 		
+		serverdataObject[noaktif-1].is_simpan=true;
+		alert(serverdataObject[noaktif-1].is_simpan);
+		$('button').filter(function() {
+		var searchString = noaktif;
+		return ($(this).html().substring(0, searchString.length) == searchString);
+		}).addClass('btn-danger');
 		
+		$( "#runcode" ).prop( "disabled", true );
+		$("#simpanjawaban").prop( "disabled", true );
+		$("#resetcode").prop( "disabled", true );
 		
 	});
 	
@@ -180,7 +212,7 @@ $(document).ready(function() {
 		serverdataObject[noaktif-1].outputjawab=window.document.getElementById("text-output").value;
 		serverdataObject[noaktif-1].timer=totalSeconds;
 		serverdataObject[noaktif-1].countdown_timer=c;
-		var logjawab={};
+		/* var logjawab={};
 		logjawab.jawaban=editor.getValue();
 		logjawab.inputjawaban=window.document.getElementById("inputcode").value;
 		logjawab.outputjawab=window.document.getElementById("text-output").value;
@@ -192,9 +224,12 @@ $(document).ready(function() {
 			  serverdataObject[noaktif-1].logjawab=logjawab;
 		  }
 		  else 
-		  {serverdataObject[noaktif-1].logjawab.push(logjawab);}
+		  {
+			  serverdataObject[noaktif-1].logjawab.push(logjawab);
+	  
+		  }
 		
-		console.log(JSON.stringify(logjawab));
+		console.log(JSON.stringify(logjawab)); */
 		$.ajax({
             url: base_url+"public/test/simpanjawaban",
             type: "POST",
