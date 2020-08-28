@@ -92,29 +92,61 @@ $(document).ready(function() {
 	  if (!serverdataObject[item.innerHTML-1].hasOwnProperty('is_simpan')){
 		  serverdataObject[item.innerHTML-1].is_simpan=false;
 	  }
-		
+	  //tulis jawaban kalau sudah pernah jawab dan hasilnya
+	 if (serverdataObject[item.innerHTML-1].hasOwnProperty('jawaban')){
+		  //serverdataObject[item.innerHTML-1].is_simpan=false;
+		  editor.setValue(serverdataObject[item.innerHTML-1].jawaban);
+		  window.document.getElementById("text-output").value=serverdataObject[item.innerHTML-1].outputjawab;
+	  }
+	  else {
+		  window.document.getElementById("text-output").value="";
 		  
 		  
+	  }
 		  
+		  
+		 /*disable enable button*/ 
 	   $(".btn").removeClass("btn-success");
 	   if(!serverdataObject[item.innerHTML-1].is_simpan) {
 	   item.className +=" btn-success"
 	   $( "#runcode" ).prop( "disabled", false );
 		$("#simpanjawaban").prop( "disabled", true );
 		$("#resetcode").prop( "disabled", false );
+		$("#minutes").show();
+		$("#seconds").show();
+		$("#titik").show();
+		$("#minutesselesai").hide();
+		$("#secondsselesai").hide();
+		$("#titikselesai").hide();
+		
 	   }
 	   else{
-		   console.log(serverdataObject[item.innerHTML-1].is_simpan);
+		console.log(serverdataObject[item.innerHTML-1].is_simpan);
 		$( "#runcode" ).prop( "disabled", true );
 		$("#simpanjawaban").prop( "disabled", true );
 		$("#resetcode").prop( "disabled", true );
-		   
+		$("#minutes").hide();
+		$("#seconds").hide();
+		$("#titik").hide();
+		document.getElementById("secondsselesai").innerHTML= pad(serverdataObject[item.innerHTML-1].timer % 60);
+		document.getElementById("minutesselesai").innerHTML=pad(parseInt(serverdataObject[item.innerHTML-1].timer / 60));
+		$("#minutesselesai").show();
+		$("#secondsselesai").show();
+		$("#titikselesai").show();
 		   
 	   }
 	   
 
 
 	  noaktif=item.innerHTML;
+	  
+	  
+	  //disable enable tombol akhiri
+	   if (serverdataObject.length==noaktif)
+	  {$("#akhirujian").show();}
+		else
+		{$("#akhirujian").hide();}
+	   
 	   
 	   if (!serverdataObject[item.innerHTML-1].hasOwnProperty('initialtime')){
 	   
@@ -131,6 +163,7 @@ $(document).ready(function() {
 	
 	var minutesLabel = document.getElementById("minutes");
 	var secondsLabel = document.getElementById("seconds");
+	var titikLabel = document.getElementById("titik");
 	var totalSeconds = 0;
 	setInterval(setTime, 1000);
 	
@@ -194,7 +227,7 @@ $(document).ready(function() {
 	$("#simpanjawaban").click( function() {
 		
 		serverdataObject[noaktif-1].is_simpan=true;
-		alert(serverdataObject[noaktif-1].is_simpan);
+		
 		$('button').filter(function() {
 		var searchString = noaktif;
 		return ($(this).html().substring(0, searchString.length) == searchString);
@@ -203,6 +236,16 @@ $(document).ready(function() {
 		$( "#runcode" ).prop( "disabled", true );
 		$("#simpanjawaban").prop( "disabled", true );
 		$("#resetcode").prop( "disabled", true );
+		
+		$("#minutes").hide();
+		$("#seconds").hide();
+		$("#titik").hide();
+		
+		document.getElementById("secondsselesai").innerHTML= pad(serverdataObject[noaktif-1].timer % 60);
+		document.getElementById("minutesselesai").innerHTML=pad(parseInt(serverdataObject[noaktif-1].timer / 60));
+		$("#minutesselesai").show();
+		$("#secondsselesai").show();
+		$("#titikselesai").show();
 		
 	});
 	
@@ -216,7 +259,7 @@ $(document).ready(function() {
 		serverdataObject[noaktif-1].outputjawab=window.document.getElementById("text-output").value;
 		serverdataObject[noaktif-1].timer=totalSeconds;
 		serverdataObject[noaktif-1].countdown_timer=c;
-		/* var logjawab={};
+		var logjawab={};
 		logjawab.jawaban=editor.getValue();
 		logjawab.inputjawaban=window.document.getElementById("inputcode").value;
 		logjawab.outputjawab=window.document.getElementById("text-output").value;
@@ -225,7 +268,9 @@ $(document).ready(function() {
 		
 		
 		  if (!serverdataObject[noaktif-1].hasOwnProperty('logjawab')){
-			  serverdataObject[noaktif-1].logjawab=logjawab;
+			  var arrlogjawab=[];
+			arrlogjawab.push(logjawab);
+			  serverdataObject[noaktif-1].logjawab=arrlogjawab;
 		  }
 		  else 
 		  {
@@ -233,7 +278,7 @@ $(document).ready(function() {
 	  
 		  }
 		
-		console.log(JSON.stringify(logjawab)); */
+		//console.log(serverdataObject);
 		$.ajax({
             url: base_url+"public/test/simpanjawaban",
             type: "POST",
@@ -264,6 +309,12 @@ $(document).ready(function() {
 		
 		console.log(serverdataObject);
 		
+		
+		
+	}
+	
+	function akhiriujian( modeakhiri)
+	{
 		
 		
 	}

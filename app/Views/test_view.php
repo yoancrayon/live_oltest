@@ -82,7 +82,10 @@
 
 	</div>
       <div class="card-body">
-		<span>Waktu Pengerjaan : </span><span id="minutes"></span>:<span id="seconds"></span>
+		<span>Waktu Pengerjaan : </span>
+		<span id="minutes"></span><span id="titik">:</span><span id="seconds"></span>
+		<span id="minutesselesai" style="display:none"></span><span id="titikselesai" style="display:none">:</span><span id="secondsselesai" style="display:none"></span>
+		
         <h3 class="card-title" id="soalke">Soal 1
 					</h3>
       
@@ -107,7 +110,9 @@
 	 <label for="text-output">Output</label>
 	 <textarea class="form-control" id="text-output" rows="3" disabled="true"></textarea>
 	 </div>
-	 <button type="button" class="btn btn-primary pull-rightalign-self-end ml-auto justify-content-end" id="simpanjawaban">Simpan Jawaban</button>
+	 <button type="button" class="btn btn-primary pull-right align-self-end ml-auto justify-content-end" id="simpanjawaban">Simpan Jawaban</button>
+	 <button type="button" class="btn btn-info pull-right align-self-end ml-auto justify-content-end" id="akhirujian" style="display:none">Akhiri Ujian</button>
+	 
 	</form>
     </div>
 	</div>

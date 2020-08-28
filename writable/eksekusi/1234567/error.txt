@@ -1,0 +1,4 @@
+Main.java:5: error: '.class' expected
+        int b=
+            ^
+1 error
