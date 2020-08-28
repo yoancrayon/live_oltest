@@ -121,5 +121,13 @@ class Test_model extends Model
 		
 	}
 	
+	public function isupdlogjsontest($idujian,$username,$json)
+	{
+		$db = db_connect('default');
+		$textq="call insupdlogjsontest(".$this->db->escape($idujian).",".$this->db->escape($username).",".$this->db->escape($json).")";
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+	}
 	
 }

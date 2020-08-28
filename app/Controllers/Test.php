@@ -79,4 +79,22 @@ class Test extends BaseController
 		
 	}
 	
+	public function finalize()
+	{
+		$testmodel=new Test_model();
+		
+		$session = session();
+		
+		
+		$res=$testmodel->isupdlogjsontest($session->get('idujian'),$session->get('username'),$this->request->getPost('json'));
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+	}
+	
 }

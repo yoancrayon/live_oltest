@@ -67,6 +67,7 @@ $(document).ready(function() {
 		{
 				
 					$('#iTimeShow').html('Quiz Time Completed!');
+					waktuhabis();
 					return false;
 					
 		}
@@ -313,9 +314,106 @@ $(document).ready(function() {
 		
 	}
 	
-	function akhiriujian( modeakhiri)
-	{
+	$("#akhirujian").click( function() {
 		
+		
+		Swal.fire({
+        title: "Apakah Anda Yakin?",
+        text: "Apakah anda yakin untuk mengakhiri ujian sekarang?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Akhiri!",
+        closeOnConfirm: false
+		}).then((result)=>{
+			
+			if (result.value){
+				
+			akhiriujian( );
+			}
+			
+		});
+		
+		
+	});
+	
+	
+	
+	function waktuhabis()
+	{
+		Swal.fire({
+                    type: 'success',
+                    title: 'Waktu Habis',
+                    text: 'Ujian Telah Berakhir',
+                    timer: 5000,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                  })
+                  .then (function() {
+                     
+					 Swal.close();
+					 akhiriujian( );
+					 
+                  });
+		
+		
+		
+	}
+	
+	
+	function akhiriujian( )
+	{
+	
+		
+		
+		
+		
+		
+		$.ajax({
+            url: base_url+"public/test/finalize",
+            type: "POST",
+            data: {"json":JSON.stringify(serverdataObject)
+				},
+            dataType: "html",
+            success: function (response) {
+				
+				if (response == "success") {
+					Swal.fire({
+                    type: 'success',
+                    title: 'SUKSES',
+                    text: 'Anda Akan di-Redirect dalam 3 detik',
+                    timer: 3000,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                  })
+                  .then (function() {
+                     
+					 Swal.close();
+					 
+                  });
+				}
+				else{
+					Swal.fire({
+                    type: 'error',
+                    title: 'Aww Gagal',
+                    text: 'Silahkan Cek Lagi Data yang Dimasukkan!'
+                  });
+				}
+				
+               
+			   
+			   
+            },
+            error:function(response){
+
+                Swal.fire({
+                    type: 'error',
+                    title: 'Opps!',
+                    text: 'server error!'
+                  });
+
+              }
+        });	
 		
 	}
 	
