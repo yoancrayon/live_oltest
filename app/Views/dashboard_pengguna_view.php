@@ -164,7 +164,7 @@
 			</select>
 			
 		<button class="btn btn-success align-self-end ml-auto justify-content-end" id="newuser">Tambah</button>	
-		<input type="text"  id="kjenisuser" style="display:none" value:"<?php echo ($k_jenis_user);?>"/>
+		<input type="text"  id="kjenisuser" style="display:none" value="<?php echo ($k_jenis_user);?>"/>
 		</div>
 	  
 	  

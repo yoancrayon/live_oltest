@@ -366,4 +366,24 @@ class Ujian extends BaseController
 	
 	
 	
+	function resetpesertaujian()
+	{
+		$idujian=$this->request->getPost('idujian');
+		$usernamepeserta=$this->request->getPost('usernamepeserta');
+		$ujianmodel=new Ujian_model();
+		
+		$res=$ujianmodel->resetpesertaujian($idujian,$usernamepeserta);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+	}
+	
+	
+	
 }

@@ -347,7 +347,8 @@ $(document).ready(function() {
                     text: 'Ujian Telah Berakhir',
                     timer: 5000,
                     showCancelButton: false,
-                    showConfirmButton: false
+                    showConfirmButton: false,
+					allowOutsideClick: false
                   })
                   .then (function() {
                      
@@ -384,7 +385,8 @@ $(document).ready(function() {
                     text: 'Anda Akan di-Redirect dalam 3 detik',
                     timer: 3000,
                     showCancelButton: false,
-                    showConfirmButton: false
+                    showConfirmButton: false,
+					allowOutsideClick: false
                   })
                   .then (function() {
                      

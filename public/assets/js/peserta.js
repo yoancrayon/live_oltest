@@ -34,6 +34,7 @@ $(document).ready(function() {
 						{"data": "waktu_ujian",width:30},
 						{ "render": function ( data, type, row ){
 							 var html  = "<a href=\"javascript:void(0);\" class=\"hapus_record btn btn-danger btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-usernamepeserta=\""+row["username_peserta"]+"\">DELETE</a>" 
+							 html+=" <a href=\"javascript:void(0);\" class=\"reset_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-usernamepeserta=\""+row["username_peserta"]+"\">Reset Ujian</a>" 
 								
 								return html
 
@@ -182,7 +183,73 @@ $(document).ready(function() {
 	});
 	
 	
-	
+	$('#table').on('click','.reset_record',function(){
+		var idujian=$(this).data('idujian');
+		var usernamepeserta=$(this).data('usernamepeserta');
+		
+		Swal.fire({
+        title: "Apakah Anda Yakin?",
+        text: "Jawaban Peserta Ujian Akan Dihapus",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Reset!",
+        closeOnConfirm: false
+		}).then((result)=>{
+		
+		if (result.value){
+		
+		$.ajax({
+            url: base_url+"public/ujian/resetpesertaujian",
+            type: "POST",
+            data: {
+                "idujian": idujian,
+				"usernamepeserta":usernamepeserta
+            },
+            dataType: "html",
+            success: function (response) {
+				
+				if (response == "success") {
+					Swal.fire({
+                    type: 'success',
+                    title: 'SUKSES',
+                    text: 'Jawaban Berhasil DIHAPUS!',
+                    timer: 500,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                  })
+                  .then (function() {
+                     $('#table').DataTable().ajax.reload();
+					
+					 Swal.close();
+                  });
+				}
+				else{
+					Swal.fire({
+                    type: 'error',
+                    title: 'Aww Gagal',
+                    text: 'Silahkan Cek Lagi Data yang Dimasukkan!'
+                  });
+				}
+				
+                console.log(response);
+            },
+            error:function(response){
+
+                  Swal.fire({
+                    type: 'error',
+                    title: 'Opps!',
+                    text: 'server error!'
+                  });
+
+                  console.log(response);
+
+              }
+        });
+		}
+		});
+		
+	});
 	
 	$('#table').on('click','.hapus_record',function(){
 		var idujian=$(this).data('idujian');
