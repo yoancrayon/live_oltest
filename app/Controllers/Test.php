@@ -28,9 +28,14 @@ class Test extends BaseController
 		
 		
 		];
-		
+		if ($session->idujian)
+		{
 		return view('test_view',$data);
-		
+		}
+		else{
+		return redirect()->to(base_url('ujian'));
+			
+		}
 		
 		
 	}
@@ -95,6 +100,20 @@ class Test extends BaseController
 		else {
 			return "failed";
 		}
+	}
+	
+	
+	
+	public function summaritest(){
+		$testmodel=new Test_model();
+		$session = session();
+		$idujian=$session->get('idujian');
+		$session->unset_userdata('idujian');
+		$session->unset_userdata('start_ujian');
+		$session->unset_userdata('is_ujian');
+		$session->unset_userdata('durasiujian');
+		
+		
 	}
 	
 }
