@@ -28,10 +28,10 @@
     var myServerData = <?= json_encode($pertanyaan)?>; // Don't forget to sanitize
                                                  //server data
 	localStorage.setItem("myServerData", JSON.stringify(myServerData));											 
-	 window.onbeforeunload = function(e) {
+	/*  window.onbeforeunload = function(e) {
         // Turning off the event
         e.preventDefault();
-    };
+    }; */
 
 	
 					

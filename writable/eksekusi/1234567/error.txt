@@ -1,0 +1,6 @@
+Main.java:4: error: cannot find symbol
+print ("1234567");
+^
+  symbol:   method print(String)
+  location: class Main
+1 error

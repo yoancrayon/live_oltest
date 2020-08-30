@@ -2,6 +2,8 @@
 
 
 use App\Models\test_Model;
+use App\Models\ujian_Model;
+
 class Test extends BaseController
 {
 	
@@ -108,12 +110,48 @@ class Test extends BaseController
 		$testmodel=new Test_model();
 		$session = session();
 		$idujian=$session->get('idujian');
-		$session->unset_userdata('idujian');
-		$session->unset_userdata('start_ujian');
-		$session->unset_userdata('is_ujian');
-		$session->unset_userdata('durasiujian');
+		$session->remove('idujian');
+		$session->remove('start_ujian');
+		$session->remove('is_ujian');
+		$session->remove('durasiujian');
+		$ujianmodel=new Ujian_model();
+
+		$res=$ujianmodel->getlistujian($idujian,"x");
 		
 		
+		foreach ($res as $row)
+		{
+			$namaujian= $row->nama_ujian;
+			$tglmulai= $row->tanggal_mulai;
+			$tglselesai= $row->tanggal_selesai;
+		}
+		
+		
+		
+		$data=[
+		'nama'=>$session->get('nama'),
+		'username'=>$session->get('username'),
+		'k_jenis_user'=>$session->get('k_jenis_user'),
+		'jenis_user'=>$session->get('jenis_user'),
+		'namaujian'=>$namaujian,
+		'tglmulai'=>$tglmulai,
+		'tglselesai'=>$tglselesai,
+		'idujian'=>$idujian
+		];
+		return view('test_sum_view',$data);
+	}
+	
+	
+	public function getsummaryujian()
+	{
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		$username=$session->get('username');
+		$idujian=$this->request->getPost('idujian');
+		
+		$sumamry=$ujianmodel->getlisthasilujian($idujian,"x",$username);
+		
+		return json_encode($sumamry);
 	}
 	
 }

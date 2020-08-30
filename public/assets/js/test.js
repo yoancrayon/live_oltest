@@ -7,7 +7,9 @@ $(document).ready(function() {
 	}
 	
 	
-	
+	$(window).bind("beforeunload",function(event) {
+    return "Anda tidak akan dapat mengulangi ujian ini";
+	});
 	
 
 	ace.config.set("basePath", base_url+"public/assets/js/ace");
@@ -389,7 +391,12 @@ $(document).ready(function() {
 					allowOutsideClick: false
                   })
                   .then (function() {
-                     
+					 
+					 $(window).off("beforeunload");
+					 window.onbeforeunload = null;
+					 window.onbeforeunload = undefined;
+					 localStorage.removeItem("myServerData");
+					 window.location.replace(base_url+"public/test/summaritest");
 					 Swal.close();
 					 
                   });
