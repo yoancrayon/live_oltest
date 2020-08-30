@@ -82,7 +82,7 @@
 		<table id="table" class="display table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr><th>PERTANYAAN</th><th>JAWABAN</th><th>OUTPUT JAWABAN</th>
-					<th>STATUS ERROR</th><th>WAKTU PENGERJAAN</th>
+					<th>STATUS ERROR</th><th>WAKTU PENGERJAAN</th><th>JUMLAH EKSEKUSI</th>
 					<th>STATUS JAWABAN</th></tr>
                 </thead>
                 <tbody>
