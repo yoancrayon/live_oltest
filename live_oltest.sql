@@ -42,8 +42,8 @@ CREATE TABLE `jawaban_peserta_ujian` (
 /*Data for the table `jawaban_peserta_ujian` */
 
 insert  into `jawaban_peserta_ujian`(`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`,`input_jawaban`,`output_jawab`,`initial_time`,`timer`,`countdown_timer`) values 
-('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=10;\r\n        int b=5;\r\n        int c=a+b;\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','15\n','2020-08-28 23:39:53',35,84),
-('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nSystem.out.println(\"0810680064\");\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','0810680064\n','2020-08-28 23:40:33',21,59);
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=5\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:4: error: \';\' expected\n        int a=5\n               ^\n1 error\n','2020-08-31 00:42:44',6,113),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\nprint (\"1234567\");\n\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','Main.java:4: error: cannot find symbol\nprint (\"1234567\");\n^\n  symbol:   method print(String)\n  location: class Main\n1 error\n','2020-08-31 00:42:53',13,98);
 
 /*Table structure for table `log_jawaban_peserta_ujian` */
 
@@ -109,7 +109,25 @@ insert  into `log_jawaban_peserta_ujian`(`id_pertanyaan`,`id_ujian`,`username`,`
 ('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','','2020-08-28 20:48:46',5,1744,'2020-08-28 23:38:00'),
 ('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=10;\r\n        int b=5;\r\n        int c=a+b;\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','15\n','2020-08-28 23:37:17',17,102,'2020-08-28 23:40:17'),
 ('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=10;\r\n        int b=5;\r\n        int c=a+b\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:6: error: \';\' expected\n        int c=a+b\n                 ^\n1 error\n','2020-08-28 23:39:53',23,96,'2020-08-28 23:40:29'),
-('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nSystem.out.println(\"0810680064\");\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','0810680064\n','2020-08-28 23:37:40',20,76,'2020-08-28 23:40:54');
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nSystem.out.println(\"0810680064\");\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','0810680064\n','2020-08-28 23:37:40',20,76,'2020-08-28 23:40:54'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=10;\r\n        int b=5;\r\n        int c=a+b;\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','15\n','2020-08-28 23:39:53',35,84,'2020-08-30 22:22:38'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nSystem.out.println(\"0810680064\");\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','0810680064\n','2020-08-28 23:40:33',21,59,'2020-08-30 22:23:06'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=5;\r\n        int b=10;\r\n        int c=a+b;\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','15\n','2020-08-30 22:22:20',17,102,'2020-08-30 22:27:58'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nSystem.out.printf(\"0810680064\");\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','0810680064','2020-08-30 22:22:42',24,74,'2020-08-30 22:28:04'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:5: error: \'.class\' expected\n        int b=\n            ^\n1 error\n','2020-08-30 22:27:54',3,116,'2020-08-30 22:29:45'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','','2020-08-30 22:28:01',3,109,'2020-08-30 22:29:52'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:5: error: \'.class\' expected\n        int b=\n            ^\n1 error\n','2020-08-30 22:29:43',2,117,'2020-08-30 22:34:59'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\nasd\n\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','Main.java:4: error: not a statement\nasd\n^\nMain.java:4: error: \';\' expected\nasd\n   ^\n2 errors\n','2020-08-30 22:29:48',4,110,'2020-08-30 22:35:06'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:5: error: \'.class\' expected\n        int b=\n            ^\n1 error\n','2020-08-30 22:34:54',4,115,'2020-08-30 22:37:08'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nasdas\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','Main.java:5: error: not a statement\nasdas\n^\nMain.java:5: error: \';\' expected\nasdas\n     ^\n2 errors\n','2020-08-30 22:35:01',5,108,'2020-08-30 22:37:15'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=asdasd\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:4: error: \';\' expected\n        int a=asdasd\n                    ^\n1 error\n','2020-08-30 22:37:03',4,115,'2020-08-30 22:51:26'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\nzcadas\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','Main.java:6: error: not a statement\nzcadas\n^\nMain.java:6: error: \';\' expected\nzcadas\n      ^\n2 errors\n','2020-08-30 22:37:10',4,108,'2020-08-30 22:51:39'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:5: error: \'.class\' expected\n        int b=\n            ^\n1 error\n','2020-08-30 22:51:22',4,115,'2020-08-30 22:53:44'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nasdasd\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','Main.java:5: error: not a statement\nasdasd\n^\nMain.java:5: error: \';\' expected\nasdasd\n      ^\n2 errors\n','2020-08-30 22:51:34',5,103,'2020-08-30 22:53:52'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','Main.java:5: error: \'.class\' expected\n        int b=\n            ^\n1 error\n','2020-08-30 22:53:41',3,116,'2020-08-30 23:30:00'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\nasdasd\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','Main.java:6: error: not a statement\nasdasd\n^\nMain.java:6: error: \';\' expected\nasdasd\n      ^\n2 errors\n','2020-08-30 22:53:47',5,109,'2020-08-30 23:30:22'),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}',NULL,'public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=10;\r\n        int b=5;\r\n        int c=a+b;\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-25 21:37:42',NULL,'','15\n','2020-08-30 23:29:35',24,95,'2020-08-31 00:42:50'),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n    System.out.println(\"1234567\");\n\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 21:37:42',NULL,'','1234567\n','2020-08-30 23:30:03',19,73,'2020-08-31 00:43:05');
 
 /*Table structure for table `log_json_test` */
 
@@ -125,7 +143,7 @@ CREATE TABLE `log_json_test` (
 /*Data for the table `log_json_test` */
 
 insert  into `log_json_test`(`id_ujian`,`username`,`json_text`,`waktu_input`) values 
-('20200820 115341','1234567','[{\"id_pertanyaan\":\"20200823114043\",\"id_ujian\":\"20200820 115341\",\"username\":\"1234567\",\"no_urut\":\"1\",\"pertanyaan\":\"Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.\",\"template_jawab\":\"public class Main {\\r\\n    \\r\\n    public static void main(String[] args) {\\r\\n        int a=\\r\\n        int b=\\r\\n        System.out.println(c);\\r\\n    }\\r\\n    \\r\\n}\",\"initialtime\":\"2020-08-28T16:39:53.872Z\",\"counter\":39,\"is_simpan\":true,\"jawaban\":\"public class Main {\\r\\n    \\r\\n    public static void main(String[] args) {\\r\\n        int a=10;\\r\\n        int b=5;\\r\\n        int c=a+b;\\r\\n        System.out.println(c);\\r\\n    }\\r\\n    \\r\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"15\\n\",\"timer\":35,\"countdown_timer\":84,\"logjawab\":[{\"jawaban\":\"public class Main {\\r\\n    \\r\\n    public static void main(String[] args) {\\r\\n        int a=10;\\r\\n        int b=5;\\r\\n        int c=a+b\\r\\n        System.out.println(c);\\r\\n    }\\r\\n    \\r\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"Main.java:6: error: \';\' expected\\n        int c=a+b\\n                 ^\\n1 error\\n\",\"timer\":23,\"countdown_timer\":96},{\"jawaban\":\"public class Main {\\r\\n    \\r\\n    public static void main(String[] args) {\\r\\n        int a=10;\\r\\n        int b=5;\\r\\n        int c=a+b;\\r\\n        System.out.println(c);\\r\\n    }\\r\\n    \\r\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"15\\n\",\"timer\":35,\"countdown_timer\":84}]},{\"id_pertanyaan\":\"20200825191637\",\"id_ujian\":\"20200820 115341\",\"username\":\"1234567\",\"no_urut\":\"2\",\"pertanyaan\":\"Print nim anda:\",\"template_jawab\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\n\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"is_simpan\":true,\"initialtime\":\"2020-08-28T16:40:33.236Z\",\"counter\":0,\"jawaban\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\nSystem.out.println(\\\"0810680064\\\");\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"0810680064\\n\",\"timer\":21,\"countdown_timer\":59,\"logjawab\":[{\"jawaban\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\nSystem.out.println(\\\"0810680064\\\");\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"0810680064\\n\",\"timer\":21,\"countdown_timer\":59}]}]','2020-08-28 23:41:54');
+('20200820 115341','1234567','[{\"id_pertanyaan\":\"20200823114043\",\"id_ujian\":\"20200820 115341\",\"username\":\"1234567\",\"no_urut\":\"1\",\"pertanyaan\":\"Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.\",\"template_jawab\":\"public class Main {\\r\\n    \\r\\n    public static void main(String[] args) {\\r\\n        int a=\\r\\n        int b=\\r\\n        System.out.println(c);\\r\\n    }\\r\\n    \\r\\n}\",\"initialtime\":\"2020-08-30T17:42:44.548Z\",\"counter\":8,\"is_simpan\":true,\"jawaban\":\"public class Main {\\r\\n    \\r\\n    public static void main(String[] args) {\\r\\n        int a=5\\r\\n        int b=\\r\\n        System.out.println(c);\\r\\n    }\\r\\n    \\r\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"Main.java:4: error: \';\' expected\\n        int a=5\\n               ^\\n1 error\\n\",\"timer\":6,\"countdown_timer\":113,\"logjawab\":[{\"jawaban\":\"public class Main {\\r\\n    \\r\\n    public static void main(String[] args) {\\r\\n        int a=5\\r\\n        int b=\\r\\n        System.out.println(c);\\r\\n    }\\r\\n    \\r\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"Main.java:4: error: \';\' expected\\n        int a=5\\n               ^\\n1 error\\n\",\"timer\":6,\"countdown_timer\":113}]},{\"id_pertanyaan\":\"20200825191637\",\"id_ujian\":\"20200820 115341\",\"username\":\"1234567\",\"no_urut\":\"2\",\"pertanyaan\":\"Print nim anda:\",\"template_jawab\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\n\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"is_simpan\":true,\"initialtime\":\"2020-08-30T17:42:53.068Z\",\"counter\":0,\"jawaban\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\nprint (\\\"1234567\\\");\\n\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"Main.java:4: error: cannot find symbol\\nprint (\\\"1234567\\\");\\n^\\n  symbol:   method print(String)\\n  location: class Main\\n1 error\\n\",\"timer\":13,\"countdown_timer\":98,\"logjawab\":[{\"jawaban\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\nprint (\\\"1234567\\\");\\n\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"Main.java:4: error: cannot find symbol\\nprint (\\\"1234567\\\");\\n^\\n  symbol:   method print(String)\\n  location: class Main\\n1 error\\n\",\"timer\":13,\"countdown_timer\":98}]}]','2020-08-31 00:43:09');
 
 /*Table structure for table `m_jenis_user` */
 
@@ -176,14 +194,15 @@ CREATE TABLE `pertanyaan` (
   `waktu_input` datetime DEFAULT current_timestamp(),
   `username` varchar(60) DEFAULT NULL,
   `link_gambar` varchar(250) DEFAULT NULL,
+  `ekspektasi_jawaban` text DEFAULT NULL,
   PRIMARY KEY (`id_pertanyaan`,`id_ujian`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `pertanyaan` */
 
-insert  into `pertanyaan`(`id_pertanyaan`,`id_ujian`,`pertanyaan`,`template_jawab`,`waktu_input`,`username`,`link_gambar`) values 
-('20200823114043','20200820 115341','Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\r\n    \r\n    public static void main(String[] args) {\r\n        int a=\r\n        int b=\r\n        System.out.println(c);\r\n    }\r\n    \r\n}','2020-08-23 11:40:43','yogi.kur',NULL),
-('20200825191637','20200820 115341','Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 19:16:37','yogi.kur',NULL);
+insert  into `pertanyaan`(`id_pertanyaan`,`id_ujian`,`pertanyaan`,`template_jawab`,`waktu_input`,`username`,`link_gambar`,`ekspektasi_jawaban`) values 
+('20200823114043','20200820 115341','Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\n    \n    public static void main(String[] args) {\n        int a=\n        int b=\n        System.out.println(c);\n    }\n    \n}','2020-08-23 11:40:43','yogi.kur',NULL,'15'),
+('20200825191637','20200820 115341','Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-25 19:16:37','yogi.kur',NULL,'{username}');
 
 /*Table structure for table `peserta_ujian` */
 
@@ -203,7 +222,7 @@ CREATE TABLE `peserta_ujian` (
 /*Data for the table `peserta_ujian` */
 
 insert  into `peserta_ujian`(`id_ujian`,`username_peserta`,`total_nilai`,`waktu_start_ujian`,`waktu_end_ujian`,`waktu_input`,`username_input`) values 
-('20200820 115341','1234567',NULL,NULL,'2020-08-28 23:41:54','2020-08-25 18:58:50','yogi.kur'),
+('20200820 115341','1234567',NULL,'2020-08-31 00:42:41','2020-08-31 00:43:09','2020-08-25 18:58:50','yogi.kur'),
 ('20200820 115341','12345678',NULL,NULL,NULL,'2020-08-25 18:58:50','yogi.kur');
 
 /*Table structure for table `ujian` */
@@ -462,7 +481,7 @@ DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `getpertanyaan`(inid_ujian varchar(35),inid_pertanyaan varchar(35),inusername varchar(60))
 begin
-select a.`id_pertanyaan`,a.`id_ujian`,a.`pertanyaan`,a.`template_jawab`,b.`nama_ujian`,link_gambar from pertanyaan a
+select a.`id_pertanyaan`,a.`id_ujian`,a.`pertanyaan`,a.`template_jawab`,b.`nama_ujian`,link_gambar,a.ekspektasi_jawaban from pertanyaan a
 left join ujian b on a.`id_ujian`=b.`id_ujian`
 where (a.`id_ujian`=inid_ujian or inid_ujian='' or inid_ujian='x' or inid_ujian is null) 
 and (a.`id_pertanyaan`=inid_pertanyaan OR inid_pertanyaan='' OR inid_pertanyaan='x' OR inid_pertanyaan IS NULL)
@@ -505,6 +524,116 @@ where
 and (a.`username_peserta`=inusername_peserta oR inusername_peserta='' OR inusername_peserta='x' OR inusername_peserta IS NULL)
 AND (c.username=inusername oR inusername='' OR inusername='x' OR inusername IS NULL);
 end */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `getsummaryujian` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `getsummaryujian` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `getsummaryujian`(in inid_ujian varchar(35),in inid_pertanyaan varchar(35), in inusername varchar(45))
+begin
+
+select id_Pertanyaan,	id_ujian,nama,	username	,nama_ujian,	pertanyaan,	jawaban,	status_jawaban,	output_jawaban,	waktu_pengerjaan,
+	ekspektasi_jawaban,	
+	case 
+	when ANALIS_JAWABAN ='1' and status_jawaban ='Ekskusi Sukses' then 'BENAR'
+	WHEN ANALIS_JAWABAN ='2'  and status_jawaban ='Ekskusi Sukses' THEN 'PERLU CHECK BY DOSEN'
+	WHEN ANALIS_JAWABAN ='0'  and status_jawaban ='Ekskusi Sukses' THEN 'SALAH'
+	when status_jawaban ='Error' THEN 'SALAH'
+	end as CONTENT_ANALIS_JAWAB,ANALIS_JAWABAN,nilai_jawab
+  from (
+select  a.id_Pertanyaan,a.id_ujian,a.username,c.nama,d.nama_ujian, a.pertanyaan,a.jawaban, case when a.output_jawab like '%error%' then 'Error' else 'Ekskusi Sukses' end as status_jawaban,
+REPLACE(REPLACE(LCASE(a.output_jawab), '\r', ''), '\n', '') as output_jawaban,
+concat(
+
+case when length(floor(timer/60))=1 then
+concat('0',FLOOR(timer/60))
+else
+FLOOR(timer/60) end
+
+ ,':',
+
+case when  length(mod(timer,60))=1 then
+concat('0',MOD(timer,60))
+else
+MOD(timer,60) end
+
+ ) waktu_pengerjaan ,
+ case 
+ when b.ekspektasi_jawaban='{username}' then a.username
+ WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
+ else b.ekspektasi_jawaban end ekspektasi_jawaban,
+
+case when 
+ case when
+ lcase( CASE 
+ WHEN b.ekspektasi_jawaban='{username}' THEN a.username
+ WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
+ ELSE b.ekspektasi_jawaban END) like concat('%',
+ REPLACE(REPLACE(lcase(a.output_jawab), '\r', ''), '\n', '')
+ ,'%') then '1' else '0' end ='1' 
+ 
+ and 
+ 
+ CASE WHEN REPLACE(REPLACE(LCASE(a.output_jawab), '\r', ''), '\n', '')
+ like concat('%',LCASE( CASE 
+ WHEN b.ekspektasi_jawaban='{username}' THEN a.username
+ WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
+ ELSE b.ekspektasi_jawaban END),'%') then '1' else '0' end ='1' then '1'
+
+ when CASE WHEN
+ LCASE( CASE 
+ WHEN b.ekspektasi_jawaban='{username}' THEN a.username
+ WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
+ ELSE b.ekspektasi_jawaban END) LIKE CONCAT('%',
+ REPLACE(REPLACE(LCASE(a.output_jawab), '\r', ''), '\n', '')
+ ,'%') THEN '1' ELSE '0' END ='1'  and 
+ CASE WHEN REPLACE(REPLACE(LCASE(a.output_jawab), '\r', ''), '\n', '')
+ LIKE CONCAT('%',LCASE( CASE 
+ WHEN b.ekspektasi_jawaban='{username}' THEN a.username
+ WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
+ ELSE b.ekspektasi_jawaban END),'%') THEN '1' ELSE '0' END ='0' then '2' 
+
+ when  CASE WHEN
+ LCASE( CASE 
+ WHEN b.ekspektasi_jawaban='{username}' THEN a.username
+ WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
+ ELSE b.ekspektasi_jawaban END) LIKE CONCAT('%',
+ REPLACE(REPLACE(LCASE(a.output_jawab), '\r', ''), '\n', '')
+ ,'%') THEN '1' ELSE '0' END ='0'  AND 
+ CASE WHEN REPLACE(REPLACE(LCASE(a.output_jawab), '\r', ''), '\n', '')
+ LIKE CONCAT('%',LCASE( CASE 
+ WHEN b.ekspektasi_jawaban='{username}' THEN a.username
+ WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
+ ELSE b.ekspektasi_jawaban END),'%') THEN '1' ELSE '0' END ='1' THEN '2'  
+
+when CASE WHEN
+ LCASE( CASE 
+ WHEN b.ekspektasi_jawaban='{username}' THEN a.username
+ WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
+ ELSE b.ekspektasi_jawaban END) LIKE CONCAT('%',
+ REPLACE(REPLACE(LCASE(a.output_jawab), '\r', ''), '\n', '')
+ ,'%') THEN '1' ELSE '0' END ='0'  AND 
+ CASE WHEN REPLACE(REPLACE(LCASE(a.output_jawab), '\r', ''), '\n', '')
+ LIKE CONCAT('%',LCASE( CASE 
+ WHEN b.ekspektasi_jawaban='{username}' THEN a.username
+ WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
+ ELSE b.ekspektasi_jawaban END),'%') THEN '1' ELSE '0' END ='0' THEN '0' 
+END AS ANALIS_JAWABAN,a.nilai_jawab
+  from jawaban_peserta_ujian a
+  left join pertanyaan b on a.id_pertanyaan=b.id_pertanyaan and a.id_ujian=b.id_ujian
+  left join pengguna c on a.username=c.username
+  left join ujian d on a.id_ujian=d.id_ujian
+where 
+    (a.id_ujian=inid_ujian or inid_ujian='' or inid_ujian='x' or inid_ujian is null)
+and (a.id_Pertanyaan=inid_pertanyaan or inid_pertanyaan='' or inid_pertanyaan='x' or inid_pertanyaan is null)
+and (a.username=inusername or   inusername='' OR inusername='x' OR inusername IS NULL)
+ ) A ;
+ 
+ 
+ end */$$
 DELIMITER ;
 
 /* Procedure structure for procedure `getujianpeserta` */
@@ -728,7 +857,8 @@ IN inid_ujian varchar(35),
 IN inpertanyaan text,
 IN intemplate_jawab TEXT,
 
-IN inusername varchar(60)
+IN inusername varchar(60),
+in inekspektasi_jawaban text
 )
 begin
 DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -747,11 +877,11 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
 
 IF NOT EXISTS(SELECT * FROM pertanyaan WHERE id_pertanyaan=inid_pertanyaan AND id_ujian=inid_ujian) THEN
 set inid_pertanyaan=replace(replace(replace(now(),'-',''),':',''),' ','') ;
-INSERT INTO pertanyaan(id_pertanyaan, id_ujian, pertanyaan,template_jawab,username)
-VALUES (inid_pertanyaan, inid_ujian, inpertanyaan,intemplate_jawab,inusername);
+INSERT INTO pertanyaan(id_pertanyaan, id_ujian, pertanyaan,template_jawab,username,ekspektasi_jawaban)
+VALUES (inid_pertanyaan, inid_ujian, inpertanyaan,intemplate_jawab,inusername,inekspektasi_jawaban);
 
 ELSE
-UPDATE pertanyaan SET pertanyaan=inpertanyaan , template_jawab=intemplate_jawab,username=inusername
+UPDATE pertanyaan SET pertanyaan=inpertanyaan , template_jawab=intemplate_jawab,username=inusername,ekspektasi_jawaban=inekspektasi_jawaban
 WHERE id_pertanyaan=inid_pertanyaan AND id_ujian=inid_ujian;
 END IF;
 
@@ -858,6 +988,9 @@ FROM pertanyaan
 WHERE id_ujian=inid_ujian
 ORDER BY RAND();
 end if;
+
+update peserta_ujian set waktu_start_ujian=now()
+where id_ujian=inid_ujian and username_peserta=inusername;
 
 IF errstate='00000' THEN 
 	COMMIT; 
