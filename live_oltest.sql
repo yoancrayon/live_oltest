@@ -243,7 +243,7 @@ CREATE TABLE `ujian` (
 /*Data for the table `ujian` */
 
 insert  into `ujian`(`id_ujian`,`nama_ujian`,`tanggal_mulai`,`tanggal_selesai`,`durasi`,`waktu_create`,`username`) values 
-('20200820 115341','Ujian Test 2-2','2020-08-21','2020-08-25',2,'2020-08-28 23:35:53','yogi.kur');
+('20200820 115341','Ujian Test 2-2','2020-08-21','2020-09-01',2,'2020-08-31 01:02:36','yogi.kur');
 
 /* Procedure structure for procedure `delpengguna` */
 
@@ -646,6 +646,8 @@ DELIMITER $$
 begin
 
 SELECT distinct  a.id_ujian,nama_ujian,tanggal_mulai,tanggal_selesai,durasi, COALESCE(jumlah_peserta,0) AS jumlah_peserta,
+
+
 case when current_date between a.tanggal_mulai and a.tanggal_selesai and coalesce(d.is_jawab,'0')='0'  then '1' 
 WHEN CURRENT_DATE BETWEEN a.tanggal_mulai AND a.tanggal_selesai AND COALESCE(d.is_jawab,'0')='1'   then '2'
 else '0' end as is_enable
@@ -657,7 +659,7 @@ else '0' end as is_enable
  left join ( SELECT  id_ujian,username,CASE WHEN is_jawab IS NOT NULL THEN '1' ELSE '0' END AS is_jawab FROM (
  SELECT  id_ujian,username,MAX(jawaban) AS is_jawab FROM jawaban_peserta_ujian
  GROUP BY id_ujian,username
- ) A) d on a.id_ujian=d.id_ujian and a.username=c.username_Peserta
+ ) A) d on a.id_ujian=d.id_ujian and d.username=c.username_Peserta
 WHERE (a.id_ujian=inid_ujian OR inid_ujian='' OR inid_ujian='x' OR inid_ujian IS NULL)
 AND ( c.`username_peserta`=INusername OR INusername='' OR INusername='x' OR INusername IS NULL)
  

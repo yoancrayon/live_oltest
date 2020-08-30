@@ -293,9 +293,14 @@ $(document).ready(function() {
                         {"data": "durasi",width:30},
 						{"data": "jumlah_peserta",width:30},
 						{ "render": function ( data, type, row ){
-							
+							if (row["is_enable"]=="1"){
 							 var html  = "<a href=\"javascript:void(0);\" class=\"mulaiujian_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-namaujian=\""+row["nama_ujian"]+"\" data-tglmulai=\""+row["tanggal_mulai"]+"\" data-tglselesai=\""+row["tanggal_selesai"]+"\" data-durasi=\""+row["durasi"]+"\" data-isenable=\""+row["is_enable"]+"\"  >Mulai Ujian</a> "
-							
+							}
+							else if (row["is_enable"]=="2"){
+								var html  = "<a href=\"javascript:void(0);\" class=\"btn btn-info btn-xs btn-sm\">Sudah Selesai</a>"
+								
+							}
+							else {var html  =""}
 								
 								return html
 
