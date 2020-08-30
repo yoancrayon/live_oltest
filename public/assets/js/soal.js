@@ -61,10 +61,11 @@ $(document).ready(function() {
                         {"data": "nama_ujian",width:100},
                         {"data": "pertanyaan",width:200},
 						{"data": "template_jawab",width:200},
+						{"data": "ekspektasi_jawaban",width:100},
                        
 						{ "render": function ( data, type, row ){
-							var html  ="<a href=\"javascript:void(0);\" class=\"show_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" data-pertanyaan=\""+row["pertanyaan"]+"\" data-templatejawaban=\""+row["template_jawab"]+"\" >SHOW</a> "
-							html  +="<a href=\"javascript:void(0);\" class=\"edit_record btn btn-info btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" data-pertanyaan=\""+row["pertanyaan"]+"\" data-templatejawaban=\""+row["template_jawab"]+"\">EDIT</a> "
+							var html  ="<a href=\"javascript:void(0);\" class=\"show_record btn btn-info btn-xs btn-sm\" data-ekspektasijawaban=\""+row["ekspektasi_jawaban"]+"\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" data-pertanyaan=\""+row["pertanyaan"]+"\" data-templatejawaban=\""+row["template_jawab"]+"\" >SHOW</a> "
+							html  +="<a href=\"javascript:void(0);\" class=\"edit_record btn btn-info btn-xs btn-sm\" data-ekspektasijawaban=\""+row["ekspektasi_jawaban"]+"\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\" data-pertanyaan=\""+row["pertanyaan"]+"\" data-templatejawaban=\""+row["template_jawab"]+"\">EDIT</a> "
 							  html  += "<a href=\"javascript:void(0);\" class=\"hapus_record btn btn-danger btn-xs btn-sm\" data-idujian=\""+row["id_ujian"]+"\" data-idpertanyaan=\""+row["id_pertanyaan"]+"\">DELETE</a>" 
 								
 								return html
@@ -115,6 +116,8 @@ $(document).ready(function() {
 		window.document.getElementById("savemodal").style.display = "block";
 		window.document.getElementById("pertanyaan").value="";
 		window.document.getElementById("cobajawabanoutput").value="";
+		window.document.getElementById("ekspektasijawaban").value="";
+		
 		var autoisi="public class Main {\n\tpublic static void main(String[] args) {\n\t//baris atas jangan dihapus\n\n\n\n\t//baris bawah jangan dihapus\n\t}\n}";
 		editor.setValue(autoisi);
 		$('#modalcenter').modal('show');
@@ -137,7 +140,8 @@ $(document).ready(function() {
 				"idujian":window.document.getElementById("modalidujian").value,
 				"idpertanyaan":window.document.getElementById("modalidpertanyaan").value,
 				"pertanyaan":window.document.getElementById("pertanyaan").value,
-				"templatejawaban":editor.getValue()
+				"templatejawaban":editor.getValue(),
+				"ekspektasijawaban":window.document.getElementById("ekspektasijawaban").value
             },
             dataType: "html",
             success: function (response) {
@@ -200,9 +204,10 @@ $(document).ready(function() {
 		var idpertanyaan=$(this).data('idpertanyaan');
 		var pertanyaan=$(this).data('pertanyaan');
 		var templatejawaban=$(this).data('templatejawaban');
-		
+		var ekspektasijawaban=$(this).data('ekspektasijawaban');
 		window.document.getElementById("modalidujian").value=idujian;
 		window.document.getElementById("modalidpertanyaan").value=idpertanyaan;
+		window.document.getElementById("ekspektasijawaban").value=ekspektasijawaban;
 		
 		window.document.getElementById("judulmodal").innerHTML  ="Pertanyaan Ujian";
 		editor.setValue(templatejawaban);
@@ -222,9 +227,11 @@ $(document).ready(function() {
 		var idpertanyaan=$(this).data('idpertanyaan');
 		var pertanyaan=$(this).data('pertanyaan');
 		var templatejawaban=$(this).data('templatejawaban');
-		
+		var ekspektasijawaban=$(this).data('ekspektasijawaban');
+
 		window.document.getElementById("modalidujian").value=idujian;
 		window.document.getElementById("modalidpertanyaan").value=idpertanyaan;
+		window.document.getElementById("ekspektasijawaban").value=ekspektasijawaban;
 		
 		window.document.getElementById("judulmodal").innerHTML  ="Pertanyaan Ujian";
 		editor.setValue(templatejawaban);

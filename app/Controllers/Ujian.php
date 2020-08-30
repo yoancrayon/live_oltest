@@ -255,6 +255,7 @@ class Ujian extends BaseController
 		$idujian=$this->request->getPost('idujian');
 		$pertanyaan=$this->request->getPost('pertanyaan');
 		$templatejawaban=$this->request->getPost('templatejawaban');
+		$ekspektasijawaban=$this->request->getPost('ekspektasijawaban');
 		
 		
 		
@@ -264,7 +265,8 @@ class Ujian extends BaseController
 		"id_ujian"=>$idujian,
 		"pertanyaan"=>$pertanyaan,
 		"template_jawaban"=>$templatejawaban,
-		"username"=>$session->get('username')
+		"username"=>$session->get('username'),
+		"ekspektasijawaban"=>$ekspektasijawaban
 		];
 		
 		

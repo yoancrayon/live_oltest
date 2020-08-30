@@ -59,7 +59,7 @@
 
     #editor {
       width: auto;
-      height: 290px;
+      height: 250px;
     }
 	
 	 editor2 {
@@ -198,7 +198,7 @@
 	 
 		<table id="table" class="display table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
-                    <tr><th>NAMA UJIAN</th><th>PERTANYAAN</th><th>TEMPLATE JAWABAN</th><th>ACTION</th></tr>
+                    <tr><th>NAMA UJIAN</th><th>PERTANYAAN</th><th>TEMPLATE JAWABAN</th><th>EKSPEKTASI JAWABAN</th><th>ACTION</th></tr>
                 </thead>
                 <tbody>
                 </tbody>
@@ -229,7 +229,7 @@
 	
 
 		<div class="row">
-        <div class="col-md-6">	
+    <div class="col-md-6">	
 	 <div class="form-group" style="display:none">
 		<input type="text" class="form-control" id="modalidujian" >
 	 </div> 
@@ -247,6 +247,12 @@
 	
 	<label>Template Jawaban</label>
      <div id="editor"></div>
+    <div class="form-group">
+	<label for="ekspektasijawaban">Ekspektasi Jawaban</label>
+    <textarea class="form-control" id="ekspektasijawaban" rows="4"></textarea>
+	
+	
+	</div>
 	</div>
 	
 	  <div class="col-md-6">
@@ -255,12 +261,12 @@
 	 
 	  <div class="form-group">
 	  <label for="cobajawabaninput">Coba Jawaban Input</label>
-      <input type="text" class="form-control" id="cobajawabaninput" rows="3"></textarea>
+      <textarea type="text" class="form-control" id="cobajawabaninput" rows="4"></textarea>
 	  </div>
 	  
 	 <div class="form-group">
 	<label for="cobajawabanoutput" >Output Jawaban</label>
-    <textarea class="form-control" id="cobajawabanoutput" rows="3" disabled></textarea>
+    <textarea class="form-control" id="cobajawabanoutput" rows="4" disabled></textarea>
 	</div>
 	   </div>
       </div>

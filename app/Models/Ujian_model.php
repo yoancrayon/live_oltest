@@ -98,7 +98,7 @@ class Ujian_model extends Model
 	{
 		 
 		$db = db_connect('default');
-		$textq="call insupdpertanyaan('".$data["id_pertanyaan"]."','".$data["id_ujian"]."',".$this->db->escape($data["pertanyaan"]).",".$this->db->escape($data["template_jawaban"]).",'".$data["username"]."')";
+		$textq="call insupdpertanyaan('".$data["id_pertanyaan"]."','".$data["id_ujian"]."',".$this->db->escape($data["pertanyaan"]).",".$this->db->escape($data["template_jawaban"]).",'".$data["username"]."',".$this->db->escape($data["ekspektasijawaban"]).")";
 		$query=$db->query($textq);
 		$row   = $query->getRowArray();
 		

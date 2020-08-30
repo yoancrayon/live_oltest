@@ -13,29 +13,9 @@
     padding-top: 70px;
   }
   
- editor {
-      background-color: #f5f5f5;
-    }
-
-    #editor {
-      width: auto;
-      height: 150px;
-    }
-
+ 
 
     </style>
-<script>
-    var myServerData = <?= json_encode($pertanyaan)?>; // Don't forget to sanitize
-                                                 //server data
-	localStorage.setItem("myServerData", JSON.stringify(myServerData));											 
-	 window.onbeforeunload = function(e) {
-        // Turning off the event
-        e.preventDefault();
-    };
-
-	
-					
-</script>
 
 
 
@@ -65,67 +45,23 @@
 	
 
 	<div class="card">
-	<span id="iTimeShow" class="text-dark pull-rightalign-self-end ml-auto justify-content-end" style="font-size:18px;">Waktu Tersisa</span><span id='timer' style="font-size:30px;" class="text-dark pull-rightalign-self-end ml-auto justify-content-end"></span>
 	
-	<div class="card-header">
+		<div class="card-header">
     
-	<?php
-	foreach ($pertanyaan as $row){
-		
-		echo '<button type="button" class="btn btn-sm btn-primary ';
-		if ($row->no_urut==1) {echo "btn-success";}
-		echo '" id="btnnourut">'.$row->no_urut.'</button> ';
-		
-		
-	}
-	?>
-
-	</div>
-      <div class="card-body">
-		<span>Waktu Pengerjaan : </span>
-		<span id="minutes"></span><span id="titik">:</span><span id="seconds"></span>
-		<span id="minutesselesai" style="display:none"></span><span id="titikselesai" style="display:none">:</span><span id="secondsselesai" style="display:none"></span>
-		
-        <h3 class="card-title" id="soalke">Soal 1
-					</h3>
-      
-	 <p class="card-text mt-2" id="pertanyaan">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	 
-	 <form>
-	 <div class="form-group">
-		<label >Tulis Kodemu</label>
-		<div id="editor"></div>
-		
-		
-		
-	 </div>
-	 <div class="form-group">
-		<label for="inputcode">Input</label>
-		<input type="text" class="form-control" id="inputcode" placeholder="input">
-	 </div>
-	 <button type="button" class="btn btn-primary" id="runcode">RUN KODE</button>
-	 <button type="button" class="btn btn-danger" id="resetcode">Reset KODE</button>
-	 
-	 <div class="form-group">
-	 <label for="text-output">Output</label>
-	 <textarea class="form-control" id="text-output" rows="3" disabled="true"></textarea>
-	 </div>
-	 <button type="button" class="btn btn-primary pull-right align-self-end ml-auto justify-content-end" id="simpanjawaban">Simpan Jawaban</button>
-	 <button type="button" class="btn btn-info pull-right align-self-end ml-auto justify-content-end" id="akhirujian" style="display:none">Akhiri Ujian</button>
-	 
-	</form>
-    </div>
-	</div>
-	<div id="sessionplace" style="display:none">
-	<input type="text" id="durasiujian" value=<?php echo $durasiujian ;?> />
 	
+
+		</div>
+     	<div class="card-body">
+		
+	 
+    	</div>
 	</div>
+	
+	
 	
 </div>
 </body>
-    <script src="<?php echo base_url('assets/js/ace/ace.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/js/ace/ext-language_tools.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/js/ace/mode-java.js'); ?>"></script>
+   
 	
-<script src="<?php echo base_url('assets/js/test.js'); ?>"></script></body>
+<script src="<?php echo base_url('assets/js/test_sum.js'); ?>"></script></body>
 </html>
