@@ -55,7 +55,7 @@
 
     #editor {
       width: auto;
-      height: 250px;
+      height: 200px;
     }
 	
     </style>
@@ -162,12 +162,12 @@
       </div>
 	  <div> 
 	
-	  
+	  <div class="col-7" style="padding-left: 0px;">
 	  <div class="input-group mb-3" >
 		<div class="input-group-prepend">
 				<label class="input-group-text" for="dropdownnamaujian">Nama Ujian</label>
 		</div>
-		<select class="input-group-append custom-select col-md-2" id="dropdownnamaujian">
+		<select class="input-group-append custom-select" id="dropdownnamaujian">
 				
 				<?php
 				echo '<option selected  value="x">Seluruh Ujian</option>';
@@ -184,7 +184,7 @@
 		<div class="input-group-prepend">
 				<label class="input-group-text" for="dropdownpeserta">Nama Peserta</label>
 		</div>
-		<select class="input-group-append custom-select col-md-2" id="dropdownpeserta">
+		<select class="input-group-append custom-select  " id="dropdownpeserta">
 				
 				<?php
 				if ($k_jenis_user!="3") {
@@ -201,6 +201,7 @@
 		
 		
 		
+		</div>
 		</div>
 	  
 	 
@@ -248,7 +249,7 @@
      <div id="editor"></div>
 	 <div class="form-group">
 	<label for="jawabanoutput" >Output Jawaban</label>
-    <textarea readonly class="form-control" id="jawabanoutput" rows="4" disabled></textarea>
+    <textarea readonly class="form-control" id="jawabanoutput" rows="2" disabled></textarea>
 	</div>
 	  <div class="form-group">
 	<label for="nilai" >Nilai</label>
