@@ -386,6 +386,114 @@ class Ujian extends BaseController
 		
 	}
 	
+	function hasilujian(){
+		
+		$session = session();
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		if ($session->get('k_jenis_user')=="1")
+		{
+			$usersession="x";
+		}
+		else
+		{
+			$usersession=$session->get('username');
+			
+		}
+		if ($session->get('k_jenis_user')=="3"){
+			$dropdown_ujian=$ujianmodel->getlistujianpeserta("x",$usersession);
+			
+		}
+		else{
+		$dropdown_ujian=$ujianmodel->getlistujian("x",$usersession);
+		}
+		
+		
+		
+		
+		$data=[
+		'nama'=>$session->get('nama'),
+		'username'=>$session->get('username'),
+		'k_jenis_user'=>$session->get('k_jenis_user'),
+		'jenis_user'=>$session->get('jenis_user'),
+		'dropdown_ujian'=>$dropdown_ujian
+		
+		];
+		
+		return view('dashboard_hasil_view',$data);
+		
+	}
+	
+	public function gethasilujian()
+	{
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		$username=$this->request->getPost('username');
+		$idujian=$this->request->getPost('idujian');
+		
+		$sumamry=$ujianmodel->getlisthasilujian($idujian,"x",$username);
+		
+		return json_encode($sumamry);
+	}
+	
+	public function gethasilujianspecific()
+	{
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		
+		$idpertanyaan=$this->request->getPost('idpertanyaan');
+		$idujian=$this->request->getPost('idujian');
+		$username=$this->request->getPost('username');
+		
+		$sumamry=$ujianmodel->getlisthasilujian($idujian,$idpertanyaan,$username);
+		
+		return json_encode($sumamry);
+	}
+	
+	public function flushnilai()
+	{
+		
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		
+		$idujian=$this->request->getPost('idujian');
+		
+		
+		$res=$ujianmodel->flushnilai($idujian);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+		
+	}
+	
+	public function updatenilai()
+	{
+		
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		
+		$idujian=$this->request->getPost('idujian');
+		$idpertanyaan=$this->request->getPost('idpertanyaan');
+		$username=$this->request->getPost('username');
+		$nilai=$this->request->getPost('nilai');
+		$res=$ujianmodel->updatenilai($idujian,$idpertanyaan,$username,$nilai);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+		
+	}
 	
 	
 }

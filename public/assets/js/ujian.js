@@ -291,6 +291,7 @@ $(document).ready(function() {
                         {"data": "tanggal_mulai",width:100},
 						{"data": "tanggal_selesai",width:100},
                         {"data": "durasi",width:30},
+						{"data": "total_nilai",width:30},
 						{"data": "jumlah_peserta",width:30},
 						{ "render": function ( data, type, row ){
 							if (row["is_enable"]=="1"){

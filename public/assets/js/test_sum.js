@@ -1,5 +1,5 @@
 $(document).ready(function() {
-		if (location.host == 'localhost') {
+	if (location.host == 'localhost') {
 	var base_url = window.location.origin+"/live_oltest/";
 	}
 	else{

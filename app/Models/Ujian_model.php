@@ -12,6 +12,8 @@ class Ujian_model extends Model
 		
 	}
 	
+	
+	
 	public function insupdujian($data)
 	{
 		$db = db_connect('default');
@@ -150,4 +152,28 @@ class Ujian_model extends Model
 		
 		
 	} 
+	
+	
+	public function flushnilai($idujian)
+	{
+		$db = db_connect('default');
+		$textq="call flushnilai('".$idujian."')";
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+	}
+	
+	public function updatenilai($idujian,$idpertanyaan,$username,$nilai)
+	{
+		
+		$db = db_connect('default');
+		$textq="call updatenilaipeserta('".$idujian."','".$idpertanyaan."','".$username."','".$nilai."')";
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+	}
+	
+	
 }

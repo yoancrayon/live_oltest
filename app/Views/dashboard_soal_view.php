@@ -154,7 +154,7 @@
 		  ?>
 		  
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="<?php echo base_url('ujian/hasilujian');?>">
               <span data-feather="layers"></span>
               Hasil UJian
             </a>

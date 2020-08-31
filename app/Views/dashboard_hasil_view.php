@@ -11,6 +11,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
 
+
 <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
 
  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
@@ -30,6 +31,8 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datepicker.css'); ?>" >
 <script src="<?php echo base_url('assets/js/bootstrap-datepicker.js'); ?>"></script>
 
+<link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
+<script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
  <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -45,7 +48,24 @@
           font-size: 3.5rem;
         }
       }
+	  
+	   editor {
+      background-color: #f5f5f5;
+    }
+
+    #editor {
+      width: auto;
+      height: 250px;
+    }
+	
     </style>
+<script>
+   var kjenisuser = <?= json_encode($k_jenis_user)?>; 
+	localStorage.setItem("kjenisuser",kjenisuser);	
+
+</script>	
+<script src="<?php echo base_url('assets/js/ellipsis.js'); ?>"></script></body>
+
 <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -59,11 +79,7 @@
 <body>
  
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-no p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">LIVE Online Java Exercise</a>
-
- 
-   
-  
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">LIVE Online Java Exercise</a> 
   <ul class="navbar-nav px-3">
   
     <li class="nav-item text-nowrap col-md-2ml-auto">
@@ -103,9 +119,9 @@
 		  <?php  if ($k_jenis_user == "1" || $k_jenis_user == "2" || $k_jenis_user == "3")  {
 		  
           echo '<li class="nav-item">';
-          echo '  <a class="nav-link active" href="#">';
+          echo '  <a class="nav-link " href="'.base_url('ujian').'">';
           echo '    <span data-feather="layers"></span>';
-          echo 'Ujian <span class="sr-only">(current)</span>';
+          echo 'Ujian ';
           echo '  </a>';
           echo ' </li>';
 		  }
@@ -122,16 +138,16 @@
           echo '<li class="nav-item">';
           echo '  <a class="nav-link" href="'.base_url('ujian/pesertaujian').'">';
           echo '    <span data-feather="users"></span>';
-          echo '    Peserta';
+          echo '    Peserta ';
           echo '  </a>';
           echo '</li>';
 		  }
 		  ?>
 		  
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('ujian/hasilujian');?>">
+            <a class="nav-link active"  href="#">
               <span data-feather="layers"></span>
-              Hasil UJian
+              Hasil UJian <span class="sr-only">(current)</span>
             </a>
           </li>
         </ul>
@@ -142,47 +158,66 @@
 	
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Daftar Ujian</h1>
+        <h1 class="h2">Daftar Hasil Ujian</h1>
       </div>
 	  <div> 
 	
 	  
-	  <div class="input-group mb-3   "
-	  style="display:  <?php  if ($k_jenis_user != "1" && $k_jenis_user != "2" )  {echo "none";} else { echo "blok";} ?>;"
-	  >
-						
-		<button class="btn btn-success align-self-end ml-auto justify-content-end" id="newujian">Tambah</button>	
-		<input type="text"  id="kjenisuser" style="display:none" value:"<?php echo ($k_jenis_user);?></input>
+	  <div class="input-group mb-3" >
+		<div class="input-group-prepend">
+				<label class="input-group-text" for="dropdownnamaujian">Nama Ujian</label>
 		</div>
-	  <div id="wraptabel" style="display:  <?php  if ($k_jenis_user != "1" && $k_jenis_user != "2" )  {echo "none";} else { echo "blok";} ?>;">
+		<select class="input-group-append custom-select col-md-2" id="dropdownnamaujian">
+				
+				<?php
+				echo '<option selected  value="x">Seluruh Ujian</option>';
+				foreach ($dropdown_ujian as $row)
+				{
+					echo '<option value="'.$row->id_ujian.'">'.$row->nama_ujian.'</option>';
+					
+				}
+				
+				?>
+		</select>
+		</div>
+		<div class="input-group mb-3" >
+		<div class="input-group-prepend">
+				<label class="input-group-text" for="dropdownpeserta">Nama Peserta</label>
+		</div>
+		<select class="input-group-append custom-select col-md-2" id="dropdownpeserta">
+				
+				<?php
+				if ($k_jenis_user!="3") {
+				echo '<option selected  value="x">Seluruh Peserta</option>';
+				
+				}
+				else
+				{
+					echo '<option value="'.$username.'">'.$nama.'</option>';
+					
+				}
+				?>
+		</select>
+		
+		
+		
+		</div>
+	  
 	 
-		<table id="table" class="display  table-striped table-bordered" cellspacing="0" width="100%" >
+		<table id="table" class="display table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
-                    <tr><th>NAMA UJIAN</th><th>TGL MULAI</th><th>TGL SELESAI</th><th>DURASI (MNT)</th><th>JUMLAH PESERTA</th><th>ACTION</th></tr>
+                    <tr>
+					<th>NAMA UJIAN</th><th>NAMA PESERTA</th>
+					<th>PERTANYAAN</th><th>JAWABAN</th><th>OUTPUT JAWABAN</th>
+					<th>STAT-ERROR</th><th>WAKTU</th><th>EKSEKUSI</th>
+					<th>STAT-JAWABAN</th><th>NILAI</th><th>ACTION</th></tr>
                 </thead>
                 <tbody>
                 </tbody>
-            </table>
-		</div>
-		
-		<div id="wraptabelpeserta" style="display:  <?php  if ($k_jenis_user != "3" && $k_jenis_user != "1" )  {echo "none";} else { echo "blok";} ?>;">
-		<h2 class ="border-bottom" style="display:  <?php  if ($k_jenis_user != "1" )  {echo "none";} else { echo "blok";} ?>;" >Daftar Ujian Peserta</h2>
-		<table id="tablepeserta" class="display  table-striped table-bordered" cellspacing="0" width="100%">
-                <thead>
-                    <tr><th>NAMA UJIAN</th><th>TGL MULAI</th><th>TGL SELESAI</th><th>DURASI (MNT)</th><th>NILAI</th><th>JUMLAH PESERTA</th><th>ACTION</th></tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-		</div>			
+        </table>
 	  </div>		
-		
-      
-	  
-	  
-	  
-	  
-	  
+	  <button type="button" class="btn btn-success"  id="flushnilai">FLUSH NILAI</button>
+      </div>
     </main>
 
 
@@ -192,46 +227,39 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modalcenter" tabindex="-1" role="dialog" aria-labelledby="JudulModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="judulmodal">Modal title</h5>
+        <h5 class="modal-title" id="judulmodal">Show Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+	  <input type="text" class="form-control" id="inputidujian" style="display:none"></input>
+	  <input type="text" class="form-control" id="inputidpertanyaan" style="display:none"></input>
+	  <input type="text" class="form-control" id="inputusername" style="display:none"></input>
 	  
-	 <div class="form-group" style="display:none">
-		<input type="text" class="form-control" id="modalidujian" >
-	 </div> 
+	  <div class="form-group">
+		<label for="pertanyaan">Pertanyaan</label>
+		<textarea readonly class="form-control" id="pertanyaan" rows="4"></textarea>
+	  </div>
+	 <label>Jawaban</label>
+     <div id="editor"></div>
+	 <div class="form-group">
+	<label for="jawabanoutput" >Output Jawaban</label>
+    <textarea readonly class="form-control" id="jawabanoutput" rows="4" disabled></textarea>
+	</div>
+	  <div class="form-group">
+	<label for="nilai" >Nilai</label>
+    <input type="text" class="form-control" id="nilai"></input>
+	</div>
 	  
-     <div class="form-group">
-		<label for="modalnamaujian" id="modalnamaujianlabel">Nama Ujian</label>
-		<input type="text" class="form-control" id="modalnamaujian" placeholder="Nama Ujian">
-	 </div>
-	
-	 <div class="form-group">
-		<label for="modaltglmulai" id="modaltglmulailabel">Tanggal Mulai Ujian</label>
-		<input class="form-control" data-date-format="yyyy-mm-dd" id="modaltglmulai" placeholder="Tanggal Mulai">
-	 </div>
-
-
-     <div class="form-group">
-		<label for="modaltglselesai" id="modaltglmulailabel">Tanggal Selesai Ujian</label>
-		<input class="form-control" data-date-format="yyyy-mm-dd" id="modaltglselesai" placeholder="Tanggal Selesai"> 
-	 </div> 
-	 
-	 <div class="form-group">
-		<label for="modaldurasi" id="modaldurasilabel">Durasi Ujian (Menit)</label>
-		<input type="text" class="form-control" id="modaldurasi" placeholder="Durasi">
-	 </div>
-	
-		
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modaldiscard">Close</button>
-        <button type="button" class="btn btn-primary" id="savemodal">Save changes</button>
+        <button type="button" class="btn btn-success"  id="simpannilai">Simpan</button>
+       
       </div>
     </div>
   </div>
@@ -242,8 +270,11 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-
-	<script src="<?php echo base_url('assets/js/ujian.js'); ?>"></script></body>
+	<script src="<?php echo base_url('assets/js/ace/ace.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/js/ace/ext-language_tools.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/js/ace/mode-java.js'); ?>"></script>
+	
+	<script src="<?php echo base_url('assets/js/hasil.js'); ?>"></script></body>
 		<script src="<?php echo base_url('assets/js/dashboarddosen.js'); ?>"></script></body>
 </body>
 </html>
