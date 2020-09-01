@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.4.3 (64 bit)
-MySQL - 10.4.13-MariaDB : Database - live_oltest
+MySQL - 10.4.11-MariaDB : Database - live_oltest
 *********************************************************************
 */
 
@@ -42,8 +42,8 @@ CREATE TABLE `jawaban_peserta_ujian` (
 /*Data for the table `jawaban_peserta_ujian` */
 
 insert  into `jawaban_peserta_ujian`(`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`,`input_jawaban`,`output_jawab`,`initial_time`,`timer`,`countdown_timer`) values 
-('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\n    \n    public static void main(String[] args) {\n        int a=\n        int b=\n        System.out.println(c);\n    }\n    \n}',NULL,'public class Main {\n    \n    public static void main(String[] args) {\n        int a=5;\n        int b=7;\n        int c=a+b;\n        System.out.println(c);\n    }\n    \n}','2020-08-31 01:17:38',80,'','12\n','2020-08-31 01:17:41',15,104),
-('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nSystem.out.print(\"1234567\");\n\n	//baris bawah jangan dihapus\n	}\n}','2020-08-31 01:17:38',100,'','1234567','2020-08-31 01:18:02',24,75);
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nSystem.out.printf(\"1234567\");\n\n	//baris bawah jangan dihapus\n	}\n}','2020-09-01 09:58:37',NULL,'','1234567','2020-09-01 09:59:00',19,80),
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\n    \n    public static void main(String[] args) {\n        int a=\n        int b=\n        System.out.println(c);\n    }\n    \n}',NULL,'public class Main {\n    \n    public static void main(String[] args) {\n        int a=5;\n        int b=10;\n        int c=a+b;\n        System.out.println(c);\n    }\n    \n}','2020-09-01 09:58:37',NULL,'','15\n','2020-09-01 09:58:40',16,103);
 
 /*Table structure for table `log_jawaban_peserta_ujian` */
 
@@ -71,7 +71,7 @@ CREATE TABLE `log_jawaban_peserta_ujian` (
 /*Data for the table `log_jawaban_peserta_ujian` */
 
 insert  into `log_jawaban_peserta_ujian`(`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`,`input_jawaban`,`output_jawab`,`initial_time`,`timer`,`countdown_timer`,`waktu_log`) values 
-('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,NULL,'2020-08-31 01:17:38',NULL,NULL,NULL,NULL,NULL,NULL,'2020-08-31 01:18:26');
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,NULL,'2020-09-01 09:58:37',NULL,NULL,NULL,NULL,NULL,NULL,'2020-09-01 09:59:19');
 
 /*Table structure for table `log_json_test` */
 
@@ -87,7 +87,7 @@ CREATE TABLE `log_json_test` (
 /*Data for the table `log_json_test` */
 
 insert  into `log_json_test`(`id_ujian`,`username`,`json_text`,`waktu_input`) values 
-('20200820 115341','1234567','[{\"id_pertanyaan\":\"20200823114043\",\"id_ujian\":\"20200820 115341\",\"username\":\"1234567\",\"no_urut\":\"1\",\"pertanyaan\":\"Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.\",\"template_jawab\":\"public class Main {\\n    \\n    public static void main(String[] args) {\\n        int a=\\n        int b=\\n        System.out.println(c);\\n    }\\n    \\n}\",\"initialtime\":\"2020-08-30T18:17:41.610Z\",\"counter\":20,\"is_simpan\":true,\"jawaban\":\"public class Main {\\n    \\n    public static void main(String[] args) {\\n        int a=5;\\n        int b=7;\\n        int c=a+b;\\n        System.out.println(c);\\n    }\\n    \\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"12\\n\",\"timer\":15,\"countdown_timer\":104,\"logjawab\":[{\"jawaban\":\"public class Main {\\n    \\n    public static void main(String[] args) {\\n        int a=5;\\n        int b=7;\\n        int c=a+b;\\n        System.out.println(c);\\n    }\\n    \\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"12\\n\",\"timer\":15,\"countdown_timer\":104}]},{\"id_pertanyaan\":\"20200825191637\",\"id_ujian\":\"20200820 115341\",\"username\":\"1234567\",\"no_urut\":\"2\",\"pertanyaan\":\"Print nim anda:\",\"template_jawab\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\n\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"is_simpan\":true,\"initialtime\":\"2020-08-30T18:18:02.119Z\",\"counter\":0,\"jawaban\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\nSystem.out.print(\\\"1234567\\\");\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"1234567\",\"timer\":24,\"countdown_timer\":75,\"logjawab\":[{\"jawaban\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\nSystem.out.print(\\\"1234567\\\");\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"1234567\",\"timer\":24,\"countdown_timer\":75}]}]','2020-08-31 01:18:32');
+('20200820 115341','1234567','[{\"id_pertanyaan\":\"20200823114043\",\"id_ujian\":\"20200820 115341\",\"username\":\"1234567\",\"no_urut\":\"1\",\"pertanyaan\":\"Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.\",\"template_jawab\":\"public class Main {\\n    \\n    public static void main(String[] args) {\\n        int a=\\n        int b=\\n        System.out.println(c);\\n    }\\n    \\n}\",\"initialtime\":\"2020-09-01T02:58:40.589Z\",\"counter\":20,\"is_simpan\":true,\"jawaban\":\"public class Main {\\n    \\n    public static void main(String[] args) {\\n        int a=5;\\n        int b=10;\\n        int c=a+b;\\n        System.out.println(c);\\n    }\\n    \\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"15\\n\",\"timer\":16,\"countdown_timer\":103,\"logjawab\":[{\"jawaban\":\"public class Main {\\n    \\n    public static void main(String[] args) {\\n        int a=5;\\n        int b=10;\\n        int c=a+b;\\n        System.out.println(c);\\n    }\\n    \\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"15\\n\",\"timer\":16,\"countdown_timer\":103}]},{\"id_pertanyaan\":\"20200825191637\",\"id_ujian\":\"20200820 115341\",\"username\":\"1234567\",\"no_urut\":\"2\",\"pertanyaan\":\"Print nim anda:\",\"template_jawab\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\n\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"is_simpan\":true,\"initialtime\":\"2020-09-01T02:59:00.917Z\",\"counter\":0,\"jawaban\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\nSystem.out.printf(\\\"1234567\\\");\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"1234567\",\"timer\":19,\"countdown_timer\":80,\"logjawab\":[{\"jawaban\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\nSystem.out.printf(\\\"1234567\\\");\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"1234567\",\"timer\":19,\"countdown_timer\":80}]}]','2020-09-01 09:59:23');
 
 /*Table structure for table `m_jenis_user` */
 
@@ -166,8 +166,45 @@ CREATE TABLE `peserta_ujian` (
 /*Data for the table `peserta_ujian` */
 
 insert  into `peserta_ujian`(`id_ujian`,`username_peserta`,`total_nilai`,`waktu_start_ujian`,`waktu_end_ujian`,`waktu_input`,`username_input`) values 
-('20200820 115341','1234567',90,'2020-08-31 01:17:38','2020-08-31 01:18:32','2020-08-25 18:58:50','yogi.kur'),
+('20200820 115341','1234567',NULL,'2020-09-01 09:58:37','2020-09-01 09:59:23','2020-08-25 18:58:50','yogi.kur'),
 ('20200820 115341','12345678',NULL,NULL,NULL,'2020-08-25 18:58:50','yogi.kur');
+
+/*Table structure for table `quisioner_ujian` */
+
+DROP TABLE IF EXISTS `quisioner_ujian`;
+
+CREATE TABLE `quisioner_ujian` (
+  `id_ujian` varchar(35) NOT NULL,
+  `id_survey` varchar(35) NOT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `isRequired` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_ujian`,`id_survey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `quisioner_ujian` */
+
+insert  into `quisioner_ujian`(`id_ujian`,`id_survey`,`type`,`title`,`isRequired`) values 
+('20200820 115341','1','text','Nama Anda',1),
+('20200820 115341','2','radiogroup','Jenis Sekolah',1);
+
+/*Table structure for table `quisioner_ujian_jawab` */
+
+DROP TABLE IF EXISTS `quisioner_ujian_jawab`;
+
+CREATE TABLE `quisioner_ujian_jawab` (
+  `id_ujian` varchar(35) NOT NULL,
+  `id_survey` varchar(35) NOT NULL,
+  `values` varchar(35) NOT NULL,
+  `text` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_ujian`,`id_survey`,`values`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `quisioner_ujian_jawab` */
+
+insert  into `quisioner_ujian_jawab`(`id_ujian`,`id_survey`,`values`,`text`) values 
+('20200820 115341','2','SMA','SMA'),
+('20200820 115341','2','SMK','SMK');
 
 /*Table structure for table `ujian` */
 
@@ -197,9 +234,6 @@ DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `delpengguna`(
 IN inusername varchar(60)
-
-
-
 )
 begin
 DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -214,20 +248,14 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-
-
 delete from pengguna 
 where `username`=inusername;
-
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 end */$$
 DELIMITER ;
 
@@ -254,21 +282,14 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-
-
-
 DELETE FROM pertanyaan
 WHERE id_pertanyaan=inid_pertanyaan AND id_ujian=inid_ujian;
-
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 end */$$
 DELIMITER ;
 
@@ -295,18 +316,13 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-
-
 DELETE FROM peserta_ujian WHERE id_ujian=inid_ujian AND username_Peserta=inusername_Peserta;
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 end */$$
 DELIMITER ;
 
@@ -318,7 +334,6 @@ DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `delujian`(
 IN inid_ujian varchar(35)
-
 )
 begin
 DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -333,25 +348,17 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-
-
 if exists (select * from peserta_ujian where id_ujian=inid_ujian) then
 delete from peserta_ujian WHERE id_ujian=inid_ujian;
 end if;
-
 delete from ujian 
 WHERE id_ujian=inid_ujian;
-
-
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 end */$$
 DELIMITER ;
 
@@ -374,7 +381,6 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET errstate = '00003';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
-
 update jawaban_peserta_ujian dest, (
 SELECT id_Pertanyaan,	id_ujian,nama,	username,	
 	CASE WHEN CASE 
@@ -401,25 +407,20 @@ SELECT id_Pertanyaan,	id_ujian,nama,	username,
 SELECT  a.id_Pertanyaan,a.id_ujian,a.username,c.nama,d.nama_ujian, a.pertanyaan,a.jawaban, CASE WHEN a.output_jawab LIKE '%error%' THEN 'Error' ELSE 'Ekskusi Sukses' END AS status_jawaban,
 REPLACE(REPLACE(LCASE(a.output_jawab), '\r', ''), '\n', '') AS output_jawaban,
 CONCAT(
-
 CASE WHEN LENGTH(FLOOR(timer/60))=1 THEN
 CONCAT('0',FLOOR(timer/60))
 ELSE
 FLOOR(timer/60) END
-
  ,':',
-
 CASE WHEN  LENGTH(MOD(timer,60))=1 THEN
 CONCAT('0',MOD(timer,60))
 ELSE
 MOD(timer,60) END
-
  ) waktu_pengerjaan ,
  CASE 
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
  WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
  ELSE b.ekspektasi_jawaban END ekspektasi_jawaban,
-
 CASE WHEN 
  CASE WHEN
  LCASE( CASE 
@@ -436,7 +437,6 @@ CASE WHEN
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
  WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
  ELSE b.ekspektasi_jawaban END),'%') THEN '1' ELSE '0' END ='1' THEN '1'
-
  WHEN CASE WHEN
  LCASE( CASE 
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
@@ -449,7 +449,6 @@ CASE WHEN
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
  WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
  ELSE b.ekspektasi_jawaban END),'%') THEN '1' ELSE '0' END ='0' THEN '2' 
-
  WHEN  CASE WHEN
  LCASE( CASE 
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
@@ -462,7 +461,6 @@ CASE WHEN
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
  WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
  ELSE b.ekspektasi_jawaban END),'%') THEN '1' ELSE '0' END ='1' THEN '2'  
-
 WHEN CASE WHEN
  LCASE( CASE 
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
@@ -483,26 +481,21 @@ END AS ANALIS_JAWABAN,a.nilai_jawab,e.jumlah_eksekusi
   LEFT JOIN (SELECT  id_pertanyaan,id_ujian,username,COUNT(waktu_log)+1 AS jumlah_eksekusi  FROM log_jawaban_peserta_ujian WHERE jawaban IS NOT NULL
 GROUP BY id_pertanyaan,id_ujian,username) e ON a.id_ujian=e.id_ujian AND a.id_Pertanyaan=e.id_pertanyaan AND a.username=e.username
 WHERE a.id_ujian=inid_ujian
-
 )A
 ) src set dest.nilai_jawab=src.nilai
 where dest.`id_pertanyaan`=src.id_Pertanyaan and dest.`id_ujian`=src.id_ujian
 and dest.`username`=src.username;
-
 UPDATE peserta_ujian dest,(SELECT  id_ujian, username,SUM(nilai_jawab)/COUNT(id_pertanyaan) AS total_nilai FROM jawaban_peserta_ujian 
 WHERE id_ujian=inid_ujian 
 GROUP BY id_ujian, username) src
 SET dest.`total_nilai`=src.total_nilai
 WHERE dest.`id_ujian`=src.id_ujian AND dest.`username_peserta`=src.username;
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 END */$$
 DELIMITER ;
 
@@ -523,7 +516,6 @@ where id_ujian=inid_ujian or inid_ujian='' or inid_ujian='x' or inid_ujian is nu
 and username=inusername or inusername='' OR inusername='x' OR inusername IS NULL
 and id_pertanyaan=inid_pertanyaan or inid_pertanyaan='' OR inid_pertanyaan='x' OR inid_pertanyaan IS NULL
 order by no_urut asc;
-
 end */$$
 DELIMITER ;
 
@@ -553,8 +545,6 @@ DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `getloginstat`(in inusername varchar(50), IN inpassword varchar(60))
 BEGIN
-
-
 	if exists (select * from pengguna where  `username`=inusername and `password`=inpassword) then
 	
 	select 1 as status_login;
@@ -562,9 +552,6 @@ BEGIN
 	SELECT 0 AS status_login;
 	
 	end if;
-
-
-
 	END */$$
 DELIMITER ;
 
@@ -610,7 +597,6 @@ DELIMITER $$
 begin
 SELECT a.`id_ujian`,c.`nama_ujian` ,a.`username_peserta`,b.`nama`,a.`total_nilai`,
 CONCAT(COALESCE(a.`waktu_start_ujian`,''),' s/d ', COALESCE(a.`waktu_end_ujian`,'') )AS waktu_ujian
-
  FROM peserta_ujian a
 LEFT JOIN pengguna b ON a.`username_peserta`=b.`username`
 LEFT JOIN ujian c ON a.`id_ujian`=c.`id_ujian`
@@ -629,7 +615,6 @@ DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `getsummaryujian`(in inid_ujian varchar(35),in inid_pertanyaan varchar(35), in inusername varchar(45))
 begin
-
 select id_Pertanyaan,	id_ujian,nama,	username	,nama_ujian,	pertanyaan,	jawaban,	status_jawaban,	output_jawaban,	waktu_pengerjaan,
 	ekspektasi_jawaban,	
 	case 
@@ -642,25 +627,20 @@ select id_Pertanyaan,	id_ujian,nama,	username	,nama_ujian,	pertanyaan,	jawaban,	
 select  a.id_Pertanyaan,a.id_ujian,a.username,c.nama,d.nama_ujian, a.pertanyaan,a.jawaban, case when a.output_jawab like '%error%' then 'Error' else 'Ekskusi Sukses' end as status_jawaban,
 REPLACE(REPLACE(LCASE(a.output_jawab), '\r', ''), '\n', '') as output_jawaban,
 concat(
-
 case when length(floor(timer/60))=1 then
 concat('0',FLOOR(timer/60))
 else
 FLOOR(timer/60) end
-
  ,':',
-
 case when  length(mod(timer,60))=1 then
 concat('0',MOD(timer,60))
 else
 MOD(timer,60) end
-
  ) waktu_pengerjaan ,
  case 
  when b.ekspektasi_jawaban='{username}' then a.username
  WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
  else b.ekspektasi_jawaban end ekspektasi_jawaban,
-
 case when 
  case when
  lcase( CASE 
@@ -677,7 +657,6 @@ case when
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
  WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
  ELSE b.ekspektasi_jawaban END),'%') then '1' else '0' end ='1' then '1'
-
  when CASE WHEN
  LCASE( CASE 
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
@@ -690,7 +669,6 @@ case when
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
  WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
  ELSE b.ekspektasi_jawaban END),'%') THEN '1' ELSE '0' END ='0' then '2' 
-
  when  CASE WHEN
  LCASE( CASE 
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
@@ -703,7 +681,6 @@ case when
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
  WHEN b.ekspektasi_jawaban='{nama}' THEN c.nama
  ELSE b.ekspektasi_jawaban END),'%') THEN '1' ELSE '0' END ='1' THEN '2'  
-
 when CASE WHEN
  LCASE( CASE 
  WHEN b.ekspektasi_jawaban='{username}' THEN a.username
@@ -741,14 +718,10 @@ DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `getujianpeserta`(inid_ujian varchar(35),INusername varchar(60))
 begin
-
 SELECT distinct  a.id_ujian,nama_ujian,tanggal_mulai,tanggal_selesai,durasi, COALESCE(jumlah_peserta,0) AS jumlah_peserta,
-
-
 case when current_date between a.tanggal_mulai and a.tanggal_selesai and coalesce(d.is_jawab,'0')='0'  then '1' 
 WHEN CURRENT_DATE BETWEEN a.tanggal_mulai AND a.tanggal_selesai AND COALESCE(d.is_jawab,'0')='1'   then '2'
 else '0' end as is_enable,c.total_nilai
-
  FROM ujian a
  LEFT JOIN ( SELECT  id_ujian,COUNT( username_peserta) AS jumlah_peserta FROM peserta_ujian
  GROUP BY id_ujian) b ON a.`id_ujian`=b.id_ujian
@@ -778,7 +751,6 @@ select a.`username`,a.`nama`,a.`k_jenis_user`,b.`content` as jenis_user from pen
 where a.k_jenis_user=b.k_jenis_user
 and a.`username`=inusername
 ;
-
 end */$$
 DELIMITER ;
 
@@ -794,9 +766,7 @@ select a.`username`,a.`nama`,a.`k_jenis_user`,b.`content` as jenis_user from pen
 where a.k_jenis_user=b.k_jenis_user
 and (a.`username`=inusername or inusername='' or inusername='x' or inusername is null)
 AND (a.`k_jenis_user`=ink_jenis_user OR ink_jenis_user='' OR ink_jenis_user='x' OR ink_jenis_user IS NULL)
-
 ;
-
 end */$$
 DELIMITER ;
 
@@ -824,23 +794,17 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-
-
 INSERT INTO peserta_ujian (
 id_ujian,username_peserta,waktu_input,username_input
 ) VALUES(
 inid_ujian,inusername_peserta,NOW() ,inusername_input
 );
-
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 end */$$
 DELIMITER ;
 
@@ -854,9 +818,6 @@ DELIMITER $$
 IN inid_ujian VARCHAR(45),
 IN inusername VARCHAR(60),
 in INjson_text text
-
-
-
 )
 BEGIN
 DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -878,20 +839,14 @@ else
 update log_json_test set json_text=INjson_text, waktu_input=now()
 where  id_ujian=INid_ujian and username=INusername;
 end IF;
-
-
 update peserta_ujian set waktu_end_ujian=now()
 WHERE  id_ujian=INid_ujian AND username_peserta=INusername;
-
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 END */$$
 DELIMITER ;
 
@@ -906,9 +861,6 @@ IN inusername varchar(60),
 iN inpassword VARCHAR(60),
 IN ink_jenis_user VARCHAR(3),
 IN innama VARCHAR(100)
-
-
-
 )
 begin
 DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -923,24 +875,19 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-
 if not exists(select * from pengguna WHERE `username`=inusername ) then
 INSERT INTO pengguna(`username`,`password`,`k_jenis_user`,`nama`)
 VALUES(inusername,inpassword,ink_jenis_user,innama);
 else
-
 update pengguna set `k_jenis_user`=ink_jenis_user,`nama`=innama
 where `username`=inusername;
 end if;
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 end */$$
 DELIMITER ;
 
@@ -955,7 +902,6 @@ IN inid_pertanyaan VARCHAR(35),
 IN inid_ujian varchar(35),
 IN inpertanyaan text,
 IN intemplate_jawab TEXT,
-
 IN inusername varchar(60),
 in inekspektasi_jawaban text
 )
@@ -972,27 +918,20 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-
-
 IF NOT EXISTS(SELECT * FROM pertanyaan WHERE id_pertanyaan=inid_pertanyaan AND id_ujian=inid_ujian) THEN
 set inid_pertanyaan=replace(replace(replace(now(),'-',''),':',''),' ','') ;
 INSERT INTO pertanyaan(id_pertanyaan, id_ujian, pertanyaan,template_jawab,username,ekspektasi_jawaban)
 VALUES (inid_pertanyaan, inid_ujian, inpertanyaan,intemplate_jawab,inusername,inekspektasi_jawaban);
-
 ELSE
 UPDATE pertanyaan SET pertanyaan=inpertanyaan , template_jawab=intemplate_jawab,username=inusername,ekspektasi_jawaban=inekspektasi_jawaban
 WHERE id_pertanyaan=inid_pertanyaan AND id_ujian=inid_ujian;
 END IF;
-
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 end */$$
 DELIMITER ;
 
@@ -1009,7 +948,6 @@ IN intanggal_mulai date,
 IN intanggal_selesai date,
 IN indurasi int,
 IN inusername varchar(60)
-
 )
 begin
 DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -1024,15 +962,11 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-
-
 IF NOT EXISTS (SELECT * FROM ujian WHERE id_ujian=inid_ujian) THEN
 set inid_ujian=replace(replace(replace(current_timestamp,'-',''),':',''),' ','');
 INSERT INTO ujian (id_ujian,nama_ujian,tanggal_mulai,tanggal_selesai,durasi,username)
 VALUES (inid_ujian,innama_ujian,intanggal_mulai,intanggal_selesai,indurasi,inusername);
-
 ELSE
-
 UPDATE ujian SET nama_ujian=innama_ujian
 ,tanggal_mulai=INtanggal_mulai
 ,tanggal_selesai=INtanggal_selesai
@@ -1040,16 +974,12 @@ UPDATE ujian SET nama_ujian=innama_ujian
 ,username=INusername
 WHERE id_ujian=inid_ujian;
 END IF;
-
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 end */$$
 DELIMITER ;
 
@@ -1062,9 +992,6 @@ DELIMITER $$
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `prepareujian`(
 in inid_ujian varchar(45),
 IN inusername varchar(60)
-
-
-
 )
 begin
 DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -1079,7 +1006,6 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-
 if not exists(select * from jawaban_peserta_ujian where id_ujian=inid_ujian and username= inusername   ) then
 INSERT INTO jawaban_peserta_ujian ( id_pertanyaan,id_ujian,username,no_urut,pertanyaan,template_jawab,link_gambar)
 SELECT id_pertanyaan,id_ujian,inusername username, row_number() over (PARTITION BY id_ujian)AS no_urut,pertanyaan,template_jawab,link_gambar 
@@ -1087,18 +1013,14 @@ FROM pertanyaan
 WHERE id_ujian=inid_ujian
 ORDER BY RAND();
 end if;
-
 update peserta_ujian set waktu_start_ujian=now()
 where id_ujian=inid_ujian and username_peserta=inusername;
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 end */$$
 DELIMITER ;
 
@@ -1109,10 +1031,10 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `resetpesertaujian`(
-IN inid_ujian VARCHAR(45),
-IN inusername VARCHAR(60)
+in inid_ujian varchar(45),
+IN inusername varchar(60)
 )
-BEGIN
+begin
 DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
                        	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
                        	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
@@ -1125,12 +1047,12 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-DELETE FROM log_jawaban_peserta_ujian WHERE id_ujian=inid_ujian AND username=inusername;
-DELETE FROM log_json_test WHERE id_ujian=inid_ujian AND username=inusername;
-DELETE FROM jawaban_peserta_ujian WHERE id_ujian=inid_ujian AND username=inusername;
-UPDATE `live_oltest`.`peserta_ujian` 
-SET waktu_start_ujian=NULL, waktu_end_ujian=NULL
-WHERE id_ujian=inid_ujian AND username_peserta=inusername;
+delete from log_jawaban_peserta_ujian where id_ujian=inid_ujian and username=inusername;
+delete FROM log_json_test where id_ujian=inid_ujian and username=inusername;
+delete FROM jawaban_peserta_ujian where id_ujian=inid_ujian and username=inusername;
+update `live_oltest`.`peserta_ujian` 
+set waktu_start_ujian=null, waktu_end_ujian=null, total_nilai=null
+where id_ujian=inid_ujian and username_peserta=inusername;
 
 
 IF errstate='00000' THEN 
@@ -1139,7 +1061,7 @@ IF errstate='00000' THEN
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-END */$$
+end */$$
 DELIMITER ;
 
 /* Procedure structure for procedure `updatejawabanpesertaujian` */
@@ -1158,7 +1080,6 @@ IN inoutput_jawab text,
 IN ininitial_time datetime,
 IN intimer int,
 IN incountdown_timer int
-
 )
 BEGIN
 DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -1173,9 +1094,7 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         SET AUTOCOMMIT=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         START TRANSACTION; 
 	
-
 if exists (select * from jawaban_peserta_ujian WHERE id_ujian=inid_ujian AND id_pertanyaan=id_pertanyaan AND username=inusername and jawaban is not null) then
-
 INSERT INTO `live_oltest`.`log_jawaban_peserta_ujian`
 (`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,
 `link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`,`input_jawaban`,`output_jawab`,`initial_time`,`timer`,`countdown_timer`,`waktu_log`)
@@ -1185,7 +1104,6 @@ FROM `live_oltest`.`jawaban_peserta_ujian`
 WHERE id_ujian=inid_ujian AND id_pertanyaan=inid_pertanyaan AND username=inusername
 ;
 end if;
-
 UPDATE jawaban_peserta_ujian
 SET jawaban=injawaban,
 input_jawaban=ininput_jawaban,
@@ -1195,7 +1113,6 @@ timer=intimer,
 countdown_timer=incountdown_timer
 WHERE id_ujian=inid_ujian AND id_pertanyaan=inid_pertanyaan AND username=inusername
 ;
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
@@ -1216,8 +1133,6 @@ IN inid_ujian VARCHAR(45),
 in inid_pertanyaan varchar(35),
 IN inusername VARCHAR(60),
 in innilai_jawab double
-
-
 )
 BEGIN
 DECLARE errstate CHAR(5) DEFAULT '00000';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -1233,21 +1148,17 @@ DECLARE errstate CHAR(5) DEFAULT '00000';
         START TRANSACTION; 
 update jawaban_peserta_ujian set nilai_jawab=innilai_jawab
 where id_ujian=inid_ujian and id_pertanyaan=inid_pertanyaan and username=inusername;
-
 UPDATE peserta_ujian dest,(SELECT  id_ujian, username,SUM(nilai_jawab)/COUNT(id_pertanyaan) AS total_nilai FROM jawaban_peserta_ujian 
 where id_ujian=inid_ujian AND username=inusername
 GROUP BY id_ujian, username) src
 SET dest.`total_nilai`=src.total_nilai
 WHERE dest.`id_ujian`=src.id_ujian AND dest.`username_peserta`=src.username;
-
 IF errstate='00000' THEN 
 	COMMIT; 
 	ELSE         
 	ROLLBACK;
 	END IF;       
 	SELECT errstate;
-
-
 END */$$
 DELIMITER ;
 

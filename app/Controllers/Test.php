@@ -160,8 +160,7 @@ class Test extends BaseController
 		$idujian="20200820 115341";
 		
 		$sumamry=$testmodel->getquisoner($idujian);
-		print_r($sumamry);
-		exit;
+	
 		$i=0;
 		foreach($sumamry as $row){
 			
@@ -169,11 +168,14 @@ class Test extends BaseController
 			{
 				
 				$choice=$testmodel->getpilihan($idujian,$row->name);
-				
+				$sumamry[i]->["choices"]=[$choice];
 				
 			}
 			$i++;
 		}
+		
+		print_r($choice);
+		exit;
 		
 		
 		$data=[
@@ -191,3 +193,35 @@ class Test extends BaseController
 	
 	
 }
+
+
+/* 
+{
+ "pages": [
+  {
+   "name": "page1",
+   "elements": [
+    {
+     "type": "text",
+     "name": "question2",
+     "title": "NAMA"
+    },
+    {
+     "type": "radiogroup",
+     "name": "question1",
+     "title": "JENIS SEKOLAH",
+     "choices": [
+      {
+       "value": "item1",
+       "text": "SMA"
+      },
+      {
+       "value": "item2",
+       "text": "SMK"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+} */
