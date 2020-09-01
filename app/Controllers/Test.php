@@ -117,7 +117,7 @@ class Test extends BaseController
 		$ujianmodel=new Ujian_model();
 
 		$res=$ujianmodel->getlistujian($idujian,"x");
-		
+		$idujian="20200820 115341";
 		
 		foreach ($res as $row)
 		{
@@ -152,6 +152,40 @@ class Test extends BaseController
 		$sumamry=$ujianmodel->getlisthasilujian($idujian,"x",$username);
 		
 		return json_encode($sumamry);
+	}
+	
+	
+	public function getquisoner()
+	{   $testmodel=new Test_model();
+		$idujian="20200820 115341";
+		
+		$sumamry=$testmodel->getquisoner($idujian);
+		print_r($sumamry);
+		exit;
+		$i=0;
+		foreach($sumamry as $row){
+			
+			if ($row->type=="radiogroup")
+			{
+				
+				$choice=$testmodel->getpilihan($idujian,$row->name);
+				
+				
+			}
+			$i++;
+		}
+		
+		
+		$data=[
+		"name"=>'pages1',
+		"elements"=>[$sumamry]
+		];
+		$pages=[
+		"pages"=>[$data]
+		];
+		
+		return json_encode($pages);
+		
 	}
 	
 	

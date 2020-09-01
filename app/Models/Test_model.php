@@ -130,4 +130,29 @@ class Test_model extends Model
 		return $row;
 	}
 	
+	
+	public function getquisoner($idujian)
+	{
+		
+		$db = db_connect('default');
+		$textq=" SELECT   `id_survey` as `name`,   `type`,   `title` FROM   `live_oltest`.`quisioner_ujian` WHERE id_ujian='".$idujian."'";
+	
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+	}
+	
+	
+	public function getpilihan($idujian,$idsurvey)
+	{
+		
+		$db = db_connect('default');
+		$textq=" SELECT  `values`,  `text` FROM `live_oltest`.`quisioner_ujian_jawab` WHERE id_ujian='".$idujian."' AND id_survey='".$idsurvey."'";
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+	}
+	
 }

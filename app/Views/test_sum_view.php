@@ -88,6 +88,10 @@
                 <tbody>
                 </tbody>
         </table>
+		
+		
+		<div id="surveyElement" style="display:inline-block;width:100%;"></div>
+		
 		<button type="button" class="d-flex btn btn-primary btn-xl ml-auto center justify-content-center" id="kembali">Kembali Ke Dashboard</button>
     	</div>
 	</div>
@@ -96,7 +100,8 @@
 	
 </div>
 </body>
-   
-	
+	<script src="https://unpkg.com/survey-jquery"></script>   
+		<link href="https://unpkg.com/survey-jquery/survey.min.css" type="text/css" rel="stylesheet"/>
 <script src="<?php echo base_url('assets/js/test_sum.js'); ?>"></script></body>
+
 </html>

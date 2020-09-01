@@ -66,5 +66,39 @@ var table = $('#table').DataTable({
 		localStorage.clear();
 		location.replace(base_url+"public/dashboard");
 	});
+	
+	
+	var json="";
+	
+	
+	
+	
+	
+	
+	Survey
+    .StylesManager
+    .applyTheme("modern");
+	
+	var surveyValueChanged = function (sender, options) {
+    var el = document.getElementById(options.name);
+    if (el) {
+        el.value = options.value;
+    }
+	
+	window.survey = new Survey.Model(json);
+
+	survey
+    .onComplete
+    .add(function (result) {
+        document
+            .querySelector('#surveyResult')
+            .textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3);
+    });
+	
+	$("#surveyElement").Survey({model: survey, onValueChanged: surveyValueChanged});
+	
+};
+	
+	
 
 })
