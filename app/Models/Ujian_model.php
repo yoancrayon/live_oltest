@@ -175,5 +175,76 @@ class Ujian_model extends Model
 		
 	}
 	
+	public function getquisioner($idujian,$idsurvey)
+	{
+		
+		$db = db_connect('default');
+		$textq="call getquisionerujian('".$idujian."','".$idsurvey."')";
+		$query=$db->query($textq);
+		$row   = $query->getResult();
+	   
+		return $row;
+		
+	}
+	
+	public function insupdquisioner($data)
+	{
+		
+		$db = db_connect('default');
+		$textq="call insupdquisionerujian(		'".$data["idujian"]."','".$data["idsurvey"]."','".$data["type"]."',".$this->db->escape($data["title"]).",".$this->db->escape($data["minrating"]).",".$this->db->escape($data["maxrating"]).")";
+		
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+	}
+	
+	public function delquisioner($idujian,$idsurvey)
+	{
+		
+		$db = db_connect('default');
+		$textq="call delquisionerujian('".$idujian."','".$idsurvey."')";
+		
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+	}
+	
+	public function getpilihanquisioner($idujian,$idsurvey)
+	{
+		
+		$db = db_connect('default');
+		$textq="call getquisionerpilihan('".$idujian."','".$idsurvey."')";
+		$query=$db->query($textq);
+		$row   = $query->getResult();
+	   
+		return $row;
+		
+	}
+	
+	public function inspilihanquisioner($idujian,$idsurvey,$text)
+	{
+		
+		$db = db_connect('default');
+		$textq="call insquisionerujianpilihan('".$idujian."','".$idsurvey."','".$text."')";
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+	}
+	
+	public function delpilihanquisioner($idujian,$idsurvey,$value)
+	{
+		
+		$db = db_connect('default');
+		$textq="call delquisionerujianpilihan('".$idujian."','".$idsurvey."','".$value."')";
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+		
+	}
+	
+	
 	
 }

@@ -8,7 +8,16 @@ class Login extends BaseController
 	
 	public function index()
 	{
+		$session = session();
+		if ($session->username)
+		{
+			
+		return redirect()->to(base_url('dashboard'));
+		}
+		else
+		{
 		return view('login_view');
+		}
 	}
 	
 	public function getLoginstat()

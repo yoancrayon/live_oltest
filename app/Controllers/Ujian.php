@@ -482,6 +482,7 @@ class Ujian extends BaseController
 		$idpertanyaan=$this->request->getPost('idpertanyaan');
 		$username=$this->request->getPost('username');
 		$nilai=$this->request->getPost('nilai');
+		
 		$res=$ujianmodel->updatenilai($idujian,$idpertanyaan,$username,$nilai);
 		
 		if ($res["errstate"]=="00000")
@@ -492,6 +493,146 @@ class Ujian extends BaseController
 			return "failed";
 		}
 		
+		
+	}
+	
+	public function quisioner()
+	{
+		$session = session();
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		if ($session->get('k_jenis_user')=="1")
+		{
+			$usersession="x";
+		}
+		else
+		{
+			$usersession=$session->get('username');
+			
+		}
+		
+		$dropdown_ujian=$ujianmodel->getlistujian("x",$usersession);
+		$data=[
+		'nama'=>$session->get('nama'),
+		'username'=>$session->get('username'),
+		'k_jenis_user'=>$session->get('k_jenis_user'),
+		'jenis_user'=>$session->get('jenis_user'),
+		'dropdown_ujian'=>$dropdown_ujian
+		
+		];
+		
+		return view('dashboard_quisioner_view',$data);
+		
+		
+	}
+	
+	public function listpertanyaanquisioner()
+
+	{
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		$idujian=$this->request->getPost("idujian");
+		$hasil=$ujianmodel->getquisioner($idujian,"x");
+		return json_encode($hasil);
+		
+	}	
+	
+	public function simpanquisioner()
+	{
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost("idujian");
+		$idsurvey=$this->request->getPost("idsurvey");
+		$type=$this->request->getPost("type");
+		$title=$this->request->getPost("title");
+		$minrating=$this->request->getPost("minrating");
+		$maxrating=$this->request->getPost("maxrating");
+	$data=[
+	"idujian"=>$idujian,
+	"idsurvey"=>$idsurvey,
+	"type"=>$type,
+	"title"=>$title,
+	"minrating"=>$minrating,
+	"maxrating"=>$maxrating
+	];	
+		
+		$res=$ujianmodel->insupdquisioner($data);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+	}
+	
+	public function hapusquisoner()
+	{
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost("idujian");
+		$idsurvey=$this->request->getPost("idsurvey");
+		
+		$res=$ujianmodel->delquisioner($idujian,$idsurvey);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+	}
+	
+	
+	public function listpilihanquisioner()
+
+	{
+		$ujianmodel=new Ujian_model();
+		$session = session();
+		$idujian=$this->request->getPost("idujian");
+		$idsurvey=$this->request->getPost("idsurvey");
+		$hasil=$ujianmodel->getpilihanquisioner($idujian,$idsurvey);
+		return json_encode($hasil);
+		
+	}	
+	
+	public function simpanpilihanquisoner()
+	{
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost("idujian");
+		$idsurvey=$this->request->getPost("idsurvey");
+		$text=$this->request->getPost("pilihan");
+		
+		$res=$ujianmodel->inspilihanquisioner($idujian,$idsurvey,$text);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
+		
+	}
+	
+	public function hapuspilihanquisoner()
+	{
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost("idujian");
+		$idsurvey=$this->request->getPost("idsurvey");
+		$value=$this->request->getPost("value");
+		
+		
+		$res=$ujianmodel->delpilihanquisioner($idujian,$idsurvey,$value);
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
 		
 	}
 	

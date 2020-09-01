@@ -70,34 +70,84 @@ var table = $('#table').DataTable({
 	
 	var json="";
 	
-	
-	
-	
-	
-	
-	Survey
-    .StylesManager
-    .applyTheme("modern");
-	
-	var surveyValueChanged = function (sender, options) {
-    var el = document.getElementById(options.name);
-    if (el) {
-        el.value = options.value;
-    }
-	
-	window.survey = new Survey.Model(json);
+	$.ajax({
+				url: base_url+"public/test/getquisoner",  
+				type: "POST",
+				data: {
+                  "idujian": idujian
+				},
+				
+				success:function(response){
+				Survey
+				.StylesManager
+				.applyTheme("modern");
+                window.survey = new Survey.Model(JSON.parse(response));
+				survey
+				.onComplete
+				.add(function (result) {
+					//alert(JSON.stringify(result.data));
+                
+					$.ajax({
+					url: base_url+"public/test/simpanjawabanquisioner",  
+					type: "POST",
+					data: {
+					"idujian": idujian,
+					"data":JSON.stringify(result.data)
+					},
+				    success:function(response){
+						
+				 console.log(response);
+						
+					},
+					error:function(response){
 
-	survey
-    .onComplete
-    .add(function (result) {
-        document
-            .querySelector('#surveyResult')
-            .textContent = "Result JSON:\n" + JSON.stringify(result.data, null, 3);
-    });
+                
+                  console.log(response);
+
+					}
+				
+					});
+					
+					
+				
+				});
+
+				$("#surveyElement").Survey({model: survey});
+                console.log(response);
+
+              },
+			  error:function(response){
+
+                
+                  console.log(response);
+
+              }
+				
+		});
 	
-	$("#surveyElement").Survey({model: survey, onValueChanged: surveyValueChanged});
 	
-};
+	
+	/* survey.onComplete.add(function (sender, options) {
+    //Show message about "Saving..." the results
+    options.showDataSaving();//you may pass a text parameter to show your own text
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "YourServiceForStoringSurveyResultsURL");
+    xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    xhr.onload = xhr.onerror = function () {
+        if (xhr.status == 200) {
+            options.showDataSavingSuccess(); // you may pass a text parameter to show your own text
+            // Or you may clear all messages:
+            // options.showDataSavingClear();
+        } else {
+            //Error
+            options.showDataSavingError(); // you may pass a text parameter to show your own text
+        }
+    };
+    xhr.send(JSON.stringify(sender.data));
+	}); */
+	
+	
+	
 	
 	
 

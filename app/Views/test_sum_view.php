@@ -100,8 +100,10 @@
 	
 </div>
 </body>
-	<script src="https://unpkg.com/survey-jquery"></script>   
-		<link href="https://unpkg.com/survey-jquery/survey.min.css" type="text/css" rel="stylesheet"/>
+	<script src="<?php echo base_url('assets/js/survey.jquery.js'); ?>"></script>   
+	<!--	<link href="<?php echo base_url('assets/css/survey.min.css'); ?>" type="text/css" rel="stylesheet"/>-->
+		 <link href="<?php echo base_url('assets/css/modern.css');?>" type="text/css" rel="stylesheet"/>
+       
 <script src="<?php echo base_url('assets/js/test_sum.js'); ?>"></script></body>
 
 </html>

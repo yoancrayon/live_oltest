@@ -135,7 +135,7 @@ class Test_model extends Model
 	{
 		
 		$db = db_connect('default');
-		$textq=" SELECT   `id_survey` as `name`,   `type`,   `title` FROM   `live_oltest`.`quisioner_ujian` WHERE id_ujian='".$idujian."'";
+		$textq=" SELECT   `id_survey` as `name`,   `type`,   `title`,minRating,maxrating FROM   `live_oltest`.`quisioner_ujian` WHERE id_ujian='".$idujian."'";
 	
 		$query=$db->query($textq);
 		$row   = $query->getresult();
@@ -154,5 +154,17 @@ class Test_model extends Model
 		return $row;
 		
 	}
+	//insjawabanquisionerjson
+	
+	public function insjawabanquisioner($idujian,$username,$json)
+	{
+		$db = db_connect('default');
+		$textq="call insjawabanquisionerjson(".$this->db->escape($idujian).",".$this->db->escape($username).",".$this->db->escape($json).")";
+		
+		$query=$db->query($textq);
+		$row   = $query->getRowArray();
+		return $row;
+	}
+	
 	
 }

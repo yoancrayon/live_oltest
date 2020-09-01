@@ -117,7 +117,7 @@ class Test extends BaseController
 		$ujianmodel=new Ujian_model();
 
 		$res=$ujianmodel->getlistujian($idujian,"x");
-		$idujian="20200820 115341";
+		//$idujian="20200820 115341";
 		
 		foreach ($res as $row)
 		{
@@ -157,71 +157,78 @@ class Test extends BaseController
 	
 	public function getquisoner()
 	{   $testmodel=new Test_model();
-		$idujian="20200820 115341";
+		$ujianmodel=new Ujian_model();
+		$idujian=$this->request->getPost('idujian');
+		//$idujian="20200820 115341";
 		
 		$sumamry=$testmodel->getquisoner($idujian);
-	
+		$ujian=$ujianmodel->getlistujian($idujian,"x");
 		$i=0;
+		$pil=array();
 		foreach($sumamry as $row){
 			
-			if ($row->type=="radiogroup")
+			if ($row->type=="radiogroup"||$row->type=="checkbox")
 			{
 				
 				$choice=$testmodel->getpilihan($idujian,$row->name);
-				$sumamry[i]->["choices"]=[$choice];
+				foreach ($choice as $c)
+				{
+					
+					
+					array_push($pil,$c->text);
+				}
+				$sumamry[$i]->choices=$pil;
 				
 			}
+			
+			if ($row->type=="rating")
+			{
+				
+				$sumamry[$i]->minRateDescription=$row->minRating;
+				$sumamry[$i]->maxRateDescription=$row->maxrating;
+				
+			}
+			
+			
 			$i++;
 		}
 		
-		print_r($choice);
-		exit;
+		
+	
 		
 		
-		$data=[
-		"name"=>'pages1',
-		"elements"=>[$sumamry]
-		];
-		$pages=[
-		"pages"=>[$data]
-		];
+		 
+		 $question=[
+		 "title"=>"Survey ".$ujian[0]->nama_ujian,
+		 "questions"=>$sumamry
+		 ];
+		 
+		return json_encode($question);
 		
-		return json_encode($pages);
+	}
+	
+	public function simpanjawabanquisioner()
+	{
+		$testmodel=new Test_model();
+		$session = session();
+		$username=$session->get('username');
+		$idujian=$this->request->getPost('idujian');
+		$jawabquisionerjson=$this->request->getPost('data');
 		
+		$res=$testmodel->insjawabanquisioner($idujian,$username,$jawabquisionerjson);
+		
+		
+		
+		if ($res["errstate"]=="00000")
+		{
+			return "success";
+		}
+		else {
+			return "failed";
+		}
 	}
 	
 	
 	
 }
 
-
-/* 
-{
- "pages": [
-  {
-   "name": "page1",
-   "elements": [
-    {
-     "type": "text",
-     "name": "question2",
-     "title": "NAMA"
-    },
-    {
-     "type": "radiogroup",
-     "name": "question1",
-     "title": "JENIS SEKOLAH",
-     "choices": [
-      {
-       "value": "item1",
-       "text": "SMA"
-      },
-      {
-       "value": "item2",
-       "text": "SMK"
-      }
-     ]
-    }
-   ]
-  }
- ]
-} */
