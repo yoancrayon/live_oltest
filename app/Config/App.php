@@ -21,7 +21,8 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = 'http://localhost/live_oltest/public';
+	public $baseURL = BASE;
+	//'http://localhost/live_oltest/public';
 
 	/*
 	|--------------------------------------------------------------------------
