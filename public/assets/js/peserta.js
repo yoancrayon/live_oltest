@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var base_url = window.location.origin+"/live_oltest/";
 	}
 	else{
-		var base_url = window.location.origin;
+		var base_url = window.location.origin+"/";
 	}
 	
 	

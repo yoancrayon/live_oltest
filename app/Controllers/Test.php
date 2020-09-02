@@ -1,8 +1,8 @@
 <?php namespace App\Controllers;
 
 
-use App\Models\test_Model;
-use App\Models\ujian_Model;
+use App\Models\Test_model;
+use App\Models\Ujian_model;
 
 class Test extends BaseController
 {

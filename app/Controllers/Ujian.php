@@ -1,7 +1,7 @@
 <?php namespace App\Controllers;
 
-use App\Models\ujian_Model;
-use App\Models\test_Model;
+use App\Models\Ujian_model;
+use App\Models\Test_model;
 class Ujian extends BaseController
 {
 	

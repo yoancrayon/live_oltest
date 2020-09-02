@@ -3,7 +3,18 @@ $(document).ready(function() {
 
 var host = window.location.host;
 
+
+
 var pathArray = window.location.pathname.split( '/' );
+
+	if (location.host == 'localhost') {
+	var base_url = window.location.origin+"/live_oltest/";
+	}
+	else{
+		var base_url = window.location.origin+"/";
+	}
+	
+
 	$(".btn-login").click( function() {
 		var username=document.getElementById("exampleFormControlInput1").value;  
 		var password=document.getElementById("exampleFormControlInput2").value;  
@@ -28,7 +39,7 @@ var pathArray = window.location.pathname.split( '/' );
 
           } else {
 			$.ajax({
-				url: "http://localhost/live_oltest/public/login/getLoginstat",  
+				url: base_url+"public/login/getLoginstat",  
 				type: "POST",
 				data: {
                   "username": username,
@@ -47,7 +58,7 @@ var pathArray = window.location.pathname.split( '/' );
                     showConfirmButton: false
                   })
                   .then (function() {
-                    window.location.href = "http://localhost/live_oltest/public/dashboard";
+                    window.location.href = base_url+"public/dashboard";
                   });
 
                 } else {
