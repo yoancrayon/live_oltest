@@ -145,6 +145,10 @@ $(document).ready(function() {
 			
 		}
 		else{
+			$("#modalminrating").hide();
+		 $("#modalmaxrating").hide();	
+		 $("#modalminratinglabel").hide();
+		 $("#modalmaxratinglabel").hide();
 		window.document.getElementById("judulmodal").innerHTML  ="Tambah Pertanyaan Quisioner Baru";
 		window.document.getElementById("modalminrating").value="";
 		window.document.getElementById("modalmaxrating").value="";
@@ -367,6 +371,10 @@ $(document).ready(function() {
 	
 	
 	$('#table').on('click','.edit_record',function(){
+		$("#modalminrating").hide();
+		 $("#modalmaxrating").hide();	
+		 $("#modalminratinglabel").hide();
+		 $("#modalmaxratinglabel").hide();
 		window.document.getElementById("judulmodal").innerHTML  ="Edit Pertanyaan Quisioner";
 		window.document.getElementById("modalidujian").value=$(this).data('idujian');
 		window.document.getElementById("modalidsurvey").value=$(this).data('idsurvey');
@@ -375,6 +383,17 @@ $(document).ready(function() {
 		window.document.getElementById("modalpertanyaan").value=$(this).data('title');
 		window.document.getElementById("modalminrating").value=$(this).data('minrating');
 		window.document.getElementById("modalmaxrating").value=$(this).data('maxrating');
+		
+     if ($(this).data('type')=="rating") {
+     
+        $("#modalminrating").show();
+		 $("#modalmaxrating").show();	
+		 $("#modalminratinglabel").show();
+		 $("#modalmaxratinglabel").show();
+     }
+		
+		
+		
 		$('#modalcenter').modal('show');
 	});
 	
