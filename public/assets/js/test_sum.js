@@ -32,8 +32,8 @@ var table = $('#table').DataTable({
 						{"data": "output_jawaban",width:200},
 						{"data": "status_jawaban",width:50},
 						{"data": "waktu_pengerjaan",width:50},
-						{"data": "jumlah_eksekusi",width:50},
-						{"data": "CONTENT_ANALIS_JAWAB",width:50}
+						{"data": "jumlah_eksekusi",width:50}
+						
 						
                        
 						

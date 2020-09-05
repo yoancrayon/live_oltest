@@ -102,7 +102,7 @@
                 <thead>
                     <tr><th>PERTANYAAN</th><th>JAWABAN</th><th>OUTPUT JAWABAN</th>
 					<th>STATUS ERROR</th><th>WAKTU PENGERJAAN</th><th>JUMLAH EKSEKUSI</th>
-					<th>STATUS JAWABAN</th></tr>
+					</tr>
                 </thead>
                 <tbody>
                 </tbody>
