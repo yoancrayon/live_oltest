@@ -64,22 +64,43 @@
 	localStorage.setItem("kjenisuser",kjenisuser);	
 
 </script>	
-<script src="<?php echo base_url('assets/js/ellipsis.js'); ?>"></script></body>
-
+<script src="<?php echo base_url('assets/js/ellipsis.js'); ?>"></script>
+<!--
 <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
 <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
 <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+-->
+
+<link rel="apple-touch-icon" sizes="57x57" href="<?php echo base_url('favicon/apple-icon-57x57.png'); ?>">
+<link rel="apple-touch-icon" sizes="60x60" href="<?php echo base_url('favicon/apple-icon-60x60.png'); ?>">
+<link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url('favicon/apple-icon-76x76.png'); ?>">
+<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('favicon/apple-icon-76x76.png'); ?>">
+<link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url('favicon/apple-icon-114x114.png'); ?>">
+<link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url('favicon/apple-icon-120x120.png'); ?>">
+<link rel="apple-touch-icon" sizes="144x144" href="<?php echo base_url('favicon/apple-icon-144x144.png'); ?>">
+<link rel="apple-touch-icon" sizes="152x152" href="<?php echo base_url('favicon/apple-icon-152x152.png'); ?>">
+<link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url('favicon/apple-icon-180x180.png'); ?>">
+<link rel="icon" type="image/png" sizes="192x192"  href="<?php echo base_url('favicon/android-icon-192x192.png'); ?>">
+<link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('favicon/favicon-32x32.png'); ?>">
+<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url('favicon/favicon-96x96.png'); ?>">
+<link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('favicon/favicon-16x16.png'); ?>">
+<link rel="manifest" href="<?php echo base_url('favicon/manifest.json'); ?>">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="<?php echo base_url('favicon/ms-icon-144x144.png'); ?>">
+<meta name="theme-color" content="#ffffff">
+
+
 <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">	
-
+<title>Hasil Ujian - livE Online Java Exercise</title>
 </head>
 <body>
  
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-no p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">LIVE Online Java Exercise</a> 
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">livE Online Java Exercise</a> 
   <ul class="navbar-nav px-3">
   
     <li class="nav-item text-nowrap col-md-2ml-auto">
@@ -291,7 +312,7 @@
 	<script src="<?php echo base_url('assets/js/ace/ext-language_tools.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/js/ace/mode-java.js'); ?>"></script>
 	
-	<script src="<?php echo base_url('assets/js/hasil.js'); ?>"></script></body>
-		<script src="<?php echo base_url('assets/js/dashboarddosen.js'); ?>"></script></body>
+	<script src="<?php echo base_url('assets/js/hasil.js'); ?>"></script>
+		<script src="<?php echo base_url('assets/js/dashboarddosen.js'); ?>"></script>
 </body>
 </html>
