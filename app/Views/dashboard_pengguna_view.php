@@ -277,7 +277,7 @@
 		<select class="custom-select" id="modalselectjenissma" >
 		<option value="SMA">SMA</option>
 		<option value="SMK">SMK</option>
-		<option value="SMX">PILIH NANTI</option>
+		
 		</select>
 		</div>
 		
