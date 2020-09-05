@@ -137,6 +137,12 @@ $(document).ready(function() {
 		
 	});
 	
+	if (kjenisuser=="3") {
+		
+		table.columns(8).visible(false);
+	}
+	
+	
 	$('#table').on('click','.show_record',function(){
 		var idujian=$(this).data('idujian');
 		var idpertanyaan=$(this).data('idpertanyaan');
