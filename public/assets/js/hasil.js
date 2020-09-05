@@ -131,7 +131,7 @@ $(document).ready(function() {
 						"initComplete": function() {
 						$("#table").show();
 						},
-						"buttons": [ 'copy', 'csv', 'excel', 'pdf', 'print']
+						"buttons": [ 'copy', 'csv', 'excel', 'pdf', 'print','colvis']
 						
 		
 		
