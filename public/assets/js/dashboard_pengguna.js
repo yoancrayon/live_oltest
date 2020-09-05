@@ -7,8 +7,11 @@ $(document).ready(function() {
 		var base_url = window.location.origin+"/";
 	}
 	
+	document.getElementById("inputGroupSelect02").value=document.getElementById("kjenisuser").value;
 	var e = document.getElementById("inputGroupSelect02");
 	var kjenisuser = e.options[e.selectedIndex].value;
+	
+	
 	
 	
 	
@@ -34,7 +37,7 @@ $(document).ready(function() {
                         {"data": "nama",width:200},
 						{"data": "k_jenis_user",width:100},
                         {"data": "jenis_user",width:150},
-						{"data": "kelas",width:150},
+						{"data": "kelas",width:150 },
 						{"data": "jenis_asal_sekolah",width:50},
 						
 						{ "render": function ( data, type, row ){
@@ -64,7 +67,15 @@ $(document).ready(function() {
 
                 });
 	table.buttons().container()
-        .appendTo( '#table_wrapper .col-auto:eq(0)' );		
+        .appendTo( '#table_wrapper .col-auto:eq(0)' );	
+
+	if (kjenisuser=="2"){
+		
+		table.columns(4).visible(false);
+		table.columns(5).visible(false);
+		
+	}
+		
 
 	$('#table').on('click','.edit_record',function(){
 		var username=$(this).data('username');
