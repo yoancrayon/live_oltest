@@ -175,7 +175,7 @@
 	 
       
       </div>
-      <img src="<?php echo base_url('Images/livelogo2.png'); ?>" class="offset-3" width="350"/>
+      <img src="<?php echo base_url('Images/livelogo2.png'); ?>" class="offset-4" width="350"/>
 	   <p class="text-justify font-weight-normal text-monospace">
 	  livE (Online java exercise ) sebagai Sarana meningkatkan kualitas praktikum pada mata kuliah Praktikum Dasar Pemrograman. Tersedianya livE akan memudahkan mahasiswa untuk melakukan praktikum Dasar pemrograman.
 <ol><li> Mahasiswa dapat melakukan langkah-langkah percobaan dan latihan pada website tanpa harus melakukan instalasi perangkat lunak pada masing-masing Komputer mahasiswa</li>

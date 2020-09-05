@@ -107,7 +107,7 @@ $(document).ready(function() {
 	
 	$("#modaldropdowntype").change( function() {
 		
-		 if ($(modaldropdowntype).children("option:selected").val()=="rating")
+		 if ($('#modaldropdowntype').children("option:selected").val()=="rating")
 		 {	
 	 
 	    window.document.getElementById("modalminrating").value="";

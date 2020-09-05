@@ -30,6 +30,7 @@ $(document).ready(function() {
                         {"data": "nama_ujian",width:100},
                         {"data": "username_peserta",width:150},
 						{"data": "nama",width:150},
+						{"data": "kelas",width:150},
                         {"data": "total_nilai",width:30},
 						{"data": "waktu_ujian",width:30},
 						{ "render": function ( data, type, row ){
@@ -71,7 +72,10 @@ $(document).ready(function() {
                         {"data": "username",width:10},
                         {"data": "username",width:150},
 						{"data": "nama",width:150},
-                        {"data": "jenis_user",width:100}
+                        {"data": "jenis_user",width:100},
+						{"data": "kelas",width:100},
+						
+						
 						],
 		'columnDefs': [
          {

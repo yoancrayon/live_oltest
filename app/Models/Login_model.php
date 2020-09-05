@@ -47,7 +47,7 @@ class Login_model extends Model
 	public function insupdUser($data)
 	{
 		$db = db_connect('default');
-		$textq="call insupdpengguna('".$data['username']."','".$data['password']."','".$data['k_jenis_user']."','".$data['nama']."')";
+		$textq="call insupdpengguna('".$data['username']."','".$data['password']."','".$data['k_jenis_user']."','".$data['nama']."','".$data['kelas']."','".$data['jnsasalsekolah']."')";
 		$query=$db->query($textq);
 		$row   = $query->getRowArray();
 		return $row;	

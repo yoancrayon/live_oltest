@@ -206,7 +206,7 @@
 	  
 		<table id="table" class="display  table-striped table-bordered table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
-                    <tr><th>USERNAME</th><th>NAMA</th><th>K JENIS USER</th><th>JENIS USER</th><th>ACTION</th></tr>
+                    <tr><th>USERNAME</th><th>NAMA</th><th>K JENIS USER</th><th>JENIS USER</th><th>KELAS</th><th>JNS-ASAL SEKOLAH</th><th>ACTION</th></tr>
                 </thead>
                 <tbody>
                 </tbody>
@@ -243,6 +243,9 @@
 		<input type="text" class="form-control modalnama" id="modalnama" placeholder="Nama">
 		</div>
 		
+		
+		
+		
 		<div class="form-group">
 		<label for="modalpassword" id="modalpasswordlabel">Password</label>
 		<input type="password" class="form-control modalpassword" id="modalpassword" placeholder="password">
@@ -264,6 +267,19 @@
 		</select>	
 		</div>
 		
+		<div class="form-group">
+		<label for="modalkelas" id="labelmodalkelas">KELAS</label>
+		<input type="text" class="form-control modalnama" id="modalkelas" placeholder="Kelas">
+		</div>
+		
+		<div class="form-group">
+		<label for="modalselectjenissma" id="labelmodalasalsma">JENIS ASAL SEKOLAH</label>
+		<select class="custom-select" id="modalselectjenissma" >
+		<option value="SMA">SMA</option>
+		<option value="SMK">SMK</option>
+		<option value="SMX">PILIH NANTI</option>
+		</select>
+		</div>
 		
 		
       </div>

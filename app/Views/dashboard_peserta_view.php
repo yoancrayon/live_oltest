@@ -209,7 +209,7 @@
 	 
 		<table id="table" class="display table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
-                    <tr><th>NAMA UJIAN</th><th>USERNAME PESERTA</th><th>NAMA PESERTA</th><th>TOTAL NILAI</th><th>WAKTU UJIAN</th><th>ACTION</th></tr>
+                    <tr><th>NAMA UJIAN</th><th>USERNAME PESERTA</th><th>NAMA PESERTA</th><th>KELAS</th><th>TOTAL NILAI</th><th>WAKTU UJIAN</th><th>ACTION</th></tr>
                 </thead>
                 <tbody>
                 </tbody>
@@ -242,7 +242,7 @@
 	  
 	 <table id="modaltable" class="display table-striped table-bordered table-striped " cellspacing="0" width="100%">
                 <thead>
-                    <tr><th></th><th>Username</th><th>Nama</th><th>Jenis User</th></tr>
+                    <tr><th></th><th>Username</th><th>Nama</th><th>Jenis User</th><th>KELAS</th></tr>
                 </thead>
                 <tbody>
                 </tbody>

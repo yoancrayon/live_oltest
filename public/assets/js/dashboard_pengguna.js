@@ -33,9 +33,12 @@ $(document).ready(function() {
                         {"data": "username",width:100},
                         {"data": "nama",width:200},
 						{"data": "k_jenis_user",width:100},
-                        {"data": "jenis_user",width:200},
+                        {"data": "jenis_user",width:150},
+						{"data": "kelas",width:150},
+						{"data": "jenis_asal_sekolah",width:50},
+						
 						{ "render": function ( data, type, row ){
-							 var html  = "<a href=\"javascript:void(0);\" class=\"edit_record btn btn-info btn-xs btn-sm\" data-username=\""+row["username"]+"\" data-nama=\""+row["nama"]+"\" data-kjenisuser=\""+row["k_jenis_user"]+"\" data-jenisuser=\""+row["k_jenis_user"]+"\">EDIT</a> "
+							 var html  = "<a href=\"javascript:void(0);\" class=\"edit_record btn btn-info btn-xs btn-sm\" data-username=\""+row["username"]+"\" data-nama=\""+row["nama"]+"\" data-kjenisuser=\""+row["k_jenis_user"]+"\" data-jenisuser=\""+row["k_jenis_user"]+"\"  data-kelas=\""+row["kelas"]+"\" data-jnsasalsekolah=\""+row["jenis_asal_sekolah"]+"\">EDIT</a> "
 							 if (window.document.getElementById("kjenisuser").value=="1")
 							 {
 								html += "<a href=\"javascript:void(0);\" class=\"hapus_record btn btn-danger btn-xs btn-sm\" data-username=\""+row["username"]+"\" >DELETE</a>" 
@@ -68,14 +71,32 @@ $(document).ready(function() {
 		var nama=$(this).data('nama');
 		var k_jenis_user=$(this).data('kjenisuser');
 		var jenis_user=$(this).data('jenisuser');
+		var kelas=$(this).data('kelas');
+		var jnsasalsekolah=$(this).data('jnsasalsekolah');
+		$("#modalkelas").hide();
+		$('#labelmodalkelas').hide();
+		$("#modalselectjenissma").hide();
+		$('#labelmodalasalsma').hide();
+		if (jenis_user=="3")
+		{
+			$("#modalkelas").show();
+			$('#labelmodalkelas').show();
+			$("#modalselectjenissma").show();
+		    $('#labelmodalasalsma').show();
+			
+		}
+		
 		window.document.getElementById("judulmodal").innerHTML  ="Edit Pengguna";
 		window.document.getElementById("modalusername").value  =username;
 		window.document.getElementById("modalusername").disabled = true;
 		window.document.getElementById("modalnama").value  =nama;
 		window.document.getElementById('modalselect').value=k_jenis_user;
+		window.document.getElementById("modalselectjenissma").value=jnsasalsekolah;
+		
 		window.document.getElementById('modalpasswordlabel').hidden=true;
 		document.getElementById("modalpassword").hidden=true;
 		document.getElementById("modalpassword").value="";
+		window.document.getElementById("modalkelas").value  =kelas;
 		$('#modalcenter').modal('show');
 	})	;
 	
@@ -85,6 +106,17 @@ $(document).ready(function() {
 		var e = document.getElementById("modalselect");
 		var k_jenis_user = e.options[e.selectedIndex].value;
 		var vpassword=window.document.getElementById("modalpassword").value;
+		var kelas=window.document.getElementById("modalkelas").value;
+		var f = document.getElementById("modalselectjenissma");
+		var jnsasalsekolah=f.options[f.selectedIndex].value;
+		
+		
+		if (k_jenis_user =="1" || k_jenis_user =="2") 
+		{
+			kelas="";
+			jnsasalsekolah="";
+			
+		}
 		
 		$.ajax({
 				url: base_url+"public/dashboard/savepengguna",  
@@ -93,7 +125,9 @@ $(document).ready(function() {
                   "username": username,
 				  "nama": nama,
                   "k_jenis_user": k_jenis_user,
-				  "password":vpassword
+				  "password":vpassword,
+				  "kelas":kelas,
+				  "jnsasalsekolah":jnsasalsekolah
 				},
 				
 				success:function(response){
@@ -181,11 +215,39 @@ $(document).ready(function() {
 		window.document.getElementById('modalpasswordlabel').hidden=false;
 		document.getElementById("modalpassword").hidden=false;
 		document.getElementById("modalpassword").value="";
+		$("#modalkelas").hide();
+		$('#labelmodalkelas').hide();
+		$("#modalselectjenissma").hide();
+		$('#labelmodalasalsma').hide();
+		window.document.getElementById("modalkelas").value  ="";
 		$('#modalcenter').modal('show');
 		
 		
 	}
 	);
+	
+	
+	$("#modalselect").change( function() {
+		
+		if ($("#modalselect").children("option:selected").val()=="3")
+		{
+			
+		$("#modalkelas").show();
+		$('#labelmodalkelas').show();
+		$("#modalselectjenissma").show();
+		$('#labelmodalasalsma').show();
+		}
+	else{
+		$("#modalkelas").hide();
+		$('#labelmodalkelas').hide();
+		$("#modalselectjenissma").hide();
+		$('#labelmodalasalsma').hide();
+		
+	}
+		 
+		 
+	});
+	
 	
 	$('#table').on('click','.hapus_record',function(){
 		var username=$(this).data('username');

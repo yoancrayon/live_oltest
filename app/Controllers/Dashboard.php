@@ -68,13 +68,18 @@ class Dashboard extends BaseController
 		$nama=$this->request->getPost('nama');
 		$k_jenis_user=$this->request->getPost('k_jenis_user');
 		$password=$this->request->getPost('password');
+		$kelas=$this->request->getPost('kelas');
+		$jnsasalsekolah=$this->request->getPost('jnsasalsekolah');
+		
 		$loginmodel=new Login_model();
 		
 		$data=[
 		"username"=>$username,
 		"nama"=>$nama,
 		"k_jenis_user"=>$k_jenis_user,
-		"password"=>$password
+		"password"=>$password,
+		"kelas"=>$kelas,
+		"jnsasalsekolah"=>$jnsasalsekolah
 		
 		];
 		$res=$loginmodel->insupdUser($data);
