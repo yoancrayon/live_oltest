@@ -141,10 +141,10 @@ class Ujian_model extends Model
 	}
 	
 	
-	 public function getlisthasilujian($idujian,$idpertanyaan,$usernamepeserta)
+	 public function getlisthasilujian($idujian,$idpertanyaan,$usernamepeserta,$usernameujian)
 	{
 		$db = db_connect('default');
-		$textq="call getsummaryujian('".$idujian."','".$idpertanyaan."','".$usernamepeserta."')";
+		$textq="call getsummaryujian('".$idujian."','".$idpertanyaan."','".$usernamepeserta."','".$usernameujian."')";
 		$query=$db->query($textq);
 		$row   = $query->getResult();
 	   

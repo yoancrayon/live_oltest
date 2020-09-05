@@ -191,7 +191,7 @@
 
 </div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>-->
 
 	<script src="<?php echo base_url('assets/js/dashboarddosen.js'); ?>"></script></body>
 </body>

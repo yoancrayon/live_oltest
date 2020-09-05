@@ -149,7 +149,7 @@ class Test extends BaseController
 		$username=$session->get('username');
 		$idujian=$this->request->getPost('idujian');
 		
-		$sumamry=$ujianmodel->getlisthasilujian($idujian,"x",$username);
+		$sumamry=$ujianmodel->getlisthasilujian($idujian,"x",$username,"x");
 		
 		return json_encode($sumamry);
 	}

@@ -202,16 +202,42 @@ $(document).ready(function() {
 	$('#table').on('click','.show_record',function(){
 		var idujian=$(this).data('idujian');
 		var idpertanyaan=$(this).data('idpertanyaan');
-		var pertanyaan=$(this).data('pertanyaan');
-		var templatejawaban=$(this).data('templatejawaban');
-		var ekspektasijawaban=$(this).data('ekspektasijawaban');
+		//var pertanyaan=$(this).data('pertanyaan');
+		//var templatejawaban=$(this).data('templatejawaban');
+		//var ekspektasijawaban=$(this).data('ekspektasijawaban');
+		
+		
+		
+		$.ajax({
+				url: base_url+"public/ujian/getpertanyaan",  
+				type: "POST",
+				data: {
+                  "idujian": idujian,
+				  "idpertanyaan":idpertanyaan
+				},
+				dataType: "json",
+				success:function(response){
+				
+				window.document.getElementById("pertanyaan").value=response[0].pertanyaan;
+				window.document.getElementById("ekspektasijawaban").value=response[0].ekspektasi_jawaban;
+				editor.setValue(response[0].template_jawab);
+				editor2.setValue(response[0].template_jawab);
+				},
+				error:function(response){
+                  console.log(response);
+              }
+				
+		});
+		
+		
+		
+		
 		window.document.getElementById("modalidujian").value=idujian;
 		window.document.getElementById("modalidpertanyaan").value=idpertanyaan;
-		window.document.getElementById("ekspektasijawaban").value=ekspektasijawaban;
-		
+			
 		window.document.getElementById("judulmodal").innerHTML  ="Pertanyaan Ujian";
-		editor.setValue(templatejawaban);
-		editor2.setValue(templatejawaban);
+		
+		
 		window.document.getElementById("pertanyaan").value=pertanyaan;
 		window.document.getElementById("savemodal").style.display = "none";
 		
@@ -225,18 +251,39 @@ $(document).ready(function() {
 	$('#table').on('click','.edit_record',function(){
 		var idujian=$(this).data('idujian');
 		var idpertanyaan=$(this).data('idpertanyaan');
-		var pertanyaan=$(this).data('pertanyaan');
-		var templatejawaban=$(this).data('templatejawaban');
-		var ekspektasijawaban=$(this).data('ekspektasijawaban');
-
+		
 		window.document.getElementById("modalidujian").value=idujian;
 		window.document.getElementById("modalidpertanyaan").value=idpertanyaan;
-		window.document.getElementById("ekspektasijawaban").value=ekspektasijawaban;
+		ekspektasijawaban;
+		
+		
+		$.ajax({
+				url: base_url+"public/ujian/getpertanyaan",  
+				type: "POST",
+				data: {
+                  "idujian": idujian,
+				  "idpertanyaan":idpertanyaan
+				},
+				dataType: "json",
+				success:function(response){
+				
+				window.document.getElementById("pertanyaan").value=response[0].pertanyaan;
+				window.document.getElementById("ekspektasijawaban").value=response[0].ekspektasi_jawaban;
+				editor.setValue(response[0].template_jawab);
+				editor2.setValue(response[0].template_jawab);
+				},
+				error:function(response){
+                  console.log(response);
+              }
+				
+		});
+		
+		
+		
 		
 		window.document.getElementById("judulmodal").innerHTML  ="Pertanyaan Ujian";
-		editor.setValue(templatejawaban);
-		editor2.setValue(templatejawaban);
-		window.document.getElementById("pertanyaan").value=pertanyaan;
+		
+		
 		window.document.getElementById("savemodal").style.display = "block";
 		window.document.getElementById("cobajawabanoutput").value="";
 		
