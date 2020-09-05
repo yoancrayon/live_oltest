@@ -7,7 +7,9 @@ $(document).ready(function() {
 		var base_url = window.location.origin+"/";
 	}
 	
+	if (document.getElementById("kjenisuser").value=="2"||document.getElementById("kjenisuser").value=="2"){
 	document.getElementById("inputGroupSelect02").value=document.getElementById("kjenisuser").value;
+	}
 	var e = document.getElementById("inputGroupSelect02");
 	var kjenisuser = e.options[e.selectedIndex].value;
 	
