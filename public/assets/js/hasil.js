@@ -155,7 +155,7 @@ $(document).ready(function() {
 				data: {
                   "idujian": idujian,
 				  "idpertanyaan":idpertanyaan,
-				  "usename":username
+				  "username":username
 				},
 				dataType: "json",
 				success:function(response){
