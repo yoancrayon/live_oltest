@@ -457,7 +457,18 @@ class Ujian extends BaseController
 		$idujian=$this->request->getPost('idujian');
 		$username=$this->request->getPost('username');
 		
-		$sumamry=$ujianmodel->getlisthasilujian($idujian,$idpertanyaan,$username);
+		if ($session->get('k_jenis_user')=="1" || $session->get('k_jenis_user')=="3")
+		{
+			$userujian="x";
+		}
+		else
+		{
+			$userujian=$session->get('username');
+			
+		}
+		
+		
+		$sumamry=$ujianmodel->getlisthasilujian($idujian,$idpertanyaan,$username,$userujian);
 		
 		return json_encode($sumamry);
 	}

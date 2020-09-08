@@ -284,7 +284,7 @@
     <div class="form-group">
 	<label for="ekspektasijawaban">Ekspektasi Jawaban</label>
     <textarea class="form-control" id="ekspektasijawaban" rows="4"></textarea>
-	
+	<span class="text-sm">Gunakan {username} untuk jawaban NIM, Gunakan {nama} untuk jawaban nama</span>
 	
 	</div>
 	</div>
@@ -296,7 +296,9 @@
 	  <div class="form-group">
 	  <label for="cobajawabaninput">Coba Jawaban Input</label>
       <textarea type="text" class="form-control" id="cobajawabaninput" rows="4"></textarea>
+	  <span class="text-sm">Ganti Baris Untuk Inputan Ke-2,3 dst.</span>
 	  </div>
+	  
 	  
 	 <div class="form-group">
 	<label for="cobajawabanoutput" >Output Jawaban</label>

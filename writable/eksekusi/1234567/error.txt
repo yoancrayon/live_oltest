@@ -1,0 +1,7 @@
+Main.java:5: error: not a statement
+print
+^
+Main.java:5: error: ';' expected
+print
+     ^
+2 errors

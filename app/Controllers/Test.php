@@ -164,9 +164,9 @@ class Test extends BaseController
 		$sumamry=$testmodel->getquisoner($idujian);
 		$ujian=$ujianmodel->getlistujian($idujian,"x");
 		$i=0;
-		$pil=array();
+		
 		foreach($sumamry as $row){
-			
+			$pil=array();
 			if ($row->type=="radiogroup"||$row->type=="checkbox")
 			{
 				

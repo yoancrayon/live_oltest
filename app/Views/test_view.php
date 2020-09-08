@@ -119,7 +119,8 @@
 	 </div>
 	 <div class="form-group">
 		<label for="inputcode">Input</label>
-		<input type="text" class="form-control" id="inputcode" placeholder="input">
+		<textarea type="text" class="form-control" id="inputcode" placeholder="input" rows="4"></textarea>
+		<span class="text-sm">Ganti Baris Untuk Inputan Ke-2,3 dst.</span>
 	 </div>
 	 <button type="button" class="btn btn-primary" id="runcode">RUN KODE</button>
 	 <button type="button" class="btn btn-danger" id="resetcode">Reset KODE</button>

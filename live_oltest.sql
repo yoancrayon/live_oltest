@@ -41,6 +41,10 @@ CREATE TABLE `jawaban_peserta_ujian` (
 
 /*Data for the table `jawaban_peserta_ujian` */
 
+insert  into `jawaban_peserta_ujian`(`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`,`input_jawaban`,`output_jawab`,`initial_time`,`timer`,`countdown_timer`) values 
+('20200823114043','20200820 115341','1234567',1,'Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.','public class Main {\n    \n    public static void main(String[] args) {\n        int a=\n        int b=\n        System.out.println(c);\n    }\n    \n}',NULL,'public class Main {\n    \n    public static void main(String[] args) {\n        int a=5;\n        int b=10;\n        int c=a+b;\n        System.out.println(c);\n    }\n    \n}','2020-09-07 18:59:17',NULL,'','15\n','2020-09-07 18:59:20',17,102),
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,'public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\nprint\n\n	//baris bawah jangan dihapus\n	}\n}','2020-09-07 18:59:17',NULL,'','Main.java:5: error: not a statement\nprint\n^\nMain.java:5: error: \';\' expected\nprint\n     ^\n2 errors\n','2020-09-07 18:59:40',10,90);
+
 /*Table structure for table `jawaban_quisioner` */
 
 DROP TABLE IF EXISTS `jawaban_quisioner`;
@@ -69,6 +73,9 @@ CREATE TABLE `jawaban_quisioner_json` (
 
 /*Data for the table `jawaban_quisioner_json` */
 
+insert  into `jawaban_quisioner_json`(`id_ujian`,`username`,`json_text`,`waktu_input`) values 
+('20200820 115341','1234567','{}','2020-09-05 23:26:46');
+
 /*Table structure for table `log_jawaban_peserta_ujian` */
 
 DROP TABLE IF EXISTS `log_jawaban_peserta_ujian`;
@@ -94,6 +101,9 @@ CREATE TABLE `log_jawaban_peserta_ujian` (
 
 /*Data for the table `log_jawaban_peserta_ujian` */
 
+insert  into `log_jawaban_peserta_ujian`(`id_pertanyaan`,`id_ujian`,`username`,`no_urut`,`pertanyaan`,`template_jawab`,`link_gambar`,`jawaban`,`waktu_input`,`nilai_jawab`,`input_jawaban`,`output_jawab`,`initial_time`,`timer`,`countdown_timer`,`waktu_log`) values 
+('20200825191637','20200820 115341','1234567',2,'Print nim anda:','public class Main {\n	public static void main(String[] args) {\n	//baris atas jangan dihapus\n\n\n\n	//baris bawah jangan dihapus\n	}\n}',NULL,NULL,'2020-09-07 18:59:17',NULL,NULL,NULL,NULL,NULL,NULL,'2020-09-07 18:59:50');
+
 /*Table structure for table `log_json_test` */
 
 DROP TABLE IF EXISTS `log_json_test`;
@@ -106,6 +116,9 @@ CREATE TABLE `log_json_test` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `log_json_test` */
+
+insert  into `log_json_test`(`id_ujian`,`username`,`json_text`,`waktu_input`) values 
+('20200820 115341','1234567','[{\"id_pertanyaan\":\"20200823114043\",\"id_ujian\":\"20200820 115341\",\"username\":\"1234567\",\"no_urut\":\"1\",\"pertanyaan\":\"Buat penambahan dari variabel integer A dengan nilai 5 dan integer B dengan nilai 10. Simpan dalam variable integer C kemudian tampilkan hasil perhitungan tersebut.\",\"template_jawab\":\"public class Main {\\n    \\n    public static void main(String[] args) {\\n        int a=\\n        int b=\\n        System.out.println(c);\\n    }\\n    \\n}\",\"initialtime\":\"2020-09-07T11:59:20.675Z\",\"counter\":19,\"is_simpan\":true,\"jawaban\":\"public class Main {\\n    \\n    public static void main(String[] args) {\\n        int a=5;\\n        int b=10;\\n        int c=a+b;\\n        System.out.println(c);\\n    }\\n    \\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"15\\n\",\"timer\":17,\"countdown_timer\":102,\"logjawab\":[{\"jawaban\":\"public class Main {\\n    \\n    public static void main(String[] args) {\\n        int a=5;\\n        int b=10;\\n        int c=a+b;\\n        System.out.println(c);\\n    }\\n    \\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"15\\n\",\"timer\":17,\"countdown_timer\":102}]},{\"id_pertanyaan\":\"20200825191637\",\"id_ujian\":\"20200820 115341\",\"username\":\"1234567\",\"no_urut\":\"2\",\"pertanyaan\":\"Print nim anda:\",\"template_jawab\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\n\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"is_simpan\":true,\"initialtime\":\"2020-09-07T11:59:40.670Z\",\"counter\":0,\"jawaban\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\nprint\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"Main.java:5: error: not a statement\\nprint\\n^\\nMain.java:5: error: \';\' expected\\nprint\\n     ^\\n2 errors\\n\",\"timer\":10,\"countdown_timer\":90,\"logjawab\":[{\"jawaban\":\"public class Main {\\n\\tpublic static void main(String[] args) {\\n\\t//baris atas jangan dihapus\\n\\nprint\\n\\n\\t//baris bawah jangan dihapus\\n\\t}\\n}\",\"inputjawaban\":\"\",\"outputjawab\":\"Main.java:5: error: not a statement\\nprint\\n^\\nMain.java:5: error: \';\' expected\\nprint\\n     ^\\n2 errors\\n\",\"timer\":10,\"countdown_timer\":90}]}]','2020-09-07 18:59:54');
 
 /*Table structure for table `m_jenis_user` */
 
@@ -142,8 +155,9 @@ CREATE TABLE `pengguna` (
 
 insert  into `pengguna`(`username`,`password`,`k_jenis_user`,`nama`,`kelas`,`jenis_asal_sekolah`) values 
 ('yogi.kur','12345','1','Yogi Kurniwan',NULL,NULL),
-('1234567','1234567','3','mhs1','TI A','SMA'),
-('12345678','mhs3','3','mhs2',NULL,NULL);
+('1234567','1234567','3','mhs\'1','TI A\'','SMA'),
+('12345678','mhs3','3','mhs2',NULL,NULL),
+('dosen','dosen','2','dosen','','');
 
 /*Table structure for table `pertanyaan` */
 
@@ -183,6 +197,9 @@ CREATE TABLE `peserta_ujian` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `peserta_ujian` */
+
+insert  into `peserta_ujian`(`id_ujian`,`username_peserta`,`total_nilai`,`waktu_start_ujian`,`waktu_end_ujian`,`waktu_input`,`username_input`) values 
+('20200820 115341','1234567',NULL,'2020-09-07 18:59:17','2020-09-07 18:59:54','2020-09-05 22:41:31','yogi.kur');
 
 /*Table structure for table `quisioner_ujian` */
 
@@ -466,47 +483,6 @@ IF errstate='00000' THEN
 end */$$
 DELIMITER ;
 
-/* Procedure structure for procedure `finalquisioner` */
-
-/*!50003 DROP PROCEDURE IF EXISTS  `finalquisioner` */;
-
-DELIMITER $$
-
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `finalquisioner`(inid_ujian varchar(35), inusername varchar(60))
-begin
-DECLARE vidsurvey VARCHAR(200);
-declare vtitle varchar(200);
-declare vjawab varchar(200);
-DECLARE exit_loop BOOLEAN; 
-DECLARE quisioner_cursor CURSOR FOR  SELECT id_survey,title name FROM  quisioner_ujian where id_ujian= inid_ujian;
-DECLARE CONTINUE HANDLER FOR NOT FOUND SET exit_loop = TRUE;
-OPEN quisioner_cursor;
-quisioner_loop: LOOP
-FETCH  quisioner_cursor INTO vidsurvey, vtitle;
-
-SELECT JSON_EXTRACT(json_text,concat('$.',vidsurvey,''))  into vjawab FROM jawaban_quisioner_json
-WHERE id_ujian=inid_ujian AND username=inusername;
-
-set vjawab=substr(vjawab,2,length(vjawab)-1);
-SET vjawab=SUBSTR(vjawab,1,LENGTH(vjawab)-1);
-
-
-if not exists(select * from jawaban_quisioner where id_ujian=inid_ujian and id_survey=vidsurvey and username=inusername) then
-insert into jawaban_quisioner(id_ujian,id_survey,username,title,jawab)
-values(inid_ujian,vidsurvey,inusername,vtitle,vjawab
-);
-end if;
-
-
-IF exit_loop THEN
-         CLOSE quisioner_cursor;
-         LEAVE quisioner_loop;
-END IF;
-END LOOP quisioner_loop;
-
-end */$$
-DELIMITER ;
-
 /* Procedure structure for procedure `flushnilai` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `flushnilai` */;
@@ -657,9 +633,9 @@ inusername  VARCHAR(45)
 )
 begin
 select  id_pertanyaan,id_ujian,username,no_urut,pertanyaan,template_jawab from jawaban_peserta_ujian
-where id_ujian=inid_ujian or inid_ujian='' or inid_ujian='x' or inid_ujian is null
-and username=inusername or inusername='' OR inusername='x' OR inusername IS NULL
-and id_pertanyaan=inid_pertanyaan or inid_pertanyaan='' OR inid_pertanyaan='x' OR inid_pertanyaan IS NULL
+where (id_ujian=inid_ujian or inid_ujian='' or inid_ujian='x' or inid_ujian is null)
+and (username=inusername or inusername='' OR inusername='x' OR inusername IS NULL)
+and (id_pertanyaan=inid_pertanyaan or inid_pertanyaan='' OR inid_pertanyaan='x' OR inid_pertanyaan IS NULL)
 order by no_urut asc;
 end */$$
 DELIMITER ;
@@ -786,7 +762,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `getsummaryujian`(in inid_ujian varchar(35),in inid_pertanyaan varchar(35), in inusername varchar(45))
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `getsummaryujian`(in inid_ujian varchar(35),in inid_pertanyaan varchar(35), in inusername varchar(45),inusernameujian varchar(45))
 begin
 select id_Pertanyaan,	id_ujian,nama,	username	,nama_ujian,	pertanyaan,	jawaban,	status_jawaban,	output_jawaban,	waktu_pengerjaan,
 	ekspektasi_jawaban,	
@@ -877,6 +853,8 @@ where
     (a.id_ujian=inid_ujian or inid_ujian='' or inid_ujian='x' or inid_ujian is null)
 and (a.id_Pertanyaan=inid_pertanyaan or inid_pertanyaan='' or inid_pertanyaan='x' or inid_pertanyaan is null)
 and (a.username=inusername or   inusername='' OR inusername='x' OR inusername IS NULL)
+AND (d.username=inusernameujian OR   inusernameujian='' OR inusernameujian='x' OR inusernameujian IS NULL)
+
  ) A ;
  
  
