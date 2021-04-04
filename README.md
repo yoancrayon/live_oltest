@@ -18,7 +18,7 @@ Didasari dari banyaknya mahasiswa yang mengalami kesusahan mengenai instalasi da
 livE merupakan aktualisasi dari [Mamlutatul Hani'ah](https://scholar.google.co.id/citations?hl=id&user=z3yHGr0AAAAJ)  untuk program pelatihan dasar CPNS dosen Politeknik Negeri Malang. Dibangun dengan Codeigniter 4, JQuery 3.5.1, Bootstrap 4,dan Sweatalert 2. Database menggunakan MariaDB dengan penggunaan procedure untk pemrosesan data input serta output yang digunakan. Serta compiler javac dari JDK Java untuk mengkompilasi kode kode yang diinput peserta ujian. Aplikasi ini dikembangkan dengan bantuan [Yogi Kurniawan](https://scholar.google.com/citations?user=2dNT2lgAAAAJ&hl=en) merupakan Senior Database Enginer di Unit TIK Universitas Brawijaya.
 
 ## Publication
-Projek ini dipublikasikan di pada [livE (onLine – java Exercise) java programming language learning system for lab and online test](http://ojs.pnb.ac.id/index.php/matrix/article/view/2335)
+Projek ini dipublikasikan pada [livE (onLine – java Exercise) java programming language learning system for lab and online test](http://ojs.pnb.ac.id/index.php/matrix/article/view/2335)
 
 ## Credit
 Credit untuk [Ashadullah Shawon](https://www.youtube.com/channel/UCz0Ghl7ubgc_hSxURJivd7Q), [Github Link](https://github.com/shawon100/Online-Compiler-Windows-Server)
